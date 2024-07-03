@@ -1,0 +1,6 @@
+name: personal_web_site
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"
+dependencies:
+  melos: ^6.1.0
