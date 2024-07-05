@@ -3,4 +3,7 @@ name: personal_web_site
 environment:
   sdk: ">=3.4.3 <4.0.0"
 dependencies:
+  flutter_hooks: ^0.20.5
+  hooks_riverpod: ^2.5.1
   melos: ^6.1.0
+  riverpod_annotation: ^2.3.5

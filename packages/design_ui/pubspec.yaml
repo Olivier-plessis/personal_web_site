@@ -1,0 +1,41 @@
+name: design_ui
+description: "design ui project."
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+  flutter: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  spider: ^4.2.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+
+flutter:
+  generate: true
+
+  assets:
+    - assets/
+    - assets/font/
+    - assets/images/icons/
+    - assets/images/branding/
+    - assets/images/work/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/font/Poppins-ExtraBold.ttf
+        - asset: assets/font/Poppins-Bold.ttf
+        - asset: assets/font/Poppins-SemiBold.ttf
+        - asset: assets/font/Poppins-Medium.ttf
+        - asset: assets/font/Poppins-Regular.ttf
+        - asset: assets/font/Poppins-Light.ttf
+        - asset: assets/font/Poppins-Thin.ttf
