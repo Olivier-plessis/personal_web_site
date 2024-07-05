@@ -7,7 +7,7 @@ class FontSizeTheme {
 
   static double get titleLarge => 42.0;
 
-  static double get navItemLarge => 30.0;
+  static double get navItemLarge => 20.0;
 
   static double get bodyLarge => 24.0;
 

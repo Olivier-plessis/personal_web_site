@@ -1,10 +1,7 @@
 import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
 
-
-
 class StyleTextTheme {
-
   StyleTextTheme._();
 
   static const TextStyle _baseTextStyle = TextStyle(
@@ -52,9 +49,10 @@ class StyleTextTheme {
   static TextStyle get titleMedium {
     return _baseTextStyle.copyWith(
       fontSize: FontSizeTheme.navItemLarge,
-      fontWeight: FontWeightTheme.bold,
+      fontWeight: FontWeightTheme.light,
     );
   }
+
   static TextStyle get labelLarge {
     return _baseTextStyle.copyWith(
       fontSize: FontSizeTheme.numberLarge,
@@ -63,7 +61,6 @@ class StyleTextTheme {
   }
 }
 
-
 final TextTheme siteTextTheme = TextTheme(
   displayLarge: StyleTextTheme.displayLarge,
   displayMedium: StyleTextTheme.displayMedium,
@@ -71,5 +68,4 @@ final TextTheme siteTextTheme = TextTheme(
   headlineMedium: StyleTextTheme.headlineMedium,
   headlineSmall: StyleTextTheme.headlineSmall,
   titleMedium: StyleTextTheme.titleMedium,
-
 );
