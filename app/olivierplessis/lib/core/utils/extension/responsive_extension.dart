@@ -6,5 +6,5 @@ extension XResponsiveBuildContext on BuildContext {
 }
 
 extension XResponsiveFontSize on BuildContext {
-  double get titleScaleFactor => isDisplayLargeThanTablet ? 1 : 0.8;
+  double get titleScaleFactor => isDisplayLargeThanTablet ? 1 : 1.9;
 }

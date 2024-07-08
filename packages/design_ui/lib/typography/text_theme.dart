@@ -42,7 +42,7 @@ class StyleTextTheme {
   static TextStyle get headlineSmall {
     return _baseTextStyle.copyWith(
       fontSize: FontSizeTheme.bodyLarge,
-      fontWeight: FontWeightTheme.bold,
+      fontWeight: FontWeightTheme.regular,
     );
   }
 
@@ -59,6 +59,13 @@ class StyleTextTheme {
       fontWeight: FontWeightTheme.bold,
     );
   }
+
+  static TextStyle get labelMedium {
+    return _baseTextStyle.copyWith(
+      fontSize: FontSizeTheme.bodyMedium,
+      fontWeight: FontWeightTheme.light,
+    );
+  }
 }
 
 final TextTheme siteTextTheme = TextTheme(
@@ -68,4 +75,5 @@ final TextTheme siteTextTheme = TextTheme(
   headlineMedium: StyleTextTheme.headlineMedium,
   headlineSmall: StyleTextTheme.headlineSmall,
   titleMedium: StyleTextTheme.titleMedium,
+  labelMedium: StyleTextTheme.labelMedium,
 );
