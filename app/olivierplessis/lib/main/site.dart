@@ -2,10 +2,12 @@ import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
-import 'package:olivierplessis/core/utils/provider/theme_mode_provider.dart';
+import 'package:olivierplessis/core/utils/provider/theme/theme_icon_provider.dart';
+import 'package:olivierplessis/core/utils/provider/theme/theme_mode_provider.dart';
+import 'package:olivierplessis/src/navigation/presentation/provider/selected_item_tool_bar_provider.dart';
+import 'package:olivierplessis/src/navigation/presentation/widget/tool_bar_item.dart';
+import 'package:olivierplessis/src/routing/app_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-
-final selectedToolbarIndexProvider = StateProvider<int>((ref) => 0);
 
 class MainApp extends ConsumerWidget {
   const MainApp({super.key});
@@ -15,8 +17,10 @@ class MainApp extends ConsumerWidget {
     final ThemeMode themeMode = ref.watch(themeModeControllerProvider);
 
     final theme = themeMode == ThemeMode.light ? lightTheme : darkTheme;
+    final goRouter = ref.watch(goRouterProvider);
 
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: goRouter,
       title: 'olivier plessis | Freelance Flutter developer',
       debugShowCheckedModeBanner: false,
       theme: theme,
@@ -38,7 +42,7 @@ class MainApp extends ConsumerWidget {
             const Breakpoint(start: 801, end: 1920, name: DESKTOP),
             const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
           ],
-          child: HomeScreen() ?? const SizedBox.shrink(),
+          child: child ?? const SizedBox.shrink(),
         ),
       ),
     );
@@ -54,6 +58,7 @@ class MainNavigationBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedIndex = ref.watch(selectedToolbarIndexProvider);
+    final themeModeIcon = ref.watch(themeModeIconProvider);
     return AppBar(
       centerTitle: false,
       titleSpacing: 32,
@@ -81,8 +86,9 @@ class MainNavigationBar extends ConsumerWidget {
                           hoverColor: Colors.transparent,
                           splashColor: Colors.transparent,
                           onTap: () {
-                            ref.read(selectedToolbarIndexProvider.notifier).state =
-                                toolbarItems.indexOf(item); // Update index
+                            ref.read(selectedToolbarIndexProvider.notifier).update(
+                                (state) => state = toolbarItems.indexOf(item)); // Update index
+
                             item.onTap?.call();
                           },
                           child: Text(item.text,
@@ -98,7 +104,7 @@ class MainNavigationBar extends ConsumerWidget {
                       }),
                       IconButton(
                         onPressed: onPressed,
-                        icon: const Icon(Icons.sunny),
+                        icon: Icon(themeModeIcon),
                       ).paddedL(24),
                     ],
                   ),
@@ -107,101 +113,4 @@ class MainNavigationBar extends ConsumerWidget {
       ),
     );
   }
-}
-
-class HomeScreen extends ConsumerWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context, ref) {
-    final List<ToolbarItem> toolbarItems = _generateToolbarItem();
-    final selectedIndex = ref.watch(selectedToolbarIndexProvider);
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        titleSpacing: 32,
-        titleTextStyle: Theme.of(context).textTheme.titleSmall,
-        scrolledUnderElevation: 4,
-        shadowColor: Colors.grey.shade50.withOpacity(0.2),
-        title: Center(
-          child: MaxWidthBox(
-              maxWidth: MaxSizeConstant.maxWidth,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text('OLIVIER PLESSIS',
-                      style: context.isDisplayLargeThanTablet
-                          ? siteTextTheme.displayMedium?.copyWith(letterSpacing: 0.8)
-                          : siteTextTheme.titleMedium?.copyWith(letterSpacing: 0.8)),
-                  if (context.isDisplayLargeThanTablet)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ...toolbarItems.map((item) {
-                          return InkWell(
-                            splashFactory: NoSplash.splashFactory,
-                            highlightColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            splashColor: Colors.transparent,
-                            onTap: () {
-                              ref.read(selectedToolbarIndexProvider.notifier).state =
-                                  toolbarItems.indexOf(item); // Update index
-                              item.onTap?.call();
-                            },
-                            child: Text(item.text,
-                                style: siteTextTheme.titleMedium?.copyWith(
-                                    fontWeight: FontWeightTheme.medium,
-                                    color: selectedIndex == toolbarItems.indexOf(item)
-                                        ? Palette.violet
-                                        : ThemeMode.dark == ref.watch(themeModeControllerProvider)
-                                            ? Palette.grey
-                                            : Palette.greyDark) // Active color
-                                ),
-                          ).paddedH(12);
-                        }),
-                        IconButton(
-                          onPressed: () =>
-                              ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
-                          icon: const Icon(Icons.sunny),
-                        ).paddedL(24),
-                      ],
-                    ),
-                ],
-              )),
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('toggle theme mode'),
-            const SizedBox(height: 12),
-            ElevatedButton(
-              child: const Text('change color theme'),
-              onPressed: () => ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  List<ToolbarItem> _generateToolbarItem() {
-    return [
-      ToolbarItem(text: 'Accueil', onTap: () => print(1)),
-      ToolbarItem(text: 'A propos', onTap: () => print(2)),
-      ToolbarItem(text: 'Réalisations', onTap: () => print(3)),
-      ToolbarItem(text: 'Contact', onTap: () => print(6)),
-    ];
-  }
-}
-
-class ToolbarItem {
-  final String text;
-  final GestureTapCallback? onTap;
-
-  ToolbarItem({
-    required this.text,
-    this.onTap,
-  });
 }
