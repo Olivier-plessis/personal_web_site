@@ -93,10 +93,18 @@ class AppBarWidget extends ConsumerWidget {
                 ),
               ),
             ),
-            IconButton(
-              onPressed: () => ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
-              icon: Icon(themeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode),
-            ).paddedL(24),
+            ResponsiveVisibility(
+              visible: false,
+              visibleConditions: const [Condition.largerThan(name: TABLET)],
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child:  IconButton(
+                  onPressed: () =>
+                      ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
+                  icon: Icon(themeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode),
+                ).paddedL(24),
+              ),
+            ),
           ],
         ).paddedH(24),
       ),

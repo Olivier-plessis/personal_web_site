@@ -31,7 +31,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final navigationList = ref.watch(itemNavListProvider);
 
     return Scaffold(
-      /* endDrawer: Drawer(
+      endDrawer: _drawer(context),
+/*      endDrawer: Drawer(
         child: Column(
           children: [
             const SizedBox(height: 12),
@@ -83,6 +84,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     _itemScrollController.scrollTo(
       index: i,
       duration: const Duration(milliseconds: 300),
+    );
+  }
+
+  Widget? _drawer(BuildContext context) {
+    if (context.isDisplayLargeThanTablet) return null;
+
+    return Column(
+      children: [
+        const SizedBox(height: 12),
+        const Text('Drawer'),
+        const SizedBox(height: 12),
+        ElevatedButton(
+          child: const Text('change color theme'),
+          onPressed: () => ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
+        ),
+      ],
     );
   }
 }
