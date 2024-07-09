@@ -5,6 +5,7 @@ import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/core/utils/provider/theme/theme_mode_provider.dart';
 import 'package:olivierplessis/src/navigation/presentation/provider/selected_item_tool_bar_provider.dart';
 import 'package:olivierplessis/src/navigation/presentation/widget/tool_bar_item.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class AppBarWidget extends ConsumerWidget {
   const AppBarWidget({
@@ -30,66 +31,74 @@ class AppBarWidget extends ConsumerWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Wrap(
-              alignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                SvgPictureCustom(
-                  path: IconAssets.icLogo,
-                  width: 64,
-                  height: 64,
-                ),
-                Text(
-                  'OLIVIER',
-                  style: context.isDisplayLargeThanTablet
-                      ? StyleTextTheme.TextThemeDisplayLarge.copyWith(letterSpacing: 1.8)
-                      : StyleTextTheme.TextThemeDisplayMedium.copyWith(letterSpacing: 1.2),
-                ),
-                Text(
-                  ' PLESSIS',
-                  style: context.isDisplayLargeThanTablet
-                      ? StyleTextTheme.TextThemeDisplayLarge.copyWith(
-                          letterSpacing: 1.8, color: Palette.violet)
-                      : StyleTextTheme.TextThemeDisplayMedium.copyWith(
-                          letterSpacing: 1.2, color: Palette.violet),
-                ),
-              ],
+            SvgPictureCustom(
+              path: IconAssets.icLogo,
+              width: 64,
+              height: 64,
             ),
-            if (context.isDisplayLargeThanTablet)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ...toolbarItems.map((item) {
-                    return InkWell(
-                      splashFactory: NoSplash.splashFactory,
-                      highlightColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      splashColor: Colors.transparent,
-                      onTap: () {
-                        ref.read(selectedToolbarIndexProvider.notifier).state =
-                            toolbarItems.indexOf(item); // Update index
-                        item.onTap?.call();
+            Text(
+              'OLIVIER',
+              style: context.isDisplayLargeThanTablet
+                  ? StyleTextTheme.TextThemeDisplayLarge.copyWith(letterSpacing: 1.8)
+                  : StyleTextTheme.TextThemeDisplayMedium.copyWith(letterSpacing: 1.2),
+            ),
+            Text(
+              ' PLESSIS',
+              style: context.isDisplayLargeThanTablet
+                  ? StyleTextTheme.TextThemeDisplayLarge.copyWith(
+                      letterSpacing: 1.8, color: Palette.violet)
+                  : StyleTextTheme.TextThemeDisplayMedium.copyWith(
+                      letterSpacing: 1.2, color: Palette.violet),
+            ),
+            const Spacer(),
+            ResponsiveVisibility(
+              visible: false,
+              visibleConditions: const [Condition.largerThan(name: TABLET)],
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ...toolbarItems.fold<List<Widget>>(
+                      [],
+                      (widgetValue, item) {
+                        final index = widgetValue.length; // Index based on current list length
+                        widgetValue.add(
+                          InkWell(
+                            splashFactory: NoSplash.splashFactory,
+                            highlightColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            splashColor: Colors.transparent,
+                            onTap: () {
+                              ref.read(selectedToolbarIndexProvider.notifier).state = index;
+                              item.onTap?.call();
+                            },
+                            child: Text(
+                              item.text,
+                              style: StyleTextTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeightTheme.medium,
+                                color: selectedIndex == index
+                                    ? Palette.violet
+                                    : ThemeMode.dark == ref.watch(themeModeControllerProvider)
+                                        ? Palette.grey
+                                        : Palette.greyDark,
+                              ),
+                            ),
+                          ).paddedH(12),
+                        );
+                        return widgetValue;
                       },
-                      child: Text(item.text,
-                          style: StyleTextTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeightTheme.medium,
-                              color: selectedIndex == toolbarItems.indexOf(item)
-                                  ? Palette.violet
-                                  : ThemeMode.dark == ref.watch(themeModeControllerProvider)
-                                      ? Palette.grey
-                                      : Palette.greyDark) // Active color
-                          ),
-                    ).paddedH(12);
-                  }),
-                  IconButton(
-                    onPressed: () =>
-                        ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
-                    icon: Icon(themeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode),
-                  ).paddedL(24),
-                ],
+                    ),
+                  ],
+                ),
               ),
+            ),
+            IconButton(
+              onPressed: () => ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
+              icon: Icon(themeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode),
+            ).paddedL(24),
           ],
-        ),
+        ).paddedH(24),
       ),
     );
   }

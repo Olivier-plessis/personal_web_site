@@ -4,6 +4,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 extension XResponsiveBuildContext on BuildContext {
   bool get isDisplayLargeThanTablet => ResponsiveBreakpoints.of(this).largerThan(TABLET);
+  bool get isDisplayLargeThanDesktop => ResponsiveBreakpoints.of(this).largerThan(DESKTOP);
 }
 
 extension XResponsiveFontSize on BuildContext {
@@ -21,7 +22,7 @@ const EdgeInsets paddingBottom24 = EdgeInsets.only(bottom: 24);
 // Block Spacing
 const List<Condition<BoxConstraints?>> blockWidthConstraints = [
   Condition.equals(name: MOBILE, value: BoxConstraints(maxWidth: 600)),
-  Condition.equals(name: TABLET, value: BoxConstraints(maxWidth: 700)),
+  Condition.equals(name: TABLET, value: BoxConstraints(maxWidth: 768)),
   Condition.largerThan(name: TABLET, value: BoxConstraints(maxWidth: MaxSizeConstant.maxWidth)),
 ];
 

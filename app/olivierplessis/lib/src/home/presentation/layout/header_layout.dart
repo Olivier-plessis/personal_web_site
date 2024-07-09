@@ -26,14 +26,14 @@ class HeaderLayout extends StatelessWidget {
               : ResponsiveRowColumnType.COLUMN,
           children: [
             ResponsiveRowColumnItem(
-              rowFlex: 4,
+              rowFlex: context.isDisplayLargeThanDesktop ? 5 : 4,
               columnOrder: 1,
-              child: _leftLayout(context),
+              child: _leftContentLayout(context),
             ),
             ResponsiveRowColumnItem(
               rowFlex: 8,
               columnOrder: 2,
-              child: _rightLayout(context),
+              child: _rightContentLayout(context),
             ),
           ],
         ),
@@ -42,7 +42,7 @@ class HeaderLayout extends StatelessWidget {
   }
 }
 
-Widget _leftLayout(BuildContext context) {
+Widget _leftContentLayout(BuildContext context) {
   String title = jsonData['header']['title'];
   String subtitle = jsonData['header']['subtitle'];
 
@@ -53,8 +53,7 @@ Widget _leftLayout(BuildContext context) {
   return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
     titleWidget, // Name
     Text(subtitle, style: StyleTextTheme.headlineSmall).paddedV(56),
-    Text('${ResponsiveBreakpoints.of(context).breakpoint.start}',
-        style: StyleTextTheme.labelMedium),
+
     InkWell(
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,
@@ -74,15 +73,16 @@ Widget _leftLayout(BuildContext context) {
   ]);
 }
 
-Widget _rightLayout(BuildContext context) {
+Widget _rightContentLayout(BuildContext context) {
   return ConstrainedBox(
     constraints: BoxConstraints(
       maxHeight: context.isDisplayLargeThanTablet ? 740 : 500,
     ),
-    child: SvgPictureCustom(
-      path: BrandingAssets.bdgHeaderBranding,
-      // width: context.isDisplayLargeThanTablet ? 740 : 500,
-      // height: context.isDisplayLargeThanTablet ? 740 : 500,
+    child: AspectRatio(
+      aspectRatio: 1,
+      child: SvgPictureCustom(
+        path: BrandingAssets.bdgHeaderBranding,
+      ),
     ),
   );
 }

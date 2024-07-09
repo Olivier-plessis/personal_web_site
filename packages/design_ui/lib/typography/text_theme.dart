@@ -21,7 +21,7 @@ class StyleTextTheme {
   static TextStyle get TextThemeDisplayMedium {
     return _baseTextStyle.copyWith(
       fontFamily: FontFamilyTheme.mainFont,
-      fontSize: FontSizeTheme.titleLarge.sp,
+      fontSize: FontSizeTheme.titleLarge.spMax,
       fontWeight: FontWeightTheme.extraBold,
     );
   }
