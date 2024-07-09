@@ -7,3 +7,4 @@
 
 build/
 pubspec_overrides.yaml
+/app/olivierplessis/lib/src/routing/app_router.g.dart

@@ -3,10 +3,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/core/utils/provider/theme/theme_mode_provider.dart';
 import 'package:olivierplessis/src/home/presentation/layout/header_layout.dart';
+import 'package:olivierplessis/src/navigation/domain/model/item_nav_model.dart';
+import 'package:olivierplessis/src/navigation/presentation/provider/item_nav_provider.dart';
 import 'package:olivierplessis/src/navigation/presentation/provider/selected_item_tool_bar_provider.dart';
 import 'package:olivierplessis/src/navigation/presentation/widget/app_bar_widget.dart';
 import 'package:olivierplessis/src/navigation/presentation/widget/tool_bar_item.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+
+// Provider to hold the list of Navigation items
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -22,9 +26,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget build(
     BuildContext context,
   ) {
-    final List<ToolbarItem> toolbarItems = _generateToolbarItem();
     final selectedIndex = ref.watch(selectedToolbarIndexProvider);
     final ThemeMode themeMode = ref.watch(themeModeControllerProvider);
+    final navigationList = ref.watch(itemNavListProvider);
 
     return Scaffold(
       /* endDrawer: Drawer(
@@ -41,10 +45,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ),
       ),*/
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight * 2),
-        child: AppBarWidget(
-            toolbarItems: toolbarItems, selectedIndex: selectedIndex, themeMode: themeMode),
-      ),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 2),
+          child: navigationList.when(
+            data: (data) => AppBarWidget(
+                toolbarItems: _generateToolbarItems(data),
+                selectedIndex: selectedIndex,
+                themeMode: themeMode),
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (e, _) => Text(e.toString()),
+          )),
       body: _bodyItems.isEmpty ? const SizedBox.shrink() : _body(),
     );
   }
@@ -57,13 +66,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  List<ToolbarItem> _generateToolbarItem() {
-    return [
-      ToolbarItem(text: 'Accueil', onTap: () => _changeToIndex(1)),
-      ToolbarItem(text: 'A propos', onTap: () => _changeToIndex(2)),
-      ToolbarItem(text: 'Réalisations', onTap: () => _changeToIndex(3)),
-      ToolbarItem(text: 'Contact', onTap: () => _changeToIndex(4)),
-    ];
+  List<ToolbarItem> _generateToolbarItems(List<Navigation> navigationList) {
+    return navigationList
+        .expand((navigation) => navigation.items.asMap().entries.map((entry) => ToolbarItem(
+              text: entry.value.title,
+              onTap: () => _changeToIndex(entry.key),
+            )))
+        .toList();
   }
 
   List<Widget> get _bodyItems => [

@@ -1,6 +1,110 @@
 {
-  "header": {
-    "title": "Ensemble donnons vie à vos idées d'applications !",
-    "subtitle": "Des applications sur mesure qui captivent les utilisateurs grace à la pussance de Flutter.",
+  "navigation": [
+    {
+      "items": [
+        {
+          "title": "Accueil"
+        },
+        {
+          "title": "A propos"
+        },
+        {
+          "title": "Réalisations"
+        },
+        {
+          "title": "Contact"
+        }
+      ]
+    }
+
+  ],
+  "header_section": {
+    "title": "ensemble donnons vie à vos idées d'applications !",
+    "subtitle": "des applications sur mesure qui captivent les utilisateurs grace à la pussance de Flutter.",
+    "link": "en savoir plus"
+  },
+  "about_section": {
+    "section_title": "a propos",
+    "title": "j'aime résoudre les problèmes avec des solutions scalables.",
+    "subtitle": "Eget malesuada tortor ut sed. Tincidunt viverra malesuada nisl vehicula vestibulum. Ut blandit fermentum, cursus nulla. Imperdiet neque mi convallis quis interdum sagittis..",
+    "link": "parlons-en"
+  },
+  "portfolio_section": {
+    "title": "Jeter un coup d'œil à mes Réalisations.",
+    "work_items": [
+      {
+        "title": "Ta-da",
+        "category": "application mobile",
+        "tags": ["flutter", "dart", "riverpod", "freezed", "go_router", "dio", "firebase", "retrofit"],
+        "subtitle": "Une application mobile de gestion de compte.",
+        "link": [
+          {
+            "website_url": "https://picsum.photos/id/10/400/300",
+            "store_ios": "https://picsum.photos/id/10/400/300",
+            "store_android": "https://picsum.photos/id/10/400/300"
+          }
+        ]
+      },
+      {
+        "title": "Currety",
+        "category": "application web",
+        "tags": ["flutter", "dart", "riverpod", "freezed", "go_router"],
+        "subtitle": "Une application mobile de gestion de compte.",
+        "link": [
+          {
+            "website_url": "https://picsum.photos/id/10/400/300",
+            "store_ios": "https://picsum.photos/id/10/400/300",
+            "store_android": "https://picsum.photos/id/10/400/300"
+          }
+        ]
+      },
+      {
+        "title": "Br-Units",
+        "category": "application Ipad",
+        "tags": ["flutter", "dart", "riverpod", "freezed", "go_router"],
+        "subtitle": "Une application mobile de gestion de compte.",
+        "link": [
+          {
+            "website_url": "https://picsum.photos/id/10/400/300",
+            "store_ios": "https://picsum.photos/id/10/400/300",
+            "store_android": "https://picsum.photos/id/10/400/300"
+          }
+        ]
+      },
+      {
+        "title": "Les Chaperons rouges",
+        "category": "application mobile, tablette, web",
+        "tags": ["flutter", "dart", "provider", "freezed", "go_router", "firebase"],
+        "subtitle": "Une application mobile de gestion de compte.",
+        "link": [
+          {
+            "website_url": "https://picsum.photos/id/10/400/300",
+            "store_ios": "https://picsum.photos/id/10/400/300",
+            "store_android": "https://picsum.photos/id/10/400/300"
+          }
+        ]
+      }
+    ]
+  },
+  "contact_section": {
+    "title": "vous avez un projet en tête ou juste envie de discuter.",
+    "email": "contact@olivierplessis.fr",
+    "phone": "06 02 09 69 55",
+    "link": "contactez moi",
+    "follow_me": "suivez moi",
+    "social_links": [
+      {
+        "icon": "https://picsum.photos/id/10/400/300",
+        "link": "https://picsum.photos/id/10/400/300"
+      },
+      {
+        "icon": "https://picsum.photos/id/10/400/300",
+        "link": "https://picsum.photos/id/10/400/300"
+      },
+      {
+        "icon": "https://picsum.photos/id/10/400/300",
+        "link": "https://picsum.photos/id/10/400/300"
+      }
+    ]
   }
 }

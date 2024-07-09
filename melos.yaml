@@ -10,6 +10,7 @@ scripts:
       melos clean
       melos bs
       melos generate:spider
+      melos run generate:build_runner
 
   analyze:
     run: melos exec -- dart analyze .
@@ -26,6 +27,11 @@ scripts:
   generate:spider:
     run: melos exec --depends-on="spider" -- spider build
     description: Run spider to generate resources.
+
+  generate:build_runner:
+    run: melos exec --depends-on="build_runner" -- "dart run build_runner build -d"
+    description: Build all generated files for Dart & Flutter packages in this project.
+
 
 command:
   bootstrap:
