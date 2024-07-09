@@ -6,7 +6,7 @@ import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 String jsonString =
-    '{"header": {"title": "Ensemble donnons vie à vos idées \\n d\'applications !", "subtitle": "Des applications sur mesure qui captivent les utilisateurs grace à la pussance de Flutter."}}';
+    '{"header": {"title": "Ensemble donnons vie à vos idées d\'applications !", "subtitle": "Des applications sur mesure qui captivent les utilisateurs grace à la pussance de Flutter."}}';
 Map<String, dynamic> jsonData = json.decode(jsonString);
 
 class HeaderLayout extends StatelessWidget {
@@ -14,34 +14,31 @@ class HeaderLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaxWidthBox(
-      maxWidth: MaxSizeConstant.maxWidth,
-      alignment: Alignment.center,
-      child: Column(
-        children: [
-          ResponsiveRowColumn(
-            columnMainAxisAlignment: MainAxisAlignment.center,
-            columnSpacing: 32,
-            rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
-            layout: context.isDisplayLargeThanTablet
-                ? ResponsiveRowColumnType.ROW
-                : ResponsiveRowColumnType.COLUMN,
-            children: [
-              ResponsiveRowColumnItem(
-                rowFlex: 3,
-                columnOrder: 1,
-                child: _leftLayout(context),
-              ),
-              ResponsiveRowColumnItem(
-                rowFlex: 6,
-                columnOrder: 2,
-                child: _rightLayout(context),
-              ),
-            ],
-          ),
-        ],
-      ),
-    ).paddedHV(64, context.isDisplayLargeThanTablet ? MediaQuery.of(context).size.height / 8 : 24);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        ResponsiveRowColumn(
+          columnMainAxisAlignment: MainAxisAlignment.center,
+          columnSpacing: 24,
+          rowMainAxisAlignment: MainAxisAlignment.spaceAround,
+          layout: context.isDisplayLargeThanTablet
+              ? ResponsiveRowColumnType.ROW
+              : ResponsiveRowColumnType.COLUMN,
+          children: [
+            ResponsiveRowColumnItem(
+              rowFlex: 4,
+              columnOrder: 1,
+              child: _leftLayout(context),
+            ),
+            ResponsiveRowColumnItem(
+              rowFlex: 8,
+              columnOrder: 2,
+              child: _rightLayout(context),
+            ),
+          ],
+        ),
+      ],
+    ).paddedHV(4, kToolbarHeight / 2);
   }
 }
 
@@ -55,15 +52,22 @@ Widget _leftLayout(BuildContext context) {
 
   return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
     titleWidget, // Name
-    Text(subtitle, style: siteTextTheme.headlineSmall).paddedV(56),
-    TextButton(
-        onPressed: () {},
+    Text(subtitle, style: StyleTextTheme.headlineSmall).paddedV(56),
+    Text('${ResponsiveBreakpoints.of(context).breakpoint.start}',
+        style: StyleTextTheme.labelMedium),
+    InkWell(
+        splashFactory: NoSplash.splashFactory,
+        highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        splashColor: Colors.transparent,
+        onTap: () {},
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Découvrir plus', style: siteTextTheme.labelMedium),
+            Text('En savoir plus',
+                style: StyleTextTheme.labelMedium.copyWith(color: Palette.violet)),
             const SizedBox(width: 64),
-            Icon(Icons.arrow_forward_sharp, size: 24, color: Palette.violet),
+            const Icon(Icons.arrow_forward_sharp, size: 24, color: Palette.violet),
           ],
         )),
     const SizedBox(height: 32),
@@ -72,11 +76,13 @@ Widget _leftLayout(BuildContext context) {
 
 Widget _rightLayout(BuildContext context) {
   return ConstrainedBox(
-    constraints: BoxConstraints(maxHeight: context.isDisplayLargeThanTablet ? 740 : 500),
+    constraints: BoxConstraints(
+      maxHeight: context.isDisplayLargeThanTablet ? 740 : 500,
+    ),
     child: SvgPictureCustom(
       path: BrandingAssets.bdgHeaderBranding,
-      width: context.isDisplayLargeThanTablet ? 740 : 500,
-      height: context.isDisplayLargeThanTablet ? 740 : 500,
+      // width: context.isDisplayLargeThanTablet ? 740 : 500,
+      // height: context.isDisplayLargeThanTablet ? 740 : 500,
     ),
   );
 }
@@ -96,22 +102,21 @@ class TitleWithColoredText extends StatelessWidget {
     final titleParts = title.split(' ');
 
     var titleSize =
-        context.isDisplayLargeThanTablet ? siteTextTheme.displayMedium : siteTextTheme.displaySmall;
+        context.isDisplayLargeThanTablet ? StyleTextTheme.headline2 : StyleTextTheme.labelMedium;
 
-    return RichText(
-      text: TextSpan(
-        children: [
-          for (final part in titleParts)
-            TextSpan(
-              text: '$part ',
-              style: titleSize?.copyWith(
-                color: !part.contains(titleParts[4]) && !part.contains(titleParts[5])
-                    ? Theme.of(context).colorScheme.onSurface
-                    : ideasColor,
-              ),
+    return Wrap(
+      children: [
+        for (final part in titleParts)
+          Text(
+            '$part ',
+            style: titleSize.copyWith(
+              height: 1.2,
+              color: !part.contains(titleParts[4]) && !part.contains(titleParts[5])
+                  ? Theme.of(context).colorScheme.onSurface
+                  : ideasColor,
             ),
-        ],
-      ),
+          ),
+      ],
     );
   }
 }

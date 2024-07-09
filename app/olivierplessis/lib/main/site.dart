@@ -15,30 +15,44 @@ class MainApp extends ConsumerWidget {
     final theme = themeMode == ThemeMode.light ? lightTheme : darkTheme;
     final goRouter = ref.watch(goRouterProvider);
 
-    return MaterialApp.router(
-      routerConfig: goRouter,
-      title: 'olivier plessis | Freelance Flutter developer',
-      debugShowCheckedModeBanner: false,
-      theme: theme,
-      darkTheme: theme,
-      themeMode: themeMode,
-      builder: (
-        BuildContext context,
-        Widget? child,
-      ) =>
-          MediaQuery(
-        data: MediaQuery.of(context).copyWith(
-          textScaler: const TextScaler.linear(1),
-        ),
-        child: ResponsiveBreakpoints.builder(
-          breakpoints: [
-            const Breakpoint(start: 0, end: 360, name: 'SMALL_MOBILE'),
-            const Breakpoint(start: 361, end: 450, name: MOBILE),
-            const Breakpoint(start: 451, end: 1024, name: TABLET),
-            const Breakpoint(start: 801, end: 1920, name: DESKTOP),
-            const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
-          ],
-          child: child ?? const SizedBox.shrink(),
+    return ScreenUtilInit(
+      designSize: ScreenUtil.defaultSize,
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_, child) => MaterialApp.router(
+        routerConfig: goRouter,
+        title: 'olivier plessis | Freelance Flutter developer',
+        debugShowCheckedModeBanner: false,
+        theme: theme,
+        darkTheme: theme,
+        themeMode: themeMode,
+        builder: (
+          BuildContext context,
+          Widget? child,
+        ) =>
+            MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: const TextScaler.linear(1),
+          ),
+          child: ResponsiveBreakpoints.builder(
+            child: Builder(builder: (context) {
+              return ResponsiveScaledBox(
+                  width: ResponsiveValue<double?>(context, defaultValue: null, conditionalValues: [
+                    const Condition.equals(name: 'MOBILE_SMALL', value: 480),
+                  ]).value,
+                  child: ClampingScrollWrapper.builder(
+                    context,
+                    child ?? const SizedBox.shrink(),
+                  ));
+            }),
+            breakpoints: [
+              const Breakpoint(start: 0, end: 360, name: 'SMALL_MOBILE'),
+              const Breakpoint(start: 361, end: 450, name: MOBILE),
+              const Breakpoint(start: 451, end: 1024, name: TABLET),
+              const Breakpoint(start: 801, end: 1920, name: DESKTOP),
+              const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+            ],
+          ),
         ),
       ),
     );

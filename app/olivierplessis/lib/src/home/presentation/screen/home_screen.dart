@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/core/utils/provider/theme/theme_mode_provider.dart';
 import 'package:olivierplessis/src/home/presentation/layout/header_layout.dart';
 import 'package:olivierplessis/src/navigation/presentation/provider/selected_item_tool_bar_provider.dart';
@@ -66,7 +67,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   List<Widget> get _bodyItems => [
-        HeaderLayout(),
+        const BlockWrapper(HeaderLayout()),
       ];
 
   void _changeToIndex(int i) {

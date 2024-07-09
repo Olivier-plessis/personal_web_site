@@ -10,11 +10,26 @@ class StyleTextTheme {
     fontWeight: FontWeightTheme.regular,
   );
 
-  static TextStyle get displayLarge {
+  static TextStyle get TextThemeDisplayLarge {
     return _baseTextStyle.copyWith(
       fontFamily: FontFamilyTheme.mainFont,
-      fontSize: FontSizeTheme.titleVeryLarge,
+      fontSize: FontSizeTheme.titleVeryLarge.sp,
       fontWeight: FontWeightTheme.extraBold,
+    );
+  }
+
+  static TextStyle get TextThemeDisplayMedium {
+    return _baseTextStyle.copyWith(
+      fontFamily: FontFamilyTheme.mainFont,
+      fontSize: FontSizeTheme.titleLarge.sp,
+      fontWeight: FontWeightTheme.extraBold,
+    );
+  }
+
+  static TextStyle get headline2 {
+    return _baseTextStyle.copyWith(
+      fontSize: FontSizeTheme.titleLarge.sp,
+      fontWeight: FontWeightTheme.semiBold,
     );
   }
 
@@ -27,7 +42,7 @@ class StyleTextTheme {
 
   static TextStyle get displaySmall {
     return _baseTextStyle.copyWith(
-      fontSize: FontSizeTheme.titleLarge,
+      fontSize: FontSizeTheme.titleLarge.sp,
       fontWeight: FontWeightTheme.extraBold,
     );
   }
@@ -41,7 +56,7 @@ class StyleTextTheme {
 
   static TextStyle get headlineSmall {
     return _baseTextStyle.copyWith(
-      fontSize: FontSizeTheme.bodyLarge,
+      fontSize: FontSizeTheme.bodyLarge.sp,
       fontWeight: FontWeightTheme.regular,
     );
   }
@@ -68,8 +83,9 @@ class StyleTextTheme {
   }
 }
 
-final TextTheme siteTextTheme = TextTheme(
-  displayLarge: StyleTextTheme.displayLarge,
+/*
+final siteTextTheme = TextTheme(
+  displayLarge: StyleTextTheme.TextThemeDisplayLarge,
   displayMedium: StyleTextTheme.displayMedium,
   displaySmall: StyleTextTheme.displaySmall,
   headlineMedium: StyleTextTheme.headlineMedium,
@@ -77,3 +93,4 @@ final TextTheme siteTextTheme = TextTheme(
   titleMedium: StyleTextTheme.titleMedium,
   labelMedium: StyleTextTheme.labelMedium,
 );
+*/
