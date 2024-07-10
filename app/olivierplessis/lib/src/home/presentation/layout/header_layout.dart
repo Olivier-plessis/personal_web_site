@@ -1,17 +1,13 @@
-import 'dart:convert';
-
 import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
+import 'package:olivierplessis/src/home/domain/model/header/header_model.dart';
+import 'package:olivierplessis/src/home/presentation/widget/title_with_colored_text.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-String jsonString =
-    '{"header": {"title": "Ensemble donnons vie à vos idées d\'applications !", "subtitle": "Des applications sur mesure qui captivent les utilisateurs grace à la pussance de Flutter."}}';
-Map<String, dynamic> jsonData = json.decode(jsonString);
-
 class HeaderLayout extends StatelessWidget {
-  const HeaderLayout({super.key});
-
+  const HeaderLayout({super.key, required this.headerData});
+  final HeaderSection headerData;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,7 +24,7 @@ class HeaderLayout extends StatelessWidget {
             ResponsiveRowColumnItem(
               rowFlex: context.isDisplayLargeThanDesktop ? 5 : 4,
               columnOrder: 1,
-              child: _leftContentLayout(context),
+              child: _leftContentLayout(context, headerData),
             ),
             ResponsiveRowColumnItem(
               rowFlex: 8,
@@ -42,14 +38,17 @@ class HeaderLayout extends StatelessWidget {
   }
 }
 
-Widget _leftContentLayout(BuildContext context) {
-  String title = jsonData['header']['title'];
-  String subtitle = jsonData['header']['subtitle'];
+Widget _leftContentLayout(BuildContext context, HeaderSection headerData) {
+  String title = headerData.title.toCapitalized();
+  String subtitle = headerData.subtitle.toCapitalized();
 
   Color ideasColor = Palette.violet; // Change color here
 
-  Widget titleWidget =
-      TitleWithColoredText(title: title, ideasColor: ideasColor);
+  Widget titleWidget = TitleWithColoredText(
+    title: title,
+    ideasColor: ideasColor,
+    coloredTitleParts: [4, 5], // These words will be colored blue
+  );
 
   return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
     titleWidget, // Name
@@ -64,7 +63,7 @@ Widget _leftContentLayout(BuildContext context) {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('En savoir plus',
+            Text(headerData.link.toCapitalized(),
                 style:
                     StyleTextTheme.labelMedium.copyWith(color: Palette.violet)),
             const SizedBox(width: 64),
@@ -88,40 +87,4 @@ Widget _rightContentLayout(BuildContext context) {
       ),
     ),
   );
-}
-
-class TitleWithColoredText extends StatelessWidget {
-  final String title;
-  final Color ideasColor;
-
-  const TitleWithColoredText({
-    super.key,
-    required this.title,
-    required this.ideasColor,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final titleParts = title.split(' ');
-
-    var titleSize = context.isDisplayLargeThanTablet
-        ? StyleTextTheme.headline2
-        : StyleTextTheme.labelMedium;
-
-    return Wrap(
-      children: [
-        for (final part in titleParts)
-          Text(
-            '$part ',
-            style: titleSize.copyWith(
-              height: 1.2,
-              color:
-                  !part.contains(titleParts[4]) && !part.contains(titleParts[5])
-                      ? Theme.of(context).colorScheme.onSurface
-                      : ideasColor,
-            ),
-          ),
-      ],
-    );
-  }
 }

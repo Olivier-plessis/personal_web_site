@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/core/utils/provider/theme/theme_mode_provider.dart';
 import 'package:olivierplessis/src/home/domain/model/main_model.dart';
+import 'package:olivierplessis/src/home/presentation/layout/about_layout.dart';
 import 'package:olivierplessis/src/home/presentation/layout/header_layout.dart';
 import 'package:olivierplessis/src/home/presentation/provider/combine_provider.dart';
 import 'package:olivierplessis/src/navigation/domain/model/item_nav_model.dart';
@@ -17,6 +18,9 @@ class MainHomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncCombineHomeData = ref.watch(asyncCombineNotifierProvider);
+
+    print(asyncCombineHomeData);
+
     return switch (asyncCombineHomeData) {
       AsyncData(:final value) => HomeScreen(homeData: value),
       AsyncError(:final error) => Text('Error: $error'),
@@ -71,7 +75,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   List<Widget> get _bodyItems => [
-        const BlockWrapper(HeaderLayout()),
+        BlockWrapper(HeaderLayout(headerData: widget.homeData!.header)),
+        BlockWrapper(AboutLayout(aboutData: widget.homeData!.about)),
       ];
 
   Widget _body() {

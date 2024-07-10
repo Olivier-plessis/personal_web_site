@@ -27,7 +27,21 @@
     "section_title": "a propos",
     "title": "j'aime résoudre les problèmes avec des solutions scalables.",
     "subtitle": "Eget malesuada tortor ut sed. Tincidunt viverra malesuada nisl vehicula vestibulum. Ut blandit fermentum, cursus nulla. Imperdiet neque mi convallis quis interdum sagittis..",
-    "link": "parlons-en"
+    "link": "parlons-en",
+    "info": [
+      {
+        "tile": "années d'expérience",
+        "value": "9"
+      },
+      {
+        "tile": "Projets Réalisés",
+        "value": "20"
+      },
+      {
+        "tile": "clients",
+        "value": "6"
+      }
+    ]
   },
   "portfolio_section": {
     "title": "Jeter un coup d'œil à mes Réalisations.",
@@ -94,16 +108,16 @@
     "follow_me": "suivez moi",
     "social_links": [
       {
-        "icon": "https://picsum.photos/id/10/400/300",
-        "link": "https://picsum.photos/id/10/400/300"
+        "name": "linkedin",
+        "link": "https://www.linkedin.com/in/olivier-plessis/"
       },
       {
-        "icon": "https://picsum.photos/id/10/400/300",
-        "link": "https://picsum.photos/id/10/400/300"
+        "name": "github",
+        "link": "https://github.com/Olivier-plessis"
       },
       {
-        "icon": "https://picsum.photos/id/10/400/300",
-        "link": "https://picsum.photos/id/10/400/300"
+        "name": "email",
+        "link": "hello@olivierplessis.fr"
       }
     ]
   }
