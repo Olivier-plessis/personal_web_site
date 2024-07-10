@@ -46,7 +46,7 @@ class MainApp extends ConsumerWidget {
                   ));
             }),
             breakpoints: [
-              const Breakpoint(start: 0, end: 360, name: 'SMALL_MOBILE'),
+              const Breakpoint(start: 0, end: 360, name: 'MOBILE_SMALL'),
               const Breakpoint(start: 361, end: 640, name: MOBILE),
               const Breakpoint(start: 640, end: 1024, name: TABLET),
               const Breakpoint(start: 1024, end: 1920, name: DESKTOP),

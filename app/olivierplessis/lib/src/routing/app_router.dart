@@ -39,7 +39,7 @@ GoRouter goRouter(GoRouterRef ref) {
       GoRoute(
         path: AppPage.home.routePath,
         name: AppPage.home.routeName,
-        builder: (context, state) => const HomeScreen(),
+        builder: (context, state) => const MainHomeScreen(),
         /*routes: [
           GoRoute(
             path: '${AppRoute.portfolio.name}/:slug',
