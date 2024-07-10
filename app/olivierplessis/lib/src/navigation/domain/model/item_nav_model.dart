@@ -9,7 +9,8 @@ class Navigation with _$Navigation {
     @Default([]) List<Item> items,
   }) = _Navigation;
 
-  factory Navigation.fromJson(Map<String, dynamic> json) => _$NavigationFromJson(json);
+  factory Navigation.fromJson(Map<String, dynamic> json) =>
+      _$NavigationFromJson(json);
 }
 
 @freezed

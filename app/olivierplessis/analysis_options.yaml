@@ -1,1 +1,13 @@
-include: package:flutter_lints/flutter.yaml
+import: ../../analysis_options.yaml
+analyzer:
+  plugins:
+    - custom_lint
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  errors:
+    asset_does_not_exist: ignore
+    invalid_annotation_target: ignore
+custom_lint:
+  rules:
+    - missing_provider_scope: false

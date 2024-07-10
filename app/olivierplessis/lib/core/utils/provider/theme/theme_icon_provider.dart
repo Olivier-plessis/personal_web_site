@@ -7,5 +7,7 @@ part 'theme_icon_provider.g.dart';
 @riverpod
 IconData themeModeIcon(ThemeModeIconRef ref) {
   final currentThemeMode = ref.watch(themeModeControllerProvider);
-  return currentThemeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode;
+  return currentThemeMode == ThemeMode.light
+      ? Icons.dark_mode
+      : Icons.light_mode;
 }

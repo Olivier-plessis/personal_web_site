@@ -10,7 +10,7 @@ scripts:
       melos clean
       melos bs
       melos generate:spider
-      melos run generate:build_runner
+      melos generate:build_runner
 
   analyze:
     run: melos exec -- dart analyze .

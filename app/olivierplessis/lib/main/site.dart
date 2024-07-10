@@ -37,9 +37,12 @@ class MainApp extends ConsumerWidget {
           child: ResponsiveBreakpoints.builder(
             child: Builder(builder: (context) {
               return ResponsiveScaledBox(
-                  width: ResponsiveValue<double?>(context, defaultValue: null, conditionalValues: [
-                    const Condition.equals(name: 'MOBILE_SMALL', value: 480),
-                  ]).value,
+                  width: ResponsiveValue<double?>(context,
+                      defaultValue: null,
+                      conditionalValues: [
+                        const Condition.equals(
+                            name: 'MOBILE_SMALL', value: 480),
+                      ]).value,
                   child: ClampingScrollWrapper.builder(
                     context,
                     child ?? const SizedBox.shrink(),

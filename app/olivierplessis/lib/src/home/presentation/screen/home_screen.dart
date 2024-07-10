@@ -44,19 +44,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight * 2),
           child: AppBarWidget(
-              toolbarItems: _generateToolbarItems(widget.homeData?.navigation ?? []),
+              toolbarItems:
+                  _generateToolbarItems(widget.homeData?.navigation ?? []),
               selectedIndex: selectedIndex,
               themeMode: themeMode)),
       body: _bodyItems.isEmpty ? const SizedBox.shrink() : _body(),
+      endDrawer: _drawer(context),
     );
   }
 
   List<ToolbarItem> _generateToolbarItems(List<Navigation> navigationList) {
     return navigationList
-        .expand((navigation) => navigation.items.asMap().entries.map((entry) => ToolbarItem(
-              text: entry.value.title,
-              onTap: () => _changeToIndex(entry.key),
-            )))
+        .expand((navigation) =>
+            navigation.items.asMap().entries.map((entry) => ToolbarItem(
+                  text: entry.value.title,
+                  onTap: () => _changeToIndex(entry.key),
+                )))
         .toList();
   }
 
@@ -89,7 +92,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         const SizedBox(height: 12),
         ElevatedButton(
           child: const Text('change color theme'),
-          onPressed: () => ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
+          onPressed: () =>
+              ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
         ),
       ],
     );

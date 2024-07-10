@@ -39,16 +39,18 @@ class AppBarWidget extends ConsumerWidget {
             Text(
               'OLIVIER',
               style: context.isDisplayLargeThanTablet
-                  ? StyleTextTheme.TextThemeDisplayLarge.copyWith(letterSpacing: 1.8)
-                  : StyleTextTheme.TextThemeDisplayMedium.copyWith(letterSpacing: 1.2),
+                  ? StyleTextTheme.textThemeDisplayLarge
+                      .copyWith(letterSpacing: 1.8)
+                  : StyleTextTheme.textThemeDisplayMedium
+                      .copyWith(letterSpacing: 1.2),
             ),
             Text(
               ' PLESSIS',
               style: context.isDisplayLargeThanTablet
-                  ? StyleTextTheme.TextThemeDisplayLarge.copyWith(
-                      letterSpacing: 1.8, color: Palette.violet)
-                  : StyleTextTheme.TextThemeDisplayMedium.copyWith(
-                      letterSpacing: 1.2, color: Palette.violet),
+                  ? StyleTextTheme.textThemeDisplayLarge
+                      .copyWith(letterSpacing: 1.8, color: Palette.violet)
+                  : StyleTextTheme.textThemeDisplayMedium
+                      .copyWith(letterSpacing: 1.2, color: Palette.violet),
             ),
             const Spacer(),
             ResponsiveVisibility(
@@ -62,7 +64,8 @@ class AppBarWidget extends ConsumerWidget {
                     ...toolbarItems.fold<List<Widget>>(
                       [],
                       (widgetValue, item) {
-                        final index = widgetValue.length; // Index based on current list length
+                        final index = widgetValue
+                            .length; // Index based on current list length
                         widgetValue.add(
                           InkWell(
                             splashFactory: NoSplash.splashFactory,
@@ -70,16 +73,20 @@ class AppBarWidget extends ConsumerWidget {
                             hoverColor: Colors.transparent,
                             splashColor: Colors.transparent,
                             onTap: () {
-                              ref.read(selectedToolbarIndexProvider.notifier).state = index;
+                              ref
+                                  .read(selectedToolbarIndexProvider.notifier)
+                                  .state = index;
                               item.onTap?.call();
                             },
                             child: Text(
                               item.text,
-                              style: StyleTextTheme.titleMedium?.copyWith(
+                              style: StyleTextTheme.titleMedium.copyWith(
                                 fontWeight: FontWeightTheme.medium,
                                 color: selectedIndex == index
                                     ? Palette.violet
-                                    : ThemeMode.dark == ref.watch(themeModeControllerProvider)
+                                    : ThemeMode.dark ==
+                                            ref.watch(
+                                                themeModeControllerProvider)
                                         ? Palette.grey
                                         : Palette.greyDark,
                               ),
@@ -98,10 +105,13 @@ class AppBarWidget extends ConsumerWidget {
               visibleConditions: const [Condition.largerThan(name: TABLET)],
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
-                child:  IconButton(
-                  onPressed: () =>
-                      ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
-                  icon: Icon(themeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode),
+                child: IconButton(
+                  onPressed: () => ref
+                      .watch(themeModeControllerProvider.notifier)
+                      .toggleThemeMode(),
+                  icon: Icon(themeMode == ThemeMode.light
+                      ? Icons.dark_mode
+                      : Icons.light_mode),
                 ).paddedL(24),
               ),
             ),

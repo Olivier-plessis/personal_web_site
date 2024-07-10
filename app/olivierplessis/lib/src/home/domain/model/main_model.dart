@@ -10,5 +10,6 @@ class MainModel with _$MainModel {
     required List<Navigation> navigation,
   }) = _MainModel;
 
-  factory MainModel.fromJson(Map<String, dynamic> json) => _$MainModelFromJson(json);
+  factory MainModel.fromJson(Map<String, dynamic> json) =>
+      _$MainModelFromJson(json);
 }

@@ -7,7 +7,8 @@ class SvgPictureCustom extends StatelessWidget {
   final double? height;
   final BoxFit? fit;
 
-  SvgPictureCustom({
+  const SvgPictureCustom({
+    super.key,
     required this.path,
     this.width,
     this.height,

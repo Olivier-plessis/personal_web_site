@@ -48,7 +48,8 @@ Widget _leftContentLayout(BuildContext context) {
 
   Color ideasColor = Palette.violet; // Change color here
 
-  Widget titleWidget = TitleWithColoredText(title: title, ideasColor: ideasColor);
+  Widget titleWidget =
+      TitleWithColoredText(title: title, ideasColor: ideasColor);
 
   return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
     titleWidget, // Name
@@ -64,9 +65,11 @@ Widget _leftContentLayout(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text('En savoir plus',
-                style: StyleTextTheme.labelMedium.copyWith(color: Palette.violet)),
+                style:
+                    StyleTextTheme.labelMedium.copyWith(color: Palette.violet)),
             const SizedBox(width: 64),
-            const Icon(Icons.arrow_forward_sharp, size: 24, color: Palette.violet),
+            const Icon(Icons.arrow_forward_sharp,
+                size: 24, color: Palette.violet),
           ],
         )),
     const SizedBox(height: 32),
@@ -101,8 +104,9 @@ class TitleWithColoredText extends StatelessWidget {
   Widget build(BuildContext context) {
     final titleParts = title.split(' ');
 
-    var titleSize =
-        context.isDisplayLargeThanTablet ? StyleTextTheme.headline2 : StyleTextTheme.labelMedium;
+    var titleSize = context.isDisplayLargeThanTablet
+        ? StyleTextTheme.headline2
+        : StyleTextTheme.labelMedium;
 
     return Wrap(
       children: [
@@ -111,9 +115,10 @@ class TitleWithColoredText extends StatelessWidget {
             '$part ',
             style: titleSize.copyWith(
               height: 1.2,
-              color: !part.contains(titleParts[4]) && !part.contains(titleParts[5])
-                  ? Theme.of(context).colorScheme.onSurface
-                  : ideasColor,
+              color:
+                  !part.contains(titleParts[4]) && !part.contains(titleParts[5])
+                      ? Theme.of(context).colorScheme.onSurface
+                      : ideasColor,
             ),
           ),
       ],

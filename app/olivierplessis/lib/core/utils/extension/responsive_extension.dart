@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 extension XResponsiveBuildContext on BuildContext {
-  bool get isDisplayLargeThanTablet => ResponsiveBreakpoints.of(this).largerThan(TABLET);
-  bool get isDisplayLargeThanDesktop => ResponsiveBreakpoints.of(this).largerThan(DESKTOP);
+  bool get isDisplayLargeThanTablet =>
+      ResponsiveBreakpoints.of(this).largerThan(TABLET);
+  bool get isDisplayLargeThanDesktop =>
+      ResponsiveBreakpoints.of(this).largerThan(DESKTOP);
 }
 
 extension XResponsiveFontSize on BuildContext {
@@ -23,14 +25,17 @@ const EdgeInsets paddingBottom24 = EdgeInsets.only(bottom: 24);
 const List<Condition<BoxConstraints?>> blockWidthConstraints = [
   Condition.equals(name: MOBILE, value: BoxConstraints(maxWidth: 600)),
   Condition.equals(name: TABLET, value: BoxConstraints(maxWidth: 768)),
-  Condition.largerThan(name: TABLET, value: BoxConstraints(maxWidth: MaxSizeConstant.maxWidth)),
+  Condition.largerThan(
+      name: TABLET, value: BoxConstraints(maxWidth: MaxSizeConstant.maxWidth)),
 ];
 
-EdgeInsets blockPadding(BuildContext context) => ResponsiveValue<EdgeInsets>(context,
+EdgeInsets blockPadding(BuildContext context) =>
+    ResponsiveValue<EdgeInsets>(context,
         defaultValue: const EdgeInsets.symmetric(horizontal: 55, vertical: 80),
         conditionalValues: [
           const Condition.smallerThan(
-              name: TABLET, value: EdgeInsets.symmetric(horizontal: 15, vertical: 45))
+              name: TABLET,
+              value: EdgeInsets.symmetric(horizontal: 15, vertical: 45))
         ]).value;
 
 const EdgeInsets blockMargin = EdgeInsets.fromLTRB(10, 0, 10, 32);
@@ -43,7 +48,8 @@ class BlockWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ResponsiveConstraints(conditionalConstraints: blockWidthConstraints, child: widget),
+      child: ResponsiveConstraints(
+          conditionalConstraints: blockWidthConstraints, child: widget),
     );
   }
 }

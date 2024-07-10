@@ -10,7 +10,7 @@ class StyleTextTheme {
     fontWeight: FontWeightTheme.regular,
   );
 
-  static TextStyle get TextThemeDisplayLarge {
+  static TextStyle get textThemeDisplayLarge {
     return _baseTextStyle.copyWith(
       fontFamily: FontFamilyTheme.mainFont,
       fontSize: FontSizeTheme.titleVeryLarge.sp,
@@ -18,7 +18,7 @@ class StyleTextTheme {
     );
   }
 
-  static TextStyle get TextThemeDisplayMedium {
+  static TextStyle get textThemeDisplayMedium {
     return _baseTextStyle.copyWith(
       fontFamily: FontFamilyTheme.mainFont,
       fontSize: FontSizeTheme.titleLarge.spMax,

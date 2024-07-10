@@ -26,8 +26,10 @@ GoRouter goRouter(GoRouterRef ref) {
             opaque: false,
             transitionDuration: const Duration(seconds: 5),
             reverseTransitionDuration: const Duration(seconds: 2),
-            transitionsBuilder: (BuildContext context, Animation<double> animation,
-                Animation<double> secondaryAnimation, Widget child) {
+            transitionsBuilder: (BuildContext context,
+                Animation<double> animation,
+                Animation<double> secondaryAnimation,
+                Widget child) {
               return FadeTransition(
                 opacity: animation,
                 child: child,
