@@ -75,8 +75,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   List<Widget> get _bodyItems => [
-        BlockWrapper(AboutLayout(aboutData: widget.homeData!.about)),
         BlockWrapper(HeaderLayout(headerData: widget.homeData!.header)),
+        BlockWrapper(AboutLayout(aboutData: widget.homeData!.about)),
       ];
 
   Widget _body() {

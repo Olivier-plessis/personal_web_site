@@ -13,7 +13,7 @@ class AboutLayout extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     TextStyle titleSize = context.isDisplayLargeThanTablet
-        ? StyleTextTheme.headline2
+        ? StyleTextTheme.textThemeDisplayLarge
         : StyleTextTheme.labelMedium;
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -66,7 +66,7 @@ class AboutLayout extends ConsumerWidget {
                           SizedBox(height: 28.0.h),
                           Text(
                             aboutData.title.toCapitalized(),
-                            style: StyleTextTheme.labelMedium,
+                            style: StyleTextTheme.headlineMedium,
                           ),
                           const SizedBox(height: 8),
                           Container(

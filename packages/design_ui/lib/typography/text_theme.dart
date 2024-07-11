@@ -13,7 +13,7 @@ class StyleTextTheme {
   static TextStyle get textThemeDisplayLarge {
     return _baseTextStyle.copyWith(
       fontFamily: FontFamilyTheme.mainFont,
-      fontSize: FontSizeTheme.titleVeryLarge.sp,
+      fontSize: FontSizeTheme.titleVeryLarge,
       fontWeight: FontWeightTheme.extraBold,
     );
   }
@@ -21,14 +21,14 @@ class StyleTextTheme {
   static TextStyle get textThemeDisplayMedium {
     return _baseTextStyle.copyWith(
       fontFamily: FontFamilyTheme.mainFont,
-      fontSize: FontSizeTheme.titleLarge.spMax,
+      fontSize: FontSizeTheme.titleLarge,
       fontWeight: FontWeightTheme.extraBold,
     );
   }
 
   static TextStyle get headline2 {
     return _baseTextStyle.copyWith(
-      fontSize: FontSizeTheme.titleLarge.sp,
+      fontSize: FontSizeTheme.titleLarge,
       fontWeight: FontWeightTheme.semiBold,
     );
   }
@@ -42,7 +42,7 @@ class StyleTextTheme {
 
   static TextStyle get displaySmall {
     return _baseTextStyle.copyWith(
-      fontSize: FontSizeTheme.titleLarge.sp,
+      fontSize: FontSizeTheme.titleLarge,
       fontWeight: FontWeightTheme.extraBold,
     );
   }
@@ -56,7 +56,7 @@ class StyleTextTheme {
 
   static TextStyle get headlineSmall {
     return _baseTextStyle.copyWith(
-      fontSize: FontSizeTheme.bodyLarge.sp,
+      fontSize: FontSizeTheme.bodyLarge,
       fontWeight: FontWeightTheme.regular,
     );
   }
@@ -77,7 +77,7 @@ class StyleTextTheme {
 
   static TextStyle get labelMedium {
     return _baseTextStyle.copyWith(
-      fontSize: FontSizeTheme.bodyMedium.sp,
+      fontSize: FontSizeTheme.bodyMedium,
       fontWeight: FontWeightTheme.medium,
     );
   }

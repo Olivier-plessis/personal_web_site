@@ -39,7 +39,7 @@ class AppBarWidget extends ConsumerWidget {
             Text(
               'OLIVIER',
               style: context.isDisplayLargeThanTablet
-                  ? StyleTextTheme.textThemeDisplayLarge
+                  ? StyleTextTheme.textThemeDisplayMedium
                       .copyWith(letterSpacing: 1.8)
                   : StyleTextTheme.textThemeDisplayMedium
                       .copyWith(letterSpacing: 1.2),
@@ -47,7 +47,7 @@ class AppBarWidget extends ConsumerWidget {
             Text(
               ' PLESSIS',
               style: context.isDisplayLargeThanTablet
-                  ? StyleTextTheme.textThemeDisplayLarge
+                  ? StyleTextTheme.textThemeDisplayMedium
                       .copyWith(letterSpacing: 1.8, color: Palette.violet)
                   : StyleTextTheme.textThemeDisplayMedium
                       .copyWith(letterSpacing: 1.2, color: Palette.violet),

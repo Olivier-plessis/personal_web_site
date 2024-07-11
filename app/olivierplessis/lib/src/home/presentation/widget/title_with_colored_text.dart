@@ -19,7 +19,7 @@ class TitleWithColoredText extends StatelessWidget {
     final titleParts = title.split(' ');
 
     TextStyle titleSize = context.isDisplayLargeThanTablet
-        ? StyleTextTheme.headline2
+        ? StyleTextTheme.textThemeDisplayLarge
         : StyleTextTheme.labelMedium;
 
     return Wrap(
@@ -29,6 +29,7 @@ class TitleWithColoredText extends StatelessWidget {
             '$part ',
             style: titleSize.copyWith(
               height: 1.2,
+              letterSpacing: 1.9,
               color: part.contains(titleParts[coloredTitleParts.first]) ||
                       part.contains(titleParts[coloredTitleParts.last])
                   ? ideasColor

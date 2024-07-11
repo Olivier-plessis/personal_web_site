@@ -28,7 +28,7 @@ class HeaderLayout extends StatelessWidget {
               child: _leftContentLayout(context, headerData),
             ),
             ResponsiveRowColumnItem(
-              rowFlex: 8,
+              rowFlex: context.isDisplayLargeThanDesktop ? 7 : 6,
               columnOrder: 2,
               child: _rightContentLayout(context),
             ),
@@ -72,7 +72,6 @@ Widget _leftContentLayout(BuildContext context, HeaderSection headerData) {
                 size: 24, color: Palette.violet),
           ],
         )),
-    const SizedBox(height: 32),
   ]);
 }
 

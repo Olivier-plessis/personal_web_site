@@ -17,7 +17,6 @@ class MainApp extends ConsumerWidget {
 
     return ScreenUtilInit(
       designSize: ScreenUtil.defaultSize,
-      minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) => MaterialApp.router(
         routerConfig: goRouter,
