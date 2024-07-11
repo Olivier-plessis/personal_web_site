@@ -45,6 +45,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final ThemeMode themeMode = ref.watch(themeModeControllerProvider);
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight * 2),
           child: AppBarWidget(

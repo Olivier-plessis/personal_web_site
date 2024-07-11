@@ -13,7 +13,9 @@ class AboutLayout extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     TextStyle titleSize = context.isDisplayLargeThanTablet
-        ? StyleTextTheme.textThemeDisplayLarge
+        ? StyleTextTheme.textThemeDisplayLarge.copyWith(
+            fontWeight: FontWeightTheme.semiBold,
+          )
         : StyleTextTheme.labelMedium;
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -22,7 +24,8 @@ class AboutLayout extends ConsumerWidget {
         ResponsiveRowColumn(
           columnMainAxisAlignment: MainAxisAlignment.center,
           columnSpacing: 24,
-          rowPadding: EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+          rowPadding:
+              EdgeInsets.fromLTRB(16.0, (kToolbarHeight + 96), 16.0, 8.0),
           layout: context.isDisplayLargeThanTablet
               ? ResponsiveRowColumnType.ROW
               : ResponsiveRowColumnType.COLUMN,
@@ -40,7 +43,7 @@ class AboutLayout extends ConsumerWidget {
                         child: ConstrainedBox(
                           constraints: BoxConstraints(
                             maxHeight:
-                                context.isDisplayLargeThanTablet ? 640 : 500,
+                                context.isDisplayLargeThanTablet ? 620 : 500,
                           ),
                           child: AspectRatio(
                             aspectRatio: 1,
@@ -54,7 +57,7 @@ class AboutLayout extends ConsumerWidget {
                     Container(
                       width: 600.0.w,
                       constraints: BoxConstraints(
-                        minWidth: context.isDisplayLargeThanTablet ? 940 : 500,
+                        maxWidth: context.isDisplayLargeThanTablet ? 940 : 500,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,12 +66,13 @@ class AboutLayout extends ConsumerWidget {
                             aboutData.sectionTitle.toCapitalized(),
                             style: titleSize.copyWith(color: Palette.violet),
                           ),
-                          SizedBox(height: 28.0.h),
                           Text(
                             aboutData.title.toCapitalized(),
-                            style: StyleTextTheme.headlineMedium,
-                          ),
-                          const SizedBox(height: 8),
+                            style:
+                                StyleTextTheme.textThemeDisplayMedium.copyWith(
+                              fontWeight: FontWeightTheme.medium,
+                            ),
+                          ).paddedT(12.0.h),
                           Container(
                             margin: const EdgeInsets.symmetric(vertical: 40),
                             height: 4.0.h,
@@ -82,15 +86,33 @@ class AboutLayout extends ConsumerWidget {
                           ),
                           const SizedBox(height: 8),
                           Container(
-                            width: context.isDisplayLargeThanTablet
-                                ? MediaQuery.sizeOf(context).width / 4
-                                : MediaQuery.sizeOf(context).width * 0.6,
+                            constraints: BoxConstraints(
+                              maxWidth:
+                                  context.isDisplayLargeThanTablet ? 640 : 800,
+                            ),
                             padding: const EdgeInsets.symmetric(horizontal: 8),
                             child: Text(
                               aboutData.subtitle.toCapitalized(),
-                              style: StyleTextTheme.headlineSmall,
+                              style: StyleTextTheme.labelMedium,
                             ),
                           ),
+                          InkWell(
+                              splashFactory: NoSplash.splashFactory,
+                              highlightColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              splashColor: Colors.transparent,
+                              onTap: () {},
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(aboutData.link.toCapitalized(),
+                                      style: StyleTextTheme.labelMedium
+                                          .copyWith(color: Palette.violet)),
+                                  const SizedBox(width: 64),
+                                  const Icon(Icons.arrow_forward_sharp,
+                                      size: 24, color: Palette.violet),
+                                ],
+                              )).paddedV(96.0),
                         ],
                       ),
                     ),
@@ -113,7 +135,7 @@ class AboutLayout extends ConsumerWidget {
                   direction: context.isDisplayLargeThanTablet
                       ? Axis.vertical
                       : Axis.horizontal,
-                  spacing: 58,
+                  spacing: 98,
                   runSpacing: 98,
                   children: [
                     ...aboutData.info.fold<List<Widget>>([], (widgetValue, e) {
@@ -129,7 +151,7 @@ class AboutLayout extends ConsumerWidget {
                             text: TextSpan(
                               text: '${e.value.toCapitalized()}',
                               style: titleSize.copyWith(
-                                color: Palette.white,
+                                color: Theme.of(context).primaryColor,
                               ),
                               children: [
                                 WidgetSpan(
@@ -142,7 +164,7 @@ class AboutLayout extends ConsumerWidget {
                                   style: titleSize.copyWith(
                                     color: index == 1
                                         ? Palette.violet
-                                        : Palette.white,
+                                        : Theme.of(context).primaryColor,
                                   ),
                                 ),
                               ],
@@ -168,6 +190,7 @@ class AboutLayout extends ConsumerWidget {
     return words
         .map((word) => Text(
               word.toCapitalized(),
+              style: StyleTextTheme.labelMedium.copyWith(color: Palette.grey),
             ))
         .toList();
   }

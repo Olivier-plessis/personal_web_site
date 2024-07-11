@@ -22,11 +22,6 @@ class AppBarWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
-      centerTitle: false,
-      titleSpacing: 0,
-      titleTextStyle: Theme.of(context).textTheme.titleSmall,
-      scrolledUnderElevation: 4,
-      shadowColor: Colors.grey.shade50.withOpacity(0.2),
       title: BlockWrapper(
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,7 +111,7 @@ class AppBarWidget extends ConsumerWidget {
               ),
             ),
           ],
-        ).paddedH(24),
+        ),
       ),
     );
   }

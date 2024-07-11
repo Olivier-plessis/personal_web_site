@@ -28,7 +28,7 @@ class TitleWithColoredText extends StatelessWidget {
           Text(
             '$part ',
             style: titleSize.copyWith(
-              height: 1.2,
+              height: 1.4,
               letterSpacing: 1.9,
               color: part.contains(titleParts[coloredTitleParts.first]) ||
                       part.contains(titleParts[coloredTitleParts.last])
