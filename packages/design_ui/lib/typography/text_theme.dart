@@ -77,8 +77,8 @@ class StyleTextTheme {
 
   static TextStyle get labelMedium {
     return _baseTextStyle.copyWith(
-      fontSize: FontSizeTheme.bodyMedium,
-      fontWeight: FontWeightTheme.light,
+      fontSize: FontSizeTheme.bodyMedium.sp,
+      fontWeight: FontWeightTheme.medium,
     );
   }
 }

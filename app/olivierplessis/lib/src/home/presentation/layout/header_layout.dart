@@ -14,9 +14,10 @@ class HeaderLayout extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         ResponsiveRowColumn(
-          columnMainAxisAlignment: MainAxisAlignment.center,
+          columnMainAxisAlignment: MainAxisAlignment.spaceAround,
           columnSpacing: 24,
-          rowMainAxisAlignment: MainAxisAlignment.spaceAround,
+          rowPadding: EdgeInsets.only(left: 6.0.w),
+          rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
           layout: context.isDisplayLargeThanTablet
               ? ResponsiveRowColumnType.ROW
               : ResponsiveRowColumnType.COLUMN,
@@ -34,7 +35,7 @@ class HeaderLayout extends StatelessWidget {
           ],
         ),
       ],
-    ).paddedHV(4, kToolbarHeight / 2);
+    ).paddedHV(0, kToolbarHeight / 2);
   }
 }
 
@@ -78,7 +79,7 @@ Widget _leftContentLayout(BuildContext context, HeaderSection headerData) {
 Widget _rightContentLayout(BuildContext context) {
   return ConstrainedBox(
     constraints: BoxConstraints(
-      maxHeight: context.isDisplayLargeThanTablet ? 740 : 500,
+      maxHeight: context.isDisplayLargeThanTablet ? 840 : 500,
     ),
     child: AspectRatio(
       aspectRatio: 1,

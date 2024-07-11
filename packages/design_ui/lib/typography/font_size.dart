@@ -11,7 +11,7 @@ class FontSizeTheme {
 
   static double get bodyLarge => 3.0;
 
-  static double get bodyMedium => 20.0;
+  static double get bodyMedium => 6.0;
 
   static double get bodyRegular => 16.0;
 

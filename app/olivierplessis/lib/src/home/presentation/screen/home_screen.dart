@@ -70,13 +70,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   void _changeToIndex(int i) {
     _itemScrollController.scrollTo(
       index: i,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 900),
     );
   }
 
   List<Widget> get _bodyItems => [
-        BlockWrapper(HeaderLayout(headerData: widget.homeData!.header)),
         BlockWrapper(AboutLayout(aboutData: widget.homeData!.about)),
+        BlockWrapper(HeaderLayout(headerData: widget.homeData!.header)),
       ];
 
   Widget _body() {

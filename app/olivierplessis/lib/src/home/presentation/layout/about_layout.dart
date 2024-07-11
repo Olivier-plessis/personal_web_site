@@ -17,52 +17,114 @@ class AboutLayout extends ConsumerWidget {
         : StyleTextTheme.labelMedium;
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisSize: MainAxisSize.min,
       children: [
         ResponsiveRowColumn(
           columnMainAxisAlignment: MainAxisAlignment.center,
-          columnSpacing: 32,
-          rowSpacing: 32,
-          rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
-          rowCrossAxisAlignment: CrossAxisAlignment.start,
+          columnSpacing: 24,
+          rowPadding: EdgeInsets.symmetric(horizontal: 24, vertical: 32),
           layout: context.isDisplayLargeThanTablet
               ? ResponsiveRowColumnType.ROW
               : ResponsiveRowColumnType.COLUMN,
           children: [
             ResponsiveRowColumnItem(
-              rowFlex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    aboutData.sectionTitle.toCapitalized(),
-                    style: titleSize,
+                rowFlex: 6,
+                rowFit: FlexFit.tight,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: context.isDisplayLargeThanTablet ? 640 : 500,
                   ),
-                  SizedBox(height: 28.0.h),
-                  Text(
-                    aboutData.title.toCapitalized(),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    aboutData.subtitle.toCapitalized(),
-                  ),
-                ],
-              ),
-            ),
+                  child: Stack(clipBehavior: Clip.hardEdge, children: <Widget>[
+                    Positioned(
+                        right: 0,
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(
+                            maxHeight:
+                                context.isDisplayLargeThanTablet ? 640 : 500,
+                          ),
+                          child: AspectRatio(
+                            aspectRatio: 1,
+                            child: RepaintBoundary(
+                              child: ImagePictureCustom(
+                                path: BrandingAssets.bdgPhoto,
+                              ),
+                            ),
+                          ),
+                        )),
+                    Container(
+                      width: 600.0.w,
+                      constraints: BoxConstraints(
+                        minWidth: context.isDisplayLargeThanTablet ? 940 : 500,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            aboutData.sectionTitle.toCapitalized(),
+                            style: titleSize.copyWith(color: Palette.violet),
+                          ),
+                          SizedBox(height: 28.0.h),
+                          Text(
+                            aboutData.title.toCapitalized(),
+                            style: StyleTextTheme.labelMedium,
+                          ),
+                          const SizedBox(height: 8),
+                          Container(
+                            margin: const EdgeInsets.symmetric(vertical: 40),
+                            height: 4.0.h,
+                            width: context.isDisplayLargeThanTablet
+                                ? MediaQuery.sizeOf(context).width / 12
+                                : MediaQuery.sizeOf(context).width * 0.6,
+                            decoration: BoxDecoration(
+                              color: Palette.violet,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Container(
+                            width: context.isDisplayLargeThanTablet
+                                ? MediaQuery.sizeOf(context).width / 4
+                                : MediaQuery.sizeOf(context).width * 0.6,
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: Text(
+                              aboutData.subtitle.toCapitalized(),
+                              style: StyleTextTheme.headlineSmall,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+                )),
             ResponsiveRowColumnItem(
               rowFlex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  ...aboutData.info.fold<List<Widget>>([], (widgetValue, e) {
-                    final index = widgetValue.length;
+              rowFit: FlexFit.loose,
+              child: Container(
+                alignment: Alignment.topRight,
+                constraints: BoxConstraints(
+                  minHeight: context.isDisplayLargeThanTablet ? 640 : 500,
+                ),
+                child: Wrap(
+                  crossAxisAlignment: context.isDisplayLargeThanTablet
+                      ? WrapCrossAlignment.end
+                      : WrapCrossAlignment.start,
+                  alignment: WrapAlignment.spaceAround,
+                  runAlignment: WrapAlignment.spaceAround,
+                  direction: context.isDisplayLargeThanTablet
+                      ? Axis.vertical
+                      : Axis.horizontal,
+                  spacing: 58,
+                  runSpacing: 98,
+                  children: [
+                    ...aboutData.info.fold<List<Widget>>([], (widgetValue, e) {
+                      final index = widgetValue.length;
 
-                    widgetValue.add(Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        ...splitAndDisplayText(e.tile),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 4),
-                          child: RichText(
+                      widgetValue.add(Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          ...splitAndDisplayText(e.tile),
+                          RichText(
                             textAlign: TextAlign.end,
                             text: TextSpan(
                               text: '${e.value.toCapitalized()}',
@@ -79,21 +141,21 @@ class AboutLayout extends ConsumerWidget {
                                   text: '+',
                                   style: titleSize.copyWith(
                                     color: index == 1
-                                        ? Palette.greyDark
+                                        ? Palette.violet
                                         : Palette.white,
                                   ),
                                 ),
                               ],
                             ),
-                          ).paddedH(4),
-                        ),
-                      ],
-                    ));
-                    return widgetValue;
-                  })
-                ],
+                          ).paddedH(0),
+                        ],
+                      ));
+                      return widgetValue;
+                    })
+                  ],
+                ),
               ),
-            ),
+            )
           ],
         )
       ],
