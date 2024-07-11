@@ -13,7 +13,7 @@ final ThemeData darkTheme = ThemeData(
     elevation: 0,
     backgroundColor: Palette.surfaceBackgroundDark.withOpacity(0.9),
     centerTitle: false,
-    titleSpacing: 64,
+    titleSpacing: 6,
     shadowColor: Colors.grey.shade50.withOpacity(0.8),
     toolbarHeight: 96,
   ),
