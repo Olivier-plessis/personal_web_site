@@ -1,5 +1,4 @@
-import 'dart:async';
-import 'dart:ui' as ui;
+import 'dart:math';
 
 import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +23,9 @@ class PortfolioLayout extends ConsumerWidget {
       ideasColor: ideasColor,
       coloredTitleParts: [4, 5], // These words will be colored blue
     );
+    final currentCount = (MediaQuery.of(context).size.width ~/ 250).toInt();
 
+    final minCount = 3;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -36,11 +37,98 @@ class PortfolioLayout extends ConsumerWidget {
               ),
               child: titleWidget),
         ),
-        PortfolioItems(popularPackages: portfolio),
+        GridView(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: min(currentCount, minCount),
+            crossAxisSpacing: 24,
+            mainAxisSpacing: 24,
+            childAspectRatio: 1.3,
+          ),
+          children: [
+            ...portfolio.workItems.take(5).fold<List<Widget>>([],
+                (acc, workItem) {
+              return acc
+                ..addAll([
+                  PackageCard(
+                    package: workItem,
+                    isOdd: acc.length.isOdd,
+                  ),
+                ]);
+            }).toList(),
+            Container(
+              decoration: BoxDecoration(
+                color: Palette.grey.withOpacity(0.5),
+                border: Border.all(
+                    color: Palette.violet.withOpacity(0.5), width: 2),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Color(0x4D000000),
+                      offset: Offset(0, 2),
+                      blurRadius: 5),
+                ],
+                borderRadius: BorderRadius.circular(10.0.r),
+              ),
+              child: Center(
+                child: Text(
+                  "vide",
+                  style: TextStyle(fontSize: 24, color: Colors.black),
+                ),
+              ),
+            )
+          ],
+        ),
       ],
     ).paddedLTRB(16.0, (56 * 2), 16.0, 8.0);
   }
 }
+
+class PackageCard extends StatelessWidget {
+  const PackageCard({
+    Key? key,
+    required this.package,
+    required this.isOdd,
+  });
+  final WorkItem package;
+  final bool isOdd;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Palette.violet.withOpacity(0.5), width: 2),
+        boxShadow: const [
+          BoxShadow(
+              color: Color(0x4D000000), offset: Offset(0, 2), blurRadius: 5),
+        ],
+        borderRadius: BorderRadius.circular(10.0.r),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+                onTap: () {},
+                child: Text(package.category, overflow: TextOverflow.ellipsis)),
+          ),
+          Text(package.title,
+              style: const TextStyle(fontSize: 14, height: 1.6),
+              maxLines: 3,
+              overflow: TextOverflow.clip),
+          const Padding(padding: EdgeInsets.only(bottom: 16)),
+          if (ResponsiveBreakpoints.of(context).largerThan('MOBILE_LARGE'))
+            const Spacer(),
+          const Padding(padding: EdgeInsets.only(bottom: 8)),
+        ],
+      ),
+    );
+  }
+}
+
+/*
 
 class PortfolioItems extends StatelessWidget {
   const PortfolioItems({super.key, required this.popularPackages});
@@ -279,51 +367,6 @@ class _RightPortfolioSectionState extends State<RightPortfolioSection> {
             ).paddedT(56.0.h),
           ),
         ]);
-  }
-}
-
-/*
-class PackageCard extends StatelessWidget {
-  const PackageCard({
-    Key? key,
-    required this.package,
-    required this.isOdd,
-  });
-  final WorkItem package;
-  final bool isOdd;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: const [
-          BoxShadow(
-              color: Color(0x4D000000), offset: Offset(0, 2), blurRadius: 5),
-        ],
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Column(
-        crossAxisAlignment:
-            !isOdd ? CrossAxisAlignment.start : CrossAxisAlignment.end,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          MouseRegion(
-            cursor: SystemMouseCursors.click,
-            child: GestureDetector(
-                onTap: () {},
-                child: Text(package.category, overflow: TextOverflow.ellipsis)),
-          ),
-          Text(package.title,
-              style: const TextStyle(fontSize: 14, height: 1.6),
-              maxLines: 3,
-              overflow: TextOverflow.clip),
-          const Padding(padding: EdgeInsets.only(bottom: 16)),
-          if (ResponsiveBreakpoints.of(context).largerThan('MOBILE_LARGE'))
-            const Spacer(),
-          const Padding(padding: EdgeInsets.only(bottom: 8)),
-        ],
-      ),
-    );
   }
 }
 */
