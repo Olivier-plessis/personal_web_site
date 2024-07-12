@@ -38,8 +38,7 @@ class LeftAboutSection extends StatelessWidget {
                 ),
               ),
             )),
-        Container(
-          width: 600.0.w,
+        ConstrainedBox(
           constraints: BoxConstraints(
             maxWidth: context.isDisplayLargeThanTablet ? 940 : 500,
           ),

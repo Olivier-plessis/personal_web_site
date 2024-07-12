@@ -51,6 +51,9 @@
         "category": "application mobile",
         "tags": ["flutter", "dart", "riverpod", "freezed", "go_router", "dio", "firebase", "retrofit"],
         "subtitle": "Une application mobile de gestion de compte.",
+        "description": "Une application mobile de gestion de compte.",
+        "work_type": "application mobile",
+        "cover_image": "assets/images/work/projet-tada.png",
         "link": [
           {
             "website_url": "https://picsum.photos/id/10/400/300",
@@ -64,6 +67,9 @@
         "category": "application web",
         "tags": ["flutter", "dart", "riverpod", "freezed", "go_router"],
         "subtitle": "Une application mobile de gestion de compte.",
+        "description": "Une application mobile de gestion de compte.",
+        "work_type": "application mobile",
+        "cover_image": "assets/images/work/projet-cureety.png",
         "link": [
           {
             "website_url": "https://picsum.photos/id/10/400/300",
@@ -77,6 +83,9 @@
         "category": "application Ipad",
         "tags": ["flutter", "dart", "riverpod", "freezed", "go_router"],
         "subtitle": "Une application mobile de gestion de compte.",
+        "description": "Une application mobile de gestion de compte.",
+        "work_type": "application mobile",
+        "cover_image": "assets/images/work/projet-br-unit.png",
         "link": [
           {
             "website_url": "https://picsum.photos/id/10/400/300",
@@ -90,6 +99,25 @@
         "category": "application mobile, tablette, web",
         "tags": ["flutter", "dart", "provider", "freezed", "go_router", "firebase"],
         "subtitle": "Une application mobile de gestion de compte.",
+        "description": "Une application mobile de gestion de compte.",
+        "work_type": "application mobile",
+        "cover_image": "assets/images/work/projet-lpcr.png",
+        "link": [
+          {
+            "website_url": "https://picsum.photos/id/10/400/300",
+            "store_ios": "https://picsum.photos/id/10/400/300",
+            "store_android": "https://picsum.photos/id/10/400/300"
+          }
+        ]
+      },
+      {
+        "title": "Liza",
+        "category": "application mobile, tablette, web",
+        "tags": ["flutter", "dart", "provider", "freezed", "go_router", "firebase"],
+        "subtitle": "Une application mobile de gestion de compte.",
+        "description": "Une application mobile de gestion de compte.",
+        "work_type": "application mobile",
+        "cover_image": "assets/images/work/projet-lpcr.png",
         "link": [
           {
             "website_url": "https://picsum.photos/id/10/400/300",

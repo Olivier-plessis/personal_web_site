@@ -44,6 +44,7 @@ class ImagePictureCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
+      key: key,
       path,
       package: "design_ui",
       width: width,

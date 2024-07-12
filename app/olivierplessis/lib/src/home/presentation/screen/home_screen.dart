@@ -5,6 +5,7 @@ import 'package:olivierplessis/core/utils/provider/theme/theme_mode_provider.dar
 import 'package:olivierplessis/src/home/domain/model/main_model.dart';
 import 'package:olivierplessis/src/home/presentation/layout/about/about_layout.dart';
 import 'package:olivierplessis/src/home/presentation/layout/header/header_layout.dart';
+import 'package:olivierplessis/src/home/presentation/layout/portfolio/portfolio_layout.dart';
 import 'package:olivierplessis/src/home/presentation/provider/combine_provider.dart';
 import 'package:olivierplessis/src/navigation/domain/model/item_nav_model.dart';
 import 'package:olivierplessis/src/navigation/presentation/provider/selected_item_tool_bar_provider.dart';
@@ -19,7 +20,7 @@ class MainHomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncCombineHomeData = ref.watch(asyncCombineNotifierProvider);
 
-    print(asyncCombineHomeData);
+    // print(asyncCombineHomeData);
 
     return switch (asyncCombineHomeData) {
       AsyncData(:final value) => HomeScreen(homeData: value),
@@ -78,6 +79,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   List<Widget> get _bodyItems => [
         BlockWrapper(HeaderLayout(headerData: widget.homeData!.header)),
         BlockWrapper(AboutLayout(aboutData: widget.homeData!.about)),
+        BlockWrapper(PortfolioLayout(portfolio: widget.homeData!.portfolio)),
       ];
 
   Widget _body() {

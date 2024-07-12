@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:olivierplessis/src/home/domain/model/about/about_model.dart';
 import 'package:olivierplessis/src/home/domain/model/header/header_model.dart';
+import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
 import 'package:olivierplessis/src/navigation/domain/model/item_nav_model.dart';
 
 part 'main_model.freezed.dart';
@@ -12,6 +13,7 @@ class MainModel with _$MainModel {
     required List<Navigation> navigation,
     required HeaderSection header,
     required AboutSection about,
+    required PortfolioSection portfolio,
   }) = _MainModel;
 
   factory MainModel.fromJson(Map<String, dynamic> json) =>

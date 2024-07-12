@@ -71,11 +71,10 @@ extension PaddingExt on Widget {
     );
   }
 
-  Widget paddedLRTB(
-      {double left = 0, double right = 0, double top = 0, double bottom = 0}) {
+  Widget paddedLTRB(double left, double top, double right, double bottom) {
     return Padding(
       padding:
-          EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
+          EdgeInsets.only(left: left, top: top, right: right, bottom: bottom),
       child: this,
     );
   }
