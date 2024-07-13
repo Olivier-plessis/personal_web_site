@@ -48,7 +48,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 2),
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: AppBarWidget(
               toolbarItems:
                   _generateToolbarItems(widget.homeData?.navigation ?? []),

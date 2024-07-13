@@ -3,11 +3,11 @@ class FontSizeTheme {
 
   static double get numberLarge => 72.0;
 
-  static double get titleVeryLarge => 54.0;
+  static double get titleVeryLarge => 42.0;
 
-  static double get titleLarge => 48.0;
+  static double get titleLarge => 36.0;
 
-  static double get navItemLarge => 24.0;
+  static double get navItemLarge => 18.0;
 
   static double get bodyLarge => 24.0;
 

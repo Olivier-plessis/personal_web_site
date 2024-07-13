@@ -10,35 +10,32 @@ class HeaderLayout extends StatelessWidget {
   final HeaderSection headerData;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        ResponsiveRowColumn(
-          columnMainAxisAlignment: MainAxisAlignment.spaceAround,
-          columnSpacing: 24,
-          rowPadding: EdgeInsets.fromLTRB(16.0, (96 * 2), 16.0, 8.0),
-          rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
-          layout: context.isDisplayLargeThanTablet
-              ? ResponsiveRowColumnType.ROW
-              : ResponsiveRowColumnType.COLUMN,
-          children: [
-            ResponsiveRowColumnItem(
-              rowFlex: context.isDisplayLargeThanDesktop ? 2 : 4,
-              columnOrder: 1,
-              child: LeftHeaderSection(
-                headerData: headerData,
-                onTap: () {},
-              ),
+    return Container(
+      width: MaxSizeConstant.maxWidth,
+      margin: blockMargin(context),
+      padding: blockPadding(context),
+      child: ResponsiveRowColumn(
+        layout: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
+            ? ResponsiveRowColumnType.COLUMN
+            : ResponsiveRowColumnType.ROW,
+        rowCrossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ResponsiveRowColumnItem(
+            rowFlex: context.isDisplayLargeThanDesktop ? 2 : 4,
+            columnOrder: 1,
+            child: LeftHeaderSection(
+              headerData: headerData,
+              onTap: () {},
             ),
-            ResponsiveRowColumnItem(
-              rowFlex: context.isDisplayLargeThanDesktop ? 3 : 6,
-              columnOrder: 2,
-              child: _rightContentLayout(context),
-            ),
-          ],
-        ),
-      ],
-    ).paddedHV(0, kToolbarHeight / 2);
+          ),
+          ResponsiveRowColumnItem(
+            rowFlex: context.isDisplayLargeThanDesktop ? 3 : 6,
+            columnOrder: 2,
+            child: _rightContentLayout(context),
+          ),
+        ],
+      ),
+    );
   }
 }
 

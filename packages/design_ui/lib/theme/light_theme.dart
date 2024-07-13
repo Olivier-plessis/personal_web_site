@@ -14,6 +14,5 @@ final ThemeData lightTheme = ThemeData(
     titleSpacing: 6,
     shadowColor: Colors.grey.shade50.withOpacity(0.8),
     backgroundColor: Palette.surfaceBackgroundLight.withOpacity(0.9),
-    toolbarHeight: 96,
   ),
 );

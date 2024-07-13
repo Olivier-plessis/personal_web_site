@@ -15,6 +15,5 @@ final ThemeData darkTheme = ThemeData(
     centerTitle: false,
     titleSpacing: 6,
     shadowColor: Colors.grey.shade50.withOpacity(0.8),
-    toolbarHeight: 96,
   ),
 );

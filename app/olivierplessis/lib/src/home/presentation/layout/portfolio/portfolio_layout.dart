@@ -38,6 +38,7 @@ class PortfolioLayout extends ConsumerWidget {
               child: titleWidget),
         ),
         GridView(
+          padding: EdgeInsets.only(top: 26.0.h),
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

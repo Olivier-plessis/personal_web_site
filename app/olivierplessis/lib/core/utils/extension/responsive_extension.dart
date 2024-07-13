@@ -38,7 +38,15 @@ EdgeInsets blockPadding(BuildContext context) =>
               value: EdgeInsets.symmetric(horizontal: 15, vertical: 45))
         ]).value;
 
-const EdgeInsets blockMargin = EdgeInsets.fromLTRB(10, 0, 10, 32);
+EdgeInsets blockMargin(BuildContext context) =>
+    ResponsiveValue<EdgeInsets>(context,
+        defaultValue: const EdgeInsets.fromLTRB(10, 96, 10, 32),
+        conditionalValues: [
+          Condition.smallerThan(
+              name: DESKTOP, value: EdgeInsets.fromLTRB(10, 24.0.h, 10, 32))
+        ]).value;
+
+// const EdgeInsets blockMargin = EdgeInsets.fromLTRB(10, 56, 10, 32);
 
 class BlockWrapper extends StatelessWidget {
   final Widget widget;
