@@ -10,31 +10,26 @@ class HeaderLayout extends StatelessWidget {
   final HeaderSection headerData;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MaxSizeConstant.maxWidth,
-      margin: blockMargin(context),
-      padding: blockPadding(context),
-      child: ResponsiveRowColumn(
-        layout: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
-            ? ResponsiveRowColumnType.COLUMN
-            : ResponsiveRowColumnType.ROW,
-        rowCrossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ResponsiveRowColumnItem(
-            rowFlex: context.isDisplayLargeThanDesktop ? 2 : 4,
-            columnOrder: 1,
-            child: LeftHeaderSection(
-              headerData: headerData,
-              onTap: () {},
-            ),
+    return ResponsiveRowColumn(
+      layout: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
+          ? ResponsiveRowColumnType.COLUMN
+          : ResponsiveRowColumnType.ROW,
+      rowCrossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ResponsiveRowColumnItem(
+          rowFlex: context.isDisplayLargeThanDesktop ? 2 : 4,
+          columnOrder: 1,
+          child: LeftHeaderSection(
+            headerData: headerData,
+            onTap: () {},
           ),
-          ResponsiveRowColumnItem(
-            rowFlex: context.isDisplayLargeThanDesktop ? 3 : 6,
-            columnOrder: 2,
-            child: _rightContentLayout(context),
-          ),
-        ],
-      ),
+        ),
+        ResponsiveRowColumnItem(
+          rowFlex: context.isDisplayLargeThanDesktop ? 3 : 6,
+          columnOrder: 2,
+          child: _rightContentLayout(context),
+        ),
+      ],
     );
   }
 }

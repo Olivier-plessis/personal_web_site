@@ -24,13 +24,13 @@ class LeftAboutSection extends StatelessWidget {
       ),
       child: Stack(clipBehavior: Clip.hardEdge, children: <Widget>[
         Positioned(
-            right: 0,
+            right: context.isDisplayLargeThanTablet ? 20.0.w : 0,
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxHeight: context.isDisplayLargeThanTablet ? 620 : 500,
+                maxHeight: context.isDisplayLargeThanTablet ? 620 : 300,
               ),
               child: AspectRatio(
-                aspectRatio: 1,
+                aspectRatio: 0.9,
                 child: RepaintBoundary(
                   child: ImagePictureCustom(
                     path: BrandingAssets.bdgPhoto,
@@ -38,51 +38,51 @@ class LeftAboutSection extends StatelessWidget {
                 ),
               ),
             )),
-        ConstrainedBox(
-          constraints: BoxConstraints(
-            maxWidth: context.isDisplayLargeThanTablet ? 940 : 500,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                aboutData.sectionTitle.toCapitalized(),
-                style: titleSize.copyWith(color: Palette.violet),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              aboutData.sectionTitle.toCapitalized(),
+              style: titleSize.copyWith(color: Palette.violet),
+            ),
+            Container(
+              constraints: BoxConstraints(
+                maxWidth: context.isDisplayLargeThanTablet ? 940 : 500,
               ),
-              Text(
+              child: Text(
                 aboutData.title.toCapitalized(),
                 style: StyleTextTheme.textThemeDisplayMedium.copyWith(
                   fontWeight: FontWeightTheme.medium,
                 ),
               ).paddedT(12.0.h),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 40),
-                height: 4.0.h,
-                width: context.isDisplayLargeThanTablet
-                    ? MediaQuery.sizeOf(context).width / 12
-                    : MediaQuery.sizeOf(context).width * 0.6,
-                decoration: BoxDecoration(
-                  color: Palette.violet,
-                  borderRadius: BorderRadius.circular(8),
-                ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 40),
+              height: 4.0.h,
+              width: context.isDisplayLargeThanTablet
+                  ? MediaQuery.sizeOf(context).width / 12
+                  : MediaQuery.sizeOf(context).width * 0.6,
+              decoration: BoxDecoration(
+                color: Palette.violet,
+                borderRadius: BorderRadius.circular(8),
               ),
-              const SizedBox(height: 8),
-              Container(
-                constraints: BoxConstraints(
-                  maxWidth: context.isDisplayLargeThanTablet ? 640 : 800,
-                ),
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Text(
-                  aboutData.subtitle.toCapitalized(),
-                  style: StyleTextTheme.labelMedium,
-                ),
+            ),
+            const SizedBox(height: 8),
+            Container(
+              constraints: BoxConstraints(
+                maxWidth: context.isDisplayLargeThanTablet ? 440 : 800,
               ),
-              TextLinkWidget(
-                text: aboutData.link,
-                onTap: onTap,
-              ).paddedV(96.0),
-            ],
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                aboutData.subtitle.toCapitalized(),
+                style: StyleTextTheme.labelMedium,
+              ),
+            ),
+            TextLinkWidget(
+              text: aboutData.link,
+              onTap: onTap,
+            ).paddedV(96.0),
+          ],
         ),
       ]),
     );

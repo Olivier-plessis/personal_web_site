@@ -6,12 +6,13 @@ class TitleWithColoredText extends StatelessWidget {
   final String title;
   final Color ideasColor;
   final List<int> coloredTitleParts;
-
+  final FontWeight? fontWeight;
   const TitleWithColoredText({
     super.key,
     required this.title,
     required this.ideasColor,
     required this.coloredTitleParts,
+    this.fontWeight = FontWeightTheme.semiBold,
   });
 
   @override
@@ -30,6 +31,7 @@ class TitleWithColoredText extends StatelessWidget {
             style: titleSize.copyWith(
               height: 1.4,
               letterSpacing: 1.9,
+              fontWeight: fontWeight,
               color: part.contains(titleParts[coloredTitleParts.first]) ||
                       part.contains(titleParts[coloredTitleParts.last])
                   ? ideasColor

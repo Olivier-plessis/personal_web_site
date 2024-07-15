@@ -38,9 +38,10 @@ EdgeInsets blockPadding(BuildContext context) =>
               value: EdgeInsets.symmetric(horizontal: 15, vertical: 45))
         ]).value;
 
-EdgeInsets blockMargin(BuildContext context) =>
+EdgeInsets blockMargin({required BuildContext context, bool isTop = false}) =>
     ResponsiveValue<EdgeInsets>(context,
-        defaultValue: const EdgeInsets.fromLTRB(10, 96, 10, 32),
+        defaultValue:
+            EdgeInsets.fromLTRB(10, isTop == true ? 76.0.h : 46.0.h, 10, 0),
         conditionalValues: [
           Condition.smallerThan(
               name: DESKTOP, value: EdgeInsets.fromLTRB(10, 24.0.h, 10, 32))
@@ -58,6 +59,25 @@ class BlockWrapper extends StatelessWidget {
     return Center(
       child: ResponsiveConstraints(
           conditionalConstraints: blockWidthConstraints, child: widget),
+    );
+  }
+}
+
+class BlockWrapperWithContainer extends StatelessWidget {
+  final Widget widget;
+  final bool isTop;
+  const BlockWrapperWithContainer(this.widget, {super.key, this.isTop = false});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ResponsiveConstraints(
+          conditionalConstraints: blockWidthConstraints,
+          child: Container(
+              width: MaxSizeConstant.maxWidth,
+              margin: blockMargin(context: context, isTop: isTop),
+              padding: blockPadding(context),
+              child: widget)),
     );
   }
 }

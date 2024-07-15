@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
+import 'package:olivierplessis/src/home/presentation/layout/portfolio/portfolio_large_slider.dart';
 import 'package:olivierplessis/src/home/presentation/widget/title_with_colored_text.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -21,7 +22,7 @@ class PortfolioLayout extends ConsumerWidget {
     Widget titleWidget = TitleWithColoredText(
       title: title,
       ideasColor: ideasColor,
-      coloredTitleParts: [4, 5], // These words will be colored blue
+      coloredTitleParts: [6], // These words will be colored blue
     );
     final currentCount = (MediaQuery.of(context).size.width ~/ 250).toInt();
 
@@ -33,76 +34,102 @@ class PortfolioLayout extends ConsumerWidget {
           alignment: Alignment.topLeft,
           child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxWidth: context.isDisplayLargeThanTablet ? 650 : 500,
+                maxWidth: context.isDisplayLargeThanTablet ? 550 : 300,
               ),
               child: titleWidget),
         ),
-        GridView(
-          padding: EdgeInsets.only(top: 26.0.h),
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: min(currentCount, minCount),
-            crossAxisSpacing: 24,
-            mainAxisSpacing: 24,
-            childAspectRatio: 1.3,
-          ),
-          children: [
-            ...portfolio.workItems.take(5).fold<List<Widget>>([],
-                (acc, workItem) {
-              return acc
-                ..addAll([
-                  PackageCard(
-                    package: workItem,
-                    isOdd: acc.length.isOdd,
-                  ),
-                ]);
-            }).toList(),
-            Container(
-              decoration: BoxDecoration(
-                color: Palette.grey.withOpacity(0.5),
-                border: Border.all(
-                    color: Palette.violet.withOpacity(0.5), width: 2),
-                boxShadow: const [
-                  BoxShadow(
-                      color: Color(0x4D000000),
-                      offset: Offset(0, 2),
-                      blurRadius: 5),
-                ],
-                borderRadius: BorderRadius.circular(10.0.r),
-              ),
-              child: Center(
-                child: Text(
-                  "vide",
-                  style: TextStyle(fontSize: 24, color: Colors.black),
-                ),
-              ),
-            )
+        ResponsiveVisibility(
+          visible: false,
+          visibleConditions: const [
+            Condition.largerThan(name: TABLET),
+            Condition.equals(name: TABLET)
           ],
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: Container(
+              margin: EdgeInsets.only(top: 26.0.h),
+              constraints: BoxConstraints(
+                maxHeight: context.isDisplayLargeThanTablet ? 450 : 300,
+              ),
+              child: PortfolioLargeSlider(
+                workItem: portfolio.workItems,
+              ),
+            ),
+          ),
+        ),
+        ResponsiveVisibility(
+          visible: false,
+          visibleConditions: const [
+            Condition.smallerThan(name: TABLET),
+          ],
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GridView(
+              padding: EdgeInsets.only(top: 26.0.h),
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: min(currentCount, minCount),
+                crossAxisSpacing: 24,
+                mainAxisSpacing: 24,
+                childAspectRatio: 1.3,
+              ),
+              children: [
+                ...portfolio.workItems.take(5).fold<List<Widget>>([],
+                    (acc, workItem) {
+                  return acc
+                    ..addAll([
+                      WorkCard(
+                        package: workItem,
+                        isOdd: acc.length.isOdd,
+                        onTap: () {},
+                      ),
+                    ]);
+                }).toList(),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: Palette.greyGradient,
+                    border: Border.all(
+                        color: Palette.violet.withOpacity(0.5), width: 2),
+                    borderRadius: BorderRadius.circular(10.0.r),
+                  ),
+                  child: Center(
+                    child: AspectRatio(
+                      aspectRatio: 3,
+                      child: RepaintBoundary(
+                        child: SvgPictureCustom(
+                          path: IconAssets.icPlus,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
-    ).paddedLTRB(16.0, (56 * 2), 16.0, 8.0);
+    );
   }
 }
 
-class PackageCard extends StatelessWidget {
-  const PackageCard({
+class WorkCard extends StatelessWidget {
+  const WorkCard({
     Key? key,
     required this.package,
     required this.isOdd,
+    required this.onTap,
   });
   final WorkItem package;
   final bool isOdd;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Palette.violet.withOpacity(0.5), width: 2),
-        boxShadow: const [
-          BoxShadow(
-              color: Color(0x4D000000), offset: Offset(0, 2), blurRadius: 5),
-        ],
+        gradient: Palette.greyGradient,
         borderRadius: BorderRadius.circular(10.0.r),
       ),
       child: Column(
@@ -112,17 +139,9 @@ class PackageCard extends StatelessWidget {
           MouseRegion(
             cursor: SystemMouseCursors.click,
             child: GestureDetector(
-                onTap: () {},
+                onTap: onTap,
                 child: Text(package.category, overflow: TextOverflow.ellipsis)),
           ),
-          Text(package.title,
-              style: const TextStyle(fontSize: 14, height: 1.6),
-              maxLines: 3,
-              overflow: TextOverflow.clip),
-          const Padding(padding: EdgeInsets.only(bottom: 16)),
-          if (ResponsiveBreakpoints.of(context).largerThan('MOBILE_LARGE'))
-            const Spacer(),
-          const Padding(padding: EdgeInsets.only(bottom: 8)),
         ],
       ),
     );

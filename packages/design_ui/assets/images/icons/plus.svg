@@ -14,8 +14,9 @@
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_31_705" result="shape"/>
 </filter>
 <linearGradient id="paint0_linear_31_705" x1="29" y1="22.4596" x2="125.422" y2="128.953" gradientUnits="userSpaceOnUse">
-<stop offset="0.0242305" stop-color="#B36A8F"/>
-<stop offset="1" stop-color="#6F4496"/>
+<stop offset="0.0242305" stop-color="#CE74FF"/>
+<stop offset="0.47" stop-color="#7F58FA"/>
+<stop offset="1" stop-color="#2037F3"/>
 </linearGradient>
 </defs>
 </svg>

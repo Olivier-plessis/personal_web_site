@@ -10,6 +10,7 @@ class Palette {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
 
+  static const Color greyDarken = Color(0xFF2D238A);
   static const Color greyDark = Color(0xFF474491);
   static const Color grey = Color(0xFF8D9BB5);
 
@@ -27,6 +28,19 @@ class Palette {
       0,
       0.6,
       1,
+    ],
+  );
+
+  static LinearGradient greyGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: <Color>[
+      const Color(0xFFC6C9CB),
+      const Color(0xFFA2A6BE),
+    ],
+    stops: const <double>[
+      0,
+      4,
     ],
   );
 }

@@ -23,6 +23,7 @@ class LeftHeaderSection extends StatelessWidget {
 
     Widget titleWidget = TitleWithColoredText(
       title: title,
+      fontWeight: FontWeightTheme.extraBold,
       ideasColor: ideasColor,
       coloredTitleParts: [4, 5], // These words will be colored blue
     );

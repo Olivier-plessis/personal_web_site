@@ -19,45 +19,34 @@ class AboutLayout extends ConsumerWidget {
             fontWeight: FontWeightTheme.semiBold,
           )
         : StyleTextTheme.labelMedium;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      mainAxisSize: MainAxisSize.min,
+    return ResponsiveRowColumn(
+      columnMainAxisAlignment: MainAxisAlignment.center,
+      columnSpacing: 24,
+      layout: context.isDisplayLargeThanTablet
+          ? ResponsiveRowColumnType.ROW
+          : ResponsiveRowColumnType.COLUMN,
       children: [
-        ResponsiveRowColumn(
-          columnMainAxisAlignment: MainAxisAlignment.center,
-          columnSpacing: 24,
-          rowPadding:
-              EdgeInsets.fromLTRB(16.0, (kToolbarHeight + 96), 16.0, 8.0),
-          layout: context.isDisplayLargeThanTablet
-              ? ResponsiveRowColumnType.ROW
-              : ResponsiveRowColumnType.COLUMN,
-          children: [
-            ResponsiveRowColumnItem(
-              rowFlex: 6,
-              rowFit: FlexFit.tight,
-              child: LeftAboutSection(
-                aboutData: aboutData,
-                titleSize: titleSize,
-                onTap: () {},
-              ),
+        ResponsiveRowColumnItem(
+          rowFlex: 6,
+          rowFit: FlexFit.tight,
+          child: LeftAboutSection(
+            aboutData: aboutData,
+            titleSize: titleSize,
+            onTap: () {},
+          ),
+        ),
+        ResponsiveRowColumnItem(
+          rowFlex: 1,
+          rowFit: FlexFit.tight,
+          child: Container(
+            alignment: Alignment.topRight,
+            child: RightAboutSection(
+              aboutData: aboutData,
+              titleSize: titleSize,
             ),
-            ResponsiveRowColumnItem(
-              rowFlex: 1,
-              rowFit: FlexFit.loose,
-              child: Container(
-                alignment: Alignment.topRight,
-                constraints: BoxConstraints(
-                  minHeight: context.isDisplayLargeThanTablet ? 640 : 500,
-                ),
-                child: RightAboutSection(
-                  aboutData: aboutData,
-                  titleSize: titleSize,
-                ),
-              ),
-            )
-          ],
+          ),
         )
       ],
-    ).paddedHV(4, kToolbarHeight / 2);
+    );
   }
 }

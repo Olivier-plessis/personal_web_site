@@ -21,8 +21,8 @@ class RightAboutSection extends StatelessWidget {
       runAlignment: WrapAlignment.spaceAround,
       direction:
           context.isDisplayLargeThanTablet ? Axis.vertical : Axis.horizontal,
-      spacing: 98,
-      runSpacing: 98,
+      spacing: context.isDisplayLargeThanTablet ? 22.0.w : 56.0.w,
+      runSpacing: 128.0.w,
       children: [
         ...aboutData.info.fold<List<Widget>>([], (widgetValue, e) {
           final index = widgetValue.length;
