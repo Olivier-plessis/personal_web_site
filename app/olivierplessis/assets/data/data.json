@@ -47,6 +47,7 @@
     "title": "Jeter un coup d'œil à mes Réalisations.",
     "work_items": [
       {
+        "slug": "ta-da",
         "title": "Ta-da",
         "category": "application mobile",
         "tags": ["flutter", "dart", "riverpod", "freezed", "go_router", "dio", "firebase", "retrofit"],
@@ -63,6 +64,7 @@
         ]
       },
       {
+        "slug": "currety",
         "title": "Currety",
         "category": "application web",
         "tags": ["flutter", "dart", "riverpod", "freezed", "go_router"],
@@ -79,6 +81,7 @@
         ]
       },
       {
+        "slug": "br-units",
         "title": "Br-Units",
         "category": "application Ipad",
         "tags": ["flutter", "dart", "riverpod", "freezed", "go_router"],
@@ -95,6 +98,7 @@
         ]
       },
       {
+        "slug": "les-chaperons-rouges",
         "title": "Les Chaperons rouges",
         "category": "application mobile, tablette, web",
         "tags": ["flutter", "dart", "provider", "freezed", "go_router", "firebase"],
@@ -111,6 +115,7 @@
         ]
       },
       {
+        "slug": "liza",
         "title": "Liza",
         "category": "application mobile, tablette, web",
         "tags": ["flutter", "dart", "provider", "freezed", "go_router", "firebase"],

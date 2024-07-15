@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
+import 'package:olivierplessis/src/home/presentation/layout/portfolio/portfolio_detail_layout.dart';
 import 'package:olivierplessis/src/home/presentation/screen/home_screen.dart';
 import 'package:olivierplessis/src/landing_screen.dart';
 import 'package:olivierplessis/src/routing/not_found_screen.dart';
@@ -42,16 +44,40 @@ GoRouter goRouter(GoRouterRef ref) {
         path: AppPage.home.routePath,
         name: AppPage.home.routeName,
         builder: (context, state) => const MainHomeScreen(),
-        /*routes: [
+        routes: [
           GoRoute(
-            path: '${AppRoute.portfolio.name}/:slug',
-            name: AppRoute.portfolio.name,
-            builder: (context, state) {
-              final productId = state.pathParameters['slug']!;
-              return ProductScreen(slug: slug);
-            },
-          ),
-        ],*/
+              path: '${AppPage.portfolio.name}/:slug',
+              name: AppPage.portfolio.name,
+              pageBuilder: (
+                context,
+                state,
+              ) {
+                // final portfolio = ref.watch(portfolioDataProvider).value ??
+                PortfolioSection.empty();
+                final slug = state.pathParameters['slug']!;
+                final workItem =
+                    state.extra is WorkItem ? state.extra as WorkItem : null;
+
+                return CustomTransitionPage<void>(
+                  transitionDuration: const Duration(milliseconds: 500),
+                  reverseTransitionDuration: const Duration(milliseconds: 500),
+                  key: state.pageKey,
+                  child: PortfolioDetailLayout(slug: slug, workItem: workItem),
+                  transitionsBuilder: (BuildContext context,
+                      Animation<double> animation,
+                      Animation<double> secondaryAnimation,
+                      Widget child) {
+                    return Align(
+                      child: FadeTransition(
+                        opacity: animation,
+                        child: child,
+                      ),
+                    );
+                  },
+                  opaque: false,
+                );
+              }),
+        ],
       ),
     ],
     errorBuilder: (context, state) => const NotFoundScreen(),

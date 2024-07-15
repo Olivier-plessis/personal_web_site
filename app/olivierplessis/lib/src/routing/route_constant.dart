@@ -7,8 +7,8 @@ enum AppPage {
 extension AppPageExtension on AppPage {
   String get routePath {
     return switch (this) {
-      AppPage.landing => '/',
-      AppPage.home => '/accueil',
+      AppPage.landing => '/landing',
+      AppPage.home => '/',
       AppPage.portfolio => '/portfolio',
     };
   }

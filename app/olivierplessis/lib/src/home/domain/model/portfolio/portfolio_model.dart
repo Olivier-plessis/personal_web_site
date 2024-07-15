@@ -22,6 +22,7 @@ class PortfolioSection with _$PortfolioSection {
 @freezed
 class WorkItem with _$WorkItem {
   const factory WorkItem({
+    required String slug,
     required String title,
     required String category,
     required List<String> tags,
@@ -36,6 +37,7 @@ class WorkItem with _$WorkItem {
       _$WorkItemFromJson(json);
 
   factory WorkItem.empty() => const WorkItem(
+        slug: '',
         title: '',
         category: '',
         tags: [''],

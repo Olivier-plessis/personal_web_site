@@ -1,7 +1,9 @@
 import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
+import 'package:olivierplessis/src/routing/route_constant.dart';
 
 class PortfolioLargeSlider extends ConsumerStatefulWidget {
   const PortfolioLargeSlider({super.key, required this.workItem});
@@ -47,11 +49,9 @@ class _PortfolioLargeSliderState extends ConsumerState<PortfolioLargeSlider>
                       padding: const EdgeInsets.only(right: 24),
                       child: AnimatedCardItem(
                         key: ValueKey(index),
-                        title: item.title,
-                        subtitle: item.subtitle,
-                        image: item.coverImage,
-                        isExpanded: _selectedIndex == index,
                         animation: _controller,
+                        isExpanded: _selectedIndex == index,
+                        workItem: item,
                         onTap: () => onExpand(index),
                       ),
                     );
@@ -76,25 +76,17 @@ class _PortfolioLargeSliderState extends ConsumerState<PortfolioLargeSlider>
 }
 
 class AnimatedCardItem extends StatefulWidget {
-  final String title;
-  final String subtitle;
-  final String image;
-  final IconData icon;
   final Animation<double> animation;
   final bool isExpanded;
   final VoidCallback onTap;
-  final Color iconColor;
+  final WorkItem workItem;
 
   const AnimatedCardItem({
     super.key,
-    required this.title,
-    required this.subtitle,
-    required this.image,
-    this.icon = Icons.arrow_forward_sharp,
     required this.animation,
     required this.isExpanded,
     required this.onTap,
-    this.iconColor = Palette.violet,
+    required this.workItem,
   });
 
   @override
@@ -121,8 +113,15 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
         onTap: () {
           widget.onTap.call();
 
-          /// TODO: Navigate to work item
-          print('tap');
+          //Navigate to work item
+          if (widget.isExpanded)
+            context.goNamed(
+              AppPage.portfolio.name,
+              pathParameters: {
+                'slug': widget.workItem.slug,
+              },
+              extra: widget.workItem,
+            );
         },
         child: AnimatedBuilder(
           animation: widget.animation,
@@ -168,7 +167,7 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(
-                                widget.image,
+                                widget.workItem.coverImage,
                                 package: "design_ui",
                               ),
                               fit: BoxFit.cover,
@@ -215,7 +214,7 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
                                             0,
                                           ),
                                           child: Text(
-                                            widget.title,
+                                            widget.workItem.title,
                                             maxLines: 1,
                                             style: const TextStyle(
                                               fontSize: 18,
@@ -234,7 +233,7 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
                                             0,
                                           ),
                                           child: Text(
-                                            widget.subtitle,
+                                            widget.workItem.subtitle,
                                             maxLines: 1,
                                             style: const TextStyle(
                                               color: Colors.white,
