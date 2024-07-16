@@ -61,7 +61,8 @@
             "store_ios": "https://picsum.photos/id/10/400/300",
             "store_android": "https://picsum.photos/id/10/400/300"
           }
-        ]
+        ],
+        "realisation_date": "2023 - 2024"
       },
       {
         "slug": "currety",
@@ -78,7 +79,8 @@
             "store_ios": "https://picsum.photos/id/10/400/300",
             "store_android": "https://picsum.photos/id/10/400/300"
           }
-        ]
+        ],
+        "realisation_date": "2023"
       },
       {
         "slug": "br-units",
@@ -95,7 +97,8 @@
             "store_ios": "https://picsum.photos/id/10/400/300",
             "store_android": "https://picsum.photos/id/10/400/300"
           }
-        ]
+        ],
+        "realisation_date": "2022"
       },
       {
         "slug": "les-chaperons-rouges",
@@ -112,7 +115,8 @@
             "store_ios": "https://picsum.photos/id/10/400/300",
             "store_android": "https://picsum.photos/id/10/400/300"
           }
-        ]
+        ],
+        "realisation_date": "2021"
       },
       {
         "slug": "liza",
@@ -129,7 +133,8 @@
             "store_ios": "https://picsum.photos/id/10/400/300",
             "store_android": "https://picsum.photos/id/10/400/300"
           }
-        ]
+        ],
+        "realisation_date": "2024"
       }
     ]
   },

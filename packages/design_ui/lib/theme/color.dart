@@ -6,6 +6,7 @@ class Palette {
   static const Color surfaceBackgroundDark = Color(0xFF1B2633);
   static const Color surfaceBackgroundLight = Color(0xFFEFF0F4);
 
+  static const Color violetDark = Color(0xFF7F58FA);
   static const Color violet = Color(0xFFBC4EF7);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);

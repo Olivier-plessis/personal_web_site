@@ -31,6 +31,7 @@ class WorkItem with _$WorkItem {
     @JsonKey(name: 'cover_image') required String coverImage,
     @JsonKey(name: 'work_type') required String workType,
     required List<Link> link,
+    @JsonKey(name: 'realisation_date') required String realisationDate,
   }) = _WorkItem;
 
   factory WorkItem.fromJson(Map<String, dynamic> json) =>
@@ -46,6 +47,7 @@ class WorkItem with _$WorkItem {
         workType: '',
         coverImage: '',
         link: [],
+        realisationDate: '',
       );
 }
 

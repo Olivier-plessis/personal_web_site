@@ -52,8 +52,6 @@ GoRouter goRouter(GoRouterRef ref) {
                 context,
                 state,
               ) {
-                // final portfolio = ref.watch(portfolioDataProvider).value ??
-                PortfolioSection.empty();
                 final slug = state.pathParameters['slug']!;
                 final workItem =
                     state.extra is WorkItem ? state.extra as WorkItem : null;
