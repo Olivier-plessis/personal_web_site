@@ -140,10 +140,10 @@
   },
   "contact_section": {
     "title": "vous avez un projet en tête ou juste envie de discuter.",
-    "email": "contact@olivierplessis.fr",
+    "email": "hello@olivierplessis.fr",
     "phone": "06 02 09 69 55",
     "link": "contactez moi",
-    "follow_me": "suivez moi",
+    "follow_me": "me suivre",
     "social_links": [
       {
         "name": "linkedin",
@@ -154,8 +154,8 @@
         "link": "https://github.com/Olivier-plessis"
       },
       {
-        "name": "email",
-        "link": "hello@olivierplessis.fr"
+        "name": "twitter",
+        "link": "https://x.com/olivier_plessis"
       }
     ]
   }

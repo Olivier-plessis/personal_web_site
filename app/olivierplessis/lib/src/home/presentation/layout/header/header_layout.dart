@@ -14,7 +14,7 @@ class HeaderLayout extends StatelessWidget {
       layout: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
           ? ResponsiveRowColumnType.COLUMN
           : ResponsiveRowColumnType.ROW,
-      rowCrossAxisAlignment: CrossAxisAlignment.start,
+      columnCrossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ResponsiveRowColumnItem(
           rowFlex: context.isDisplayLargeThanDesktop ? 2 : 4,

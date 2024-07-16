@@ -5,6 +5,7 @@ import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/src/home/domain/model/about/about_model.dart';
 import 'package:olivierplessis/src/home/presentation/layout/about/left_about_section.dart';
 import 'package:olivierplessis/src/home/presentation/layout/about/right_about_section.dart';
+import 'package:olivierplessis/src/home/presentation/provider/parts/contact/launch_email_provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AboutLayout extends ConsumerWidget {
@@ -32,7 +33,12 @@ class AboutLayout extends ConsumerWidget {
           child: LeftAboutSection(
             aboutData: aboutData,
             titleSize: titleSize,
-            onTap: () {},
+            onTap: () {
+              ref.watch(launchMailtoProvider(
+                'Prise de contact',
+                'Ooops, une erreur est survenue lors de l\'envoi de votre message',
+              ));
+            },
           ),
         ),
         ResponsiveRowColumnItem(

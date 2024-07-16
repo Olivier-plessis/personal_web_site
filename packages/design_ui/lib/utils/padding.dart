@@ -59,7 +59,7 @@ extension PaddingExt on Widget {
 
   Widget paddedTB(double value, double bottomValue) {
     return Padding(
-      padding: EdgeInsets.only(top: value, bottom: value),
+      padding: EdgeInsets.only(top: value, bottom: bottomValue),
       child: this,
     );
   }

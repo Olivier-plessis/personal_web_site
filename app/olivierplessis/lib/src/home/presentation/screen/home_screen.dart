@@ -4,6 +4,7 @@ import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/core/utils/provider/theme/theme_mode_provider.dart';
 import 'package:olivierplessis/src/home/domain/model/main_model.dart';
 import 'package:olivierplessis/src/home/presentation/layout/about/about_layout.dart';
+import 'package:olivierplessis/src/home/presentation/layout/contact/contact_layout.dart';
 import 'package:olivierplessis/src/home/presentation/layout/header/header_layout.dart';
 import 'package:olivierplessis/src/home/presentation/layout/portfolio/portfolio_layout.dart';
 import 'package:olivierplessis/src/home/presentation/provider/combine_provider.dart';
@@ -78,11 +79,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   List<Widget> get _bodyItems => [
         BlockWrapperWithContainer(
-            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
-        BlockWrapperWithContainer(
             isTop: true, HeaderLayout(headerData: widget.homeData!.header)),
         BlockWrapperWithContainer(
             AboutLayout(aboutData: widget.homeData!.about)),
+        BlockWrapperWithContainer(
+            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
+        BlockWrapperWithContainer(
+            ContactLayout(contactData: widget.homeData!.contact)),
       ];
 
   Widget _body() {

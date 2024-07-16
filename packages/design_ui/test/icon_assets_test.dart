@@ -9,5 +9,6 @@ void main() {
     expect(File(IconAssets.icLinkedin).existsSync(), isTrue);
     expect(File(IconAssets.icLogo).existsSync(), isTrue);
     expect(File(IconAssets.icPlus).existsSync(), isTrue);
+    expect(File(IconAssets.icTwitter).existsSync(), isTrue);
   });
 }
