@@ -2,7 +2,6 @@ import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/src/home/domain/model/about/about_model.dart';
-import 'package:olivierplessis/src/home/presentation/widget/text_link_widget.dart';
 
 class LeftAboutSection extends StatelessWidget {
   const LeftAboutSection({
@@ -25,6 +24,7 @@ class LeftAboutSection extends StatelessWidget {
       child: Stack(clipBehavior: Clip.hardEdge, children: <Widget>[
         Positioned(
             right: context.isDisplayLargeThanTablet ? 20.0.w : 0,
+            top: context.isDisplayLargeThanTablet ? 60.0.h : 0,
             child: ConstrainedBox(
               constraints: BoxConstraints(
                 maxHeight: context.isDisplayLargeThanTablet ? 620 : 300,
@@ -70,18 +70,16 @@ class LeftAboutSection extends StatelessWidget {
             const SizedBox(height: 8),
             Container(
               constraints: BoxConstraints(
-                maxWidth: context.isDisplayLargeThanTablet ? 440 : 800,
+                maxWidth: context.isDisplayLargeThanTablet ? 540 : 800,
               ),
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                aboutData.subtitle.toCapitalized(),
-                style: StyleTextTheme.labelMedium,
+                aboutData.subtitle,
+                style: StyleTextTheme.labelMedium.copyWith(
+                  fontWeight: FontWeightTheme.light,
+                ),
               ),
             ),
-            TextLinkWidget(
-              text: aboutData.link,
-              onTap: onTap,
-            ).paddedV(96.0),
           ],
         ),
       ]),

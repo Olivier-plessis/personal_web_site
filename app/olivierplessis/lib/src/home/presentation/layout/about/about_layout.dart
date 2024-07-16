@@ -21,7 +21,7 @@ class AboutLayout extends ConsumerWidget {
           )
         : StyleTextTheme.labelMedium;
     return ResponsiveRowColumn(
-      columnMainAxisAlignment: MainAxisAlignment.center,
+      columnCrossAxisAlignment: CrossAxisAlignment.center,
       columnSpacing: 24,
       layout: context.isDisplayLargeThanTablet
           ? ResponsiveRowColumnType.ROW
