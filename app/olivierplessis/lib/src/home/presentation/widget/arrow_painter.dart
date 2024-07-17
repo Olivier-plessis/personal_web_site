@@ -18,8 +18,8 @@ class ArrowPainter extends CustomPainter {
     path.moveTo(halfWidth - 5, halfHeight - 12);
     path.lineTo(halfWidth, halfHeight - 7);
     path.lineTo(halfWidth + 5, halfHeight - 12);
-    canvas.drawPath(path,
-        paint..color = (value < 33 ? Palette.violet : Palette.violetDark));
+    canvas.drawPath(
+        path, paint..color = (value < 33 ? Palette.teal : Palette.tealDark));
 
     path = Path();
     path.moveTo(halfWidth - 7, halfHeight - 7);
@@ -29,14 +29,14 @@ class ArrowPainter extends CustomPainter {
         path,
         paint
           ..color =
-              (value > 33 && value < 66 ? Palette.violet : Palette.violetDark));
+              (value > 33 && value < 66 ? Palette.teal : Palette.tealDark));
 
     path = Path();
     path.moveTo(halfWidth - 9, halfHeight - 2);
     path.lineTo(halfWidth, halfHeight + 7);
     path.lineTo(halfWidth + 9, halfHeight - 2);
-    canvas.drawPath(path,
-        paint..color = (value > 66 ? Palette.violet : Palette.violetDark));
+    canvas.drawPath(
+        path, paint..color = (value > 66 ? Palette.teal : Palette.tealDark));
   }
 
   @override

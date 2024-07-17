@@ -178,7 +178,7 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
                               colors: [
-                                Palette.violet.withOpacity(0),
+                                Palette.teal.withOpacity(0),
                                 Palette.grey.withOpacity(0.8),
                               ],
                               stops: const [0.7, 1],

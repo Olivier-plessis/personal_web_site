@@ -41,8 +41,8 @@ Widget _rightContentLayout(BuildContext context) {
     ),
     child: AspectRatio(
       aspectRatio: 1.5,
-      child: SvgPictureCustom(
-        path: BrandingAssets.bdgHeaderBranding,
+      child: ImagePictureCustom(
+        path: BrandingAssets.bdgHeaderBrandingBlueDarken,
       ),
     ),
   );

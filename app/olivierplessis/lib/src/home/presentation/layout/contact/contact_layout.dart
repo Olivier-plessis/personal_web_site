@@ -61,7 +61,7 @@ class LeftContactSection extends StatelessWidget {
   Widget build(BuildContext context) {
     String title = contactData.title.toCapitalized();
 
-    Color ideasColor = Palette.violet; // Change color here
+    Color ideasColor = Palette.teal; // Change color here
 
     Widget titleWidget = TitleWithColoredText(
       title: title,
@@ -119,7 +119,7 @@ Widget _rightContactLayout(BuildContext context) {
     child: AspectRatio(
       aspectRatio: 1.2,
       child: ImagePictureCustom(
-        path: BrandingAssets.bdgContact,
+        path: BrandingAssets.bdgContactBlue,
       ),
     ),
   );

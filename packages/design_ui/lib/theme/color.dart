@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 class Palette {
   Palette._();
 
-  static const Color surfaceBackgroundDark = Color(0xFF1B2633);
-  static const Color surfaceBackgroundLight = Color(0xFFEFF0F4);
+  static const Color surfaceBackgroundDark = Color(0xFF273040);
+  static const Color surfaceBackgroundLight = Color(0xFFEBF4F6);
 
-  static const Color violetDark = Color(0xFF7F58FA);
-  static const Color violet = Color(0xFFBC4EF7);
+  static const Color tealDark = Color(0xFF088395);
+  static const Color teal = Color(0xFF00E5EA);
+
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
 
-  static const Color greyDarken = Color(0xFF2D238A);
-  static const Color greyDark = Color(0xFF474491);
+  static const Color greyDarken = Color(0xFF071952);
+  static const Color greyDark = Color(0xFF071952);
   static const Color grey = Color(0xFF8D9BB5);
 
   static const Color cardBackground = Color(0xFF4F4C97);

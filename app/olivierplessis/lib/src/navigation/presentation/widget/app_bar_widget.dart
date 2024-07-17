@@ -32,9 +32,9 @@ class AppBarWidget extends ConsumerWidget {
             child: Row(
               children: [
                 SvgPictureCustom(
-                  path: IconAssets.icLogo,
+                  path: IconAssets.icLogo2,
                   width: 64,
-                  height: 64,
+                  height: 54,
                 ),
                 Text(
                   'OLIVIER',
@@ -48,9 +48,9 @@ class AppBarWidget extends ConsumerWidget {
                   ' PLESSIS',
                   style: context.isDisplayLargeThanTablet
                       ? StyleTextTheme.textThemeDisplayMedium
-                          .copyWith(letterSpacing: 1.8, color: Palette.violet)
+                          .copyWith(letterSpacing: 1.8, color: Palette.teal)
                       : StyleTextTheme.textThemeDisplayMedium
-                          .copyWith(letterSpacing: 1.2, color: Palette.violet),
+                          .copyWith(letterSpacing: 1.2, color: Palette.teal),
                 ),
                 const Spacer(),
                 ResponsiveVisibility(
@@ -84,7 +84,7 @@ class AppBarWidget extends ConsumerWidget {
                                   style: StyleTextTheme.titleMedium.copyWith(
                                     fontWeight: FontWeightTheme.medium,
                                     color: selectedIndex == index
-                                        ? Palette.violet
+                                        ? Palette.teal
                                         : ThemeMode.dark ==
                                                 ref.watch(
                                                     themeModeControllerProvider)

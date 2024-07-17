@@ -43,7 +43,7 @@ class LeftAboutSection extends StatelessWidget {
           children: [
             Text(
               aboutData.sectionTitle.toCapitalized(),
-              style: titleSize.copyWith(color: Palette.violet),
+              style: titleSize.copyWith(color: Palette.teal),
             ),
             Container(
               constraints: BoxConstraints(
@@ -63,7 +63,7 @@ class LeftAboutSection extends StatelessWidget {
                   ? MediaQuery.sizeOf(context).width / 12
                   : MediaQuery.sizeOf(context).width * 0.6,
               decoration: BoxDecoration(
-                color: Palette.violet,
+                color: Palette.teal,
                 borderRadius: BorderRadius.circular(8),
               ),
             ),

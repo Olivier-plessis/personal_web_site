@@ -141,7 +141,7 @@ class _PortfolioDetailLayoutState extends ConsumerState<PortfolioDetailLayout>
                         widget.workItem?.description ?? '',
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
                               color: Color.lerp(
-                                  Palette.white, Palette.violet, offset),
+                                  Palette.white, Palette.teal, offset),
                               fontWeight: FontWeight.bold,
                             ),
                       ).paddedB(24),
@@ -174,7 +174,7 @@ class _PortfolioDetailLayoutState extends ConsumerState<PortfolioDetailLayout>
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Palette.violet.withOpacity(0),
+                Palette.teal.withOpacity(0),
                 Palette.grey.withOpacity(0.8),
               ],
               stops: const [0.5, 1],

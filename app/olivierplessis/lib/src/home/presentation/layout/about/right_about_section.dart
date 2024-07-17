@@ -49,7 +49,7 @@ class RightAboutSection extends StatelessWidget {
                       text: '+',
                       style: titleSize.copyWith(
                         color: index == 1
-                            ? Palette.violet
+                            ? Palette.teal
                             : Theme.of(context).primaryColor,
                       ),
                     ),

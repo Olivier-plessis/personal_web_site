@@ -19,7 +19,7 @@ class LeftHeaderSection extends StatelessWidget {
     String title = headerData.title.toCapitalized();
     String subtitle = headerData.subtitle.toCapitalized();
 
-    Color ideasColor = Palette.violet; // Change color here
+    Color ideasColor = Palette.teal; // Change color here
 
     Widget titleWidget = TitleWithColoredText(
       title: title,

@@ -5,7 +5,7 @@ final ThemeData darkTheme = ThemeData(
   primaryColor: Palette.white,
   colorScheme: const ColorScheme.dark(
     onSurface: Palette.white,
-    onPrimary: Palette.violet,
+    onPrimary: Palette.teal,
   ),
   scaffoldBackgroundColor: Palette.surfaceBackgroundDark,
   appBarTheme: AppBarTheme(

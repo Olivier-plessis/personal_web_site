@@ -21,8 +21,6 @@ class MainHomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncCombineHomeData = ref.watch(asyncCombineNotifierProvider);
 
-    // print(asyncCombineHomeData);
-
     return switch (asyncCombineHomeData) {
       AsyncData(:final value) => HomeScreen(homeData: value),
       AsyncError(:final error) => Text('Error: $error'),

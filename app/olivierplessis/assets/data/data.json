@@ -25,7 +25,7 @@
   },
   "about_section": {
     "section_title": "a propos",
-    "title": "j'aime résoudre les problèmes \navec des solutions scalables.",
+    "title": "j'aime concevoir des applications \navec des solutions scalables.",
     "subtitle": "Fort de 10 années d'expérience en développement, j'ai acquis une solide compréhension des besoins clients et des exigences des projets complexes, que ce soit en agence ou en startup. Au cours des 4 dernières années, je me suis spécialisé dans le développement mobile Flutter, ce qui m'a permis de développer des compétences en agilité, innovation et travail d'équipe dans un environnement en constante évolution.\n\nAyant eu l'opportunité de collaborer avec des talents de tous horizons, j'ai considérablement élargi mes connaissances et aiguisé mes compétences personnelles. Ensemble, nous avons concrétisé des produits numériques performants et attrayants, répondant aux besoins des entreprises et des consommateurs.",
     "link": "parlons-en",
     "info": [
@@ -44,7 +44,7 @@
     ]
   },
   "portfolio_section": {
-    "title": "Jeter un coup d'œil à mes Réalisations.",
+    "title": "Jeter un coup d'œil à mes dernières Réalisations.",
     "work_items": [
       {
         "slug": "ta-da",

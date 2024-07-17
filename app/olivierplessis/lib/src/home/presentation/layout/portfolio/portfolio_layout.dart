@@ -17,7 +17,7 @@ class PortfolioLayout extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     String title = portfolio.title.toCapitalized();
-    Color ideasColor = Palette.violet;
+    Color ideasColor = Palette.teal;
 
     Widget titleWidget = TitleWithColoredText(
       title: title,
@@ -90,7 +90,7 @@ class PortfolioLayout extends ConsumerWidget {
                   decoration: BoxDecoration(
                     gradient: Palette.greyGradient,
                     border: Border.all(
-                        color: Palette.violet.withOpacity(0.5), width: 2),
+                        color: Palette.teal.withOpacity(0.5), width: 2),
                     borderRadius: BorderRadius.circular(10.0.r),
                   ),
                   child: Center(
@@ -128,7 +128,7 @@ class WorkCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Palette.violet.withOpacity(0.5), width: 2),
+        border: Border.all(color: Palette.teal.withOpacity(0.5), width: 2),
         gradient: Palette.greyGradient,
         borderRadius: BorderRadius.circular(10.0.r),
       ),

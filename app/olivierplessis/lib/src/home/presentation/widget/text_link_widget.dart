@@ -24,10 +24,10 @@ class TextLinkWidget extends StatelessWidget {
           children: [
             Text(text.toCapitalized(),
                 style:
-                    StyleTextTheme.labelMedium.copyWith(color: Palette.violet)),
+                    StyleTextTheme.labelMedium.copyWith(color: Palette.teal)),
             const SizedBox(width: 64),
             const Icon(Icons.arrow_forward_sharp,
-                size: 24, color: Palette.violet),
+                size: 24, color: Palette.teal),
           ],
         ));
   }

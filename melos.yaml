@@ -25,7 +25,9 @@ scripts:
     description: remove unused import in all file.
 
   generate:spider:
-    run: melos exec --depends-on="spider" -- spider build
+    run: |
+      flutter pub get
+      melos exec --depends-on="spider" -- spider build
     description: Run spider to generate resources.
 
   generate:build_runner:
