@@ -7,6 +7,8 @@ class Palette {
   static const Color surfaceBackgroundLight = Color(0xFFEBF4F6);
 
   static const Color tealDark = Color(0xFF088395);
+  static const Color tealDarkLighten = Color(0xFF35A29F);
+  static const Color tealMedium = Color(0xFF37B7C3);
   static const Color teal = Color(0xFF00E5EA);
 
   static const Color white = Color(0xFFFFFFFF);
@@ -33,14 +35,14 @@ class Palette {
     ],
   );
 
-  static LinearGradient greyGradient = LinearGradient(
+  static LinearGradient greyGradient = const LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: <Color>[
-      const Color(0xFFC6C9CB),
-      const Color(0xFFA2A6BE),
+      Color(0xFFC6C9CB),
+      Color(0xFFA2A6BE),
     ],
-    stops: const <double>[
+    stops: <double>[
       0,
       4,
     ],

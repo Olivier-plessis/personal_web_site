@@ -31,8 +31,8 @@ class AppBarWidget extends ConsumerWidget {
             padding: blockPadding(context),
             child: Row(
               children: [
-                SvgPictureCustom(
-                  path: IconAssets.icLogo2,
+                ImagePictureCustom(
+                  path: IconAssets.icGreenLogo,
                   width: 64,
                   height: 54,
                 ),

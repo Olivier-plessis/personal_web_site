@@ -5,11 +5,7 @@ import 'package:design_ui/resources/resources.dart';
 
 void main() {
   test('branding_assets assets test', () {
-    expect(File(BrandingAssets.bdgContact).existsSync(), isTrue);
     expect(File(BrandingAssets.bdgContactBlue).existsSync(), isTrue);
-    expect(File(BrandingAssets.bdgHeaderBranding).existsSync(), isTrue);
-    expect(File(BrandingAssets.bdgHeaderBrandingBlue).existsSync(), isTrue);
-    expect(File(BrandingAssets.bdgHeaderBrandingBlueDark).existsSync(), isTrue);
     expect(
         File(BrandingAssets.bdgHeaderBrandingBlueDarken).existsSync(), isTrue);
     expect(File(BrandingAssets.bdgPhoto).existsSync(), isTrue);

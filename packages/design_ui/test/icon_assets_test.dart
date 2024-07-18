@@ -8,8 +8,8 @@ void main() {
     expect(File(IconAssets.icSubtract1).existsSync(), isTrue);
     expect(File(IconAssets.icSubtract).existsSync(), isTrue);
     expect(File(IconAssets.icGithub).existsSync(), isTrue);
+    expect(File(IconAssets.icGreenLogo).existsSync(), isTrue);
     expect(File(IconAssets.icLinkedin).existsSync(), isTrue);
-    expect(File(IconAssets.icLogo).existsSync(), isTrue);
     expect(File(IconAssets.icLogo1).existsSync(), isTrue);
     expect(File(IconAssets.icLogo2).existsSync(), isTrue);
     expect(File(IconAssets.icLogo5).existsSync(), isTrue);

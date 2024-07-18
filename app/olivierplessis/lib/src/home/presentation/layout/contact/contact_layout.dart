@@ -117,7 +117,7 @@ Widget _rightContactLayout(BuildContext context) {
       maxHeight: context.isDisplayLargeThanTablet ? 640 : 500,
     ),
     child: AspectRatio(
-      aspectRatio: 1.2,
+      aspectRatio: 0.9,
       child: ImagePictureCustom(
         path: BrandingAssets.bdgContactBlue,
       ),
