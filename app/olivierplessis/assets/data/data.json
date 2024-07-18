@@ -51,10 +51,11 @@
         "title": "Ta-da",
         "category": "application mobile",
         "tags": ["flutter", "dart", "riverpod", "freezed", "go_router", "dio", "firebase", "retrofit"],
-        "subtitle": "Une application mobile de gestion de compte.",
-        "description": "Une application mobile de gestion de compte.",
+        "subtitle": "Une application mobile de micro tasking.",
+        "description": "Une application mobile de micro tasking.",
         "work_type": "application mobile",
-        "cover_image": "assets/images/work/projet-tada.png",
+        "logo": "assets/images/work/tada-logo.png",
+        "cover_image": "assets/images/work/tada-banner.png",
         "link": [
           {
             "website_url": "https://picsum.photos/id/10/400/300",
@@ -72,6 +73,7 @@
         "subtitle": "Une application mobile de gestion de compte.",
         "description": "Une application mobile de gestion de compte.",
         "work_type": "application mobile",
+        "logo": "assets/images/work/cureety-logo.png",
         "cover_image": "assets/images/work/projet-cureety.png",
         "link": [
           {
@@ -90,7 +92,8 @@
         "subtitle": "Une application mobile de gestion de compte.",
         "description": "Une application mobile de gestion de compte.",
         "work_type": "application mobile",
-        "cover_image": "assets/images/work/projet-br-unit.png",
+        "logo": "assets/images/work/br-units-logo.png",
+        "cover_image": "assets/images/work/br-units-banner.png",
         "link": [
           {
             "website_url": "https://picsum.photos/id/10/400/300",
@@ -108,7 +111,8 @@
         "subtitle": "Une application mobile de gestion de compte.",
         "description": "Une application mobile de gestion de compte.",
         "work_type": "application mobile",
-        "cover_image": "assets/images/work/projet-lpcr.png",
+        "logo": "assets/images/work/lpcr-logo.png",
+        "cover_image": "assets/images/work/lpcr-banner.png",
         "link": [
           {
             "website_url": "https://picsum.photos/id/10/400/300",
@@ -126,7 +130,8 @@
         "subtitle": "Une application mobile de gestion de compte.",
         "description": "Une application mobile de gestion de compte.",
         "work_type": "application mobile",
-        "cover_image": "assets/images/work/projet-lpcr.png",
+        "logo": "assets/images/work/lisa-logo.png",
+        "cover_image": "assets/images/work/lisa-banner.png",
         "link": [
           {
             "website_url": "https://picsum.photos/id/10/400/300",

@@ -136,7 +136,7 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
 
             final double animValue = Interval(
                     widget.isExpanded ? 0 : 0.5, widget.isExpanded ? 0.5 : 1,
-                    curve: Curves.fastOutSlowIn)
+                    curve: Curves.fastEaseInToSlowEaseOut)
                 .transform(value);
 
             final imageScaleValue = Interval(widget.isExpanded ? 0.2 : 0.8, 1,
@@ -167,7 +167,7 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(
-                                widget.workItem.coverImage,
+                                widget.workItem.logo,
                                 package: "design_ui",
                               ),
                               fit: BoxFit.cover,
