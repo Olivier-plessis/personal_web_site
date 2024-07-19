@@ -64,7 +64,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           );
         },
       ),
-      endDrawer: _drawer(context),
     );
   }
 
@@ -108,9 +107,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         BlockWrapperWithContainer(
             isTop: true, HeaderLayout(headerData: widget.homeData!.header)),
         BlockWrapperWithContainer(
-            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
-        BlockWrapperWithContainer(
             AboutLayout(aboutData: widget.homeData!.about)),
+        BlockWrapperWithContainer(
+            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
         BlockWrapperWithContainer(
             ContactLayout(contactData: widget.homeData!.contact)),
       ];
@@ -123,7 +122,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  Widget? _drawer(BuildContext context) {
+  /* Widget? _drawer(BuildContext context) {
     if (context.isDisplayLargeThanTablet) return null;
 
     return Column(
@@ -138,5 +137,5 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ),
       ],
     );
-  }
+  }*/
 }

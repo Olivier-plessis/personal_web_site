@@ -102,7 +102,7 @@ class AppBarWidget extends ConsumerWidget {
                   ),
                 ),
                 ResponsiveVisibility(
-                  visible: false,
+                  visible: true,
                   visibleConditions: const [Condition.largerThan(name: TABLET)],
                   child: MouseRegion(
                     cursor: SystemMouseCursors.click,
