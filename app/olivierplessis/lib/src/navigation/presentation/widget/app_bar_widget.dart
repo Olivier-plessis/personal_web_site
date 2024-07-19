@@ -24,7 +24,7 @@ class AppBarWidget extends ConsumerWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       title: SafeArea(
-        child: BlockWrapper(
+        child: BlockWrapperCenter(
           Container(
             width: MaxSizeConstant.maxWidth,
             margin: EdgeInsets.only(top: 56, bottom: 45),

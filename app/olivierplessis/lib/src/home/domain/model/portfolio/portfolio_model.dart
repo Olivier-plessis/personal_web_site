@@ -31,25 +31,47 @@ class WorkItem with _$WorkItem {
     @JsonKey(name: 'cover_image') required String coverImage,
     required String logo,
     @JsonKey(name: 'work_type') required String workType,
-    required List<Link> link,
+    @JsonKey(name: 'entrusted_task') required String entrustedTask,
+    @JsonKey(name: 'account_of') required AccountOf accountOf,
+    required Link link,
     @JsonKey(name: 'realisation_date') required String realisationDate,
   }) = _WorkItem;
 
   factory WorkItem.fromJson(Map<String, dynamic> json) =>
       _$WorkItemFromJson(json);
 
-  factory WorkItem.empty() => const WorkItem(
+  factory WorkItem.empty() => WorkItem(
         slug: '',
         title: '',
         category: '',
         tags: [''],
         subtitle: '',
         description: '',
-        workType: '',
-        logo: '',
         coverImage: '',
-        link: [],
+        logo: '',
+        workType: '',
+        entrustedTask: '',
+        accountOf: AccountOf.empty(),
+        link: Link.empty(),
         realisationDate: '',
+      );
+}
+
+@freezed
+class AccountOf with _$AccountOf {
+  const factory AccountOf({
+    required String name,
+    required String logo,
+    @JsonKey(name: 'website_url') required String websiteUrl,
+  }) = _AccountOf;
+
+  factory AccountOf.fromJson(Map<String, dynamic> json) =>
+      _$AccountOfFromJson(json);
+
+  factory AccountOf.empty() => const AccountOf(
+        name: '',
+        logo: '',
+        websiteUrl: '',
       );
 }
 

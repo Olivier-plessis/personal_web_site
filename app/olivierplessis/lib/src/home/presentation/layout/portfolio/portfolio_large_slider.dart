@@ -109,7 +109,7 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
     const double collapsedWidth = 130;
     return Align(
       alignment: Alignment.bottomCenter,
-      child: GestureDetector(
+      child: InkWell(
         onTap: () {
           widget.onTap.call();
 

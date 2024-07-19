@@ -8,13 +8,13 @@ void main() {
     expect(File(WorkAssets.wrkBrUnitsBanner).existsSync(), isTrue);
     expect(File(WorkAssets.wrkBrUnitsLogo).existsSync(), isTrue);
     expect(File(WorkAssets.wrkCureetyLogo).existsSync(), isTrue);
+    expect(File(WorkAssets.wrkLaMobileryLogo).existsSync(), isTrue);
     expect(File(WorkAssets.wrkLisaBanner).existsSync(), isTrue);
     expect(File(WorkAssets.wrkLisaLogo).existsSync(), isTrue);
     expect(File(WorkAssets.wrkLpcrBanner).existsSync(), isTrue);
     expect(File(WorkAssets.wrkLpcrLogo).existsSync(), isTrue);
     expect(File(WorkAssets.wrkProjetCureety).existsSync(), isTrue);
-    expect(File(WorkAssets.wrkProjetLpcr).existsSync(), isTrue);
-    expect(File(WorkAssets.wrkProjetTada).existsSync(), isTrue);
+    expect(File(WorkAssets.wrkSublimLogo).existsSync(), isTrue);
     expect(File(WorkAssets.wrkTadaBanner).existsSync(), isTrue);
     expect(File(WorkAssets.wrkTadaLogo).existsSync(), isTrue);
   });

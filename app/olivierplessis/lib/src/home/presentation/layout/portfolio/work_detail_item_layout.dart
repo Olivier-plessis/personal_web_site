@@ -1,29 +1,62 @@
 import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class WorkDetailItemLayout extends StatelessWidget {
-  WorkDetailItemLayout({super.key, required this.workItem});
+  WorkDetailItemLayout(
+      {super.key, required this.workItem, required this.offset});
   final WorkItem? workItem;
+  final double offset;
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 66.0.h),
-            const Text('Description', style: TextStyle()),
-            const SizedBox(height: 8),
-            buildMessageRow(
-                message:
-                    'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                imagePath: workItem?.coverImage ?? ''),
-            const SizedBox(height: 12),
-          ],
-        ),
+    return SingleChildScrollView(
+      physics: offset < 1
+          ? const NeverScrollableScrollPhysics()
+          : ClampingScrollPhysics(),
+      child: ResponsiveRowColumn(
+        rowPadding: blockPadding(context),
+        columnCrossAxisAlignment: CrossAxisAlignment.center,
+        rowCrossAxisAlignment: CrossAxisAlignment.center,
+        layout: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
+            ? ResponsiveRowColumnType.COLUMN
+            : ResponsiveRowColumnType.ROW,
+        children: [
+          ResponsiveRowColumnItem(
+            rowFlex: context.isDisplayLargeThanDesktop ? 2 : 4,
+            columnOrder: 1,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 66.0.h),
+                const Text('Description', style: TextStyle()),
+                const SizedBox(height: 8),
+                buildMessageRow(
+                    message:
+                        workItem?.description.replaceAll(".", ". \n") ?? '',
+                    imagePath: workItem?.coverImage ?? ''),
+                const SizedBox(height: 12),
+              ],
+            ),
+          ),
+          ResponsiveRowColumnItem(
+              rowFlex: context.isDisplayLargeThanDesktop ? 2 : 6,
+              columnOrder: 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 66.0.h),
+                  const Text('Description', style: TextStyle()),
+                  const SizedBox(height: 8),
+                  buildMessageRow(
+                      message: workItem?.description.returnToLine() ?? '',
+                      imagePath: workItem?.coverImage ?? ''),
+                  const SizedBox(height: 12),
+                ],
+              )),
+        ],
       ),
     );
   }

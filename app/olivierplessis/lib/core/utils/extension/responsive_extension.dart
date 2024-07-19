@@ -49,10 +49,10 @@ EdgeInsets blockMargin({required BuildContext context, bool isTop = false}) =>
 
 // const EdgeInsets blockMargin = EdgeInsets.fromLTRB(10, 56, 10, 32);
 
-class BlockWrapper extends StatelessWidget {
+class BlockWrapperCenter extends StatelessWidget {
   final Widget widget;
 
-  const BlockWrapper(this.widget, {super.key});
+  const BlockWrapperCenter(this.widget, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +60,23 @@ class BlockWrapper extends StatelessWidget {
       child: ResponsiveConstraints(
           conditionalConstraints: blockWidthConstraints, child: widget),
     );
+  }
+}
+
+class BlockWrapper extends StatelessWidget {
+  final Widget widget;
+  final bool isTop;
+  const BlockWrapper(this.widget, {super.key, this.isTop = false});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveConstraints(
+        conditionalConstraints: blockWidthConstraints,
+        child: Container(
+            width: MaxSizeConstant.maxWidth,
+            margin: blockMargin(context: context, isTop: isTop),
+            padding: blockPadding(context),
+            child: widget));
   }
 }
 

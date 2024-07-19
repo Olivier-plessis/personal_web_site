@@ -6,4 +6,6 @@ extension StringCasingExtension on String {
       .split(' ')
       .map((String str) => str.toCapitalized())
       .join(' ');
+
+  String returnToLine() => replaceAll(".", ". \n");
 }

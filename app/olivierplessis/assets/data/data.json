@@ -20,8 +20,7 @@
   ],
   "header_section": {
     "title": "ensemble donnons vie à vos idées d'applications !",
-    "subtitle": "des applications sur mesure qui captivent les utilisateurs grace à la pussance de Flutter.",
-    "link": "en savoir plus"
+    "subtitle": "des applications sur mesure qui captivent les utilisateurs grace à la pussance de Flutter."
   },
   "about_section": {
     "section_title": "a propos",
@@ -50,57 +49,96 @@
         "slug": "ta-da",
         "title": "Ta-da",
         "category": "application mobile",
-        "tags": ["flutter", "dart", "riverpod", "freezed", "go_router", "dio", "firebase", "retrofit"],
+        "tags": ["flutter", "dart", "riverpod", "freezed", "go_router", "retrofit", "dio", "firebase"],
         "subtitle": "Une application mobile de micro tasking.",
-        "description": "Une application mobile de micro tasking.",
-        "work_type": "application mobile",
+        "description": "Ta-da est une plateforme innovante qui transforme la façon dont les créateurs d'IA accèdent à des données de haute qualité.Notre approche décentralisée consiste à mobiliser une communauté mondiale de collaborateurs diversifiée et efficace.L'application offre une gamme de services, notamment l'annotation d'images, la transcription, la reconnaissance vocale et bien plus encore.Notre communauté de collaborateurs est soigneusement sélectionnée et comprend des locuteurs natifs, garantissant ainsi des données précises et culturellement pertinentes. Ta-da s'engage à fournir des données éthiques et à garantir un processus transparent et équitable pour tous les participants.Le processus de validation des données innovant garantit des données de haute qualité, répondant ainsi à vos exigences spécifiques.",
+        "work_type": "freelance",
+        "entrusted_task": "- Constitution d'une équipe de développeurs Flutter - Gestion de projet - Refonte complète de l'application (code et design) et maintenance de l'application existante- Mise en place d'une clean archi- Mutli package via Melos- Mise en place de la CI/CD Gitlab - Fastlane- Création d'environnements de développement, de test et de production pour la distribution de l'application sur TestFlight et Firebase Distribution- Préparation pour le déploiement sur les stores",
+        "account_of" : {
+          "name": "",
+          "logo": "",
+          "website_url": ""
+        },
         "logo": "assets/images/work/tada-logo.png",
         "cover_image": "assets/images/work/tada-banner.png",
-        "link": [
+        "link":
           {
             "website_url": "https://picsum.photos/id/10/400/300",
             "store_ios": "https://picsum.photos/id/10/400/300",
             "store_android": "https://picsum.photos/id/10/400/300"
-          }
-        ],
+          },
         "realisation_date": "2023 - 2024"
+      },
+      {
+        "slug": "liza",
+        "title": "Liza",
+        "category": "application mobile, tablette, web",
+        "tags": ["flutter", "dart", "riverpod", "freezed", "go_router", "firebase"],
+        "subtitle": "Une application mobile de gestion de compte.",
+        "description": "Une application mobile de gestion de compte.",
+        "work_type": "projet personnel",
+        "entrusted_task": "Création d'une application mobile et desktop qui permet de trouver des livres , de les ajouter à une liste de lecture, de suivre sa progression et de les mettre à jour.",
+        "account_of" : {
+          "name": "",
+          "logo": "",
+          "website_url": ""
+        },
+        "logo": "assets/images/work/lisa-logo.png",
+        "cover_image": "assets/images/work/lisa-banner.png",
+        "link":
+        {
+          "website_url": "",
+          "store_ios": "",
+          "store_android": ""
+        },
+        "realisation_date": "2024"
       },
       {
         "slug": "currety",
         "title": "Currety",
-        "category": "application web",
+        "category": "dashboard web",
         "tags": ["flutter", "dart", "riverpod", "freezed", "go_router"],
         "subtitle": "Une application mobile de gestion de compte.",
-        "description": "Une application mobile de gestion de compte.",
-        "work_type": "application mobile",
+        "description": "Cureety est une plateforme de télésurveillance numérique innovante qui révolutionne les soins aux patients atteints de cancer. En proposant des questionnaires de suivi spécifiques, accessibles sur ordinateur, tablette ou mobile, Cureety permet une évaluation à distance de l'état de santé des patients. Les réponses sont analysées par un dispositif médical avancé, garantissant une prise en charge rapide et efficace.\n\nLa plateforme Cureety s'adapte aux besoins individuels des patients, offrant des conseils thérapeutiques personnalisés et un accès à des informations précieuses. L'application est conçue pour maintenir une relation humaine étroite entre les patients et les équipes soignantes, tout en améliorant la simplicité et l'efficacité de la prise en charge.",
+        "work_type": "freelance",
+        "entrusted_task": "Il m'a été confié la refonte complète du dashboard existant en le  migrant de React vers Flutter, en y ajoutant l'ensembles des formulaires de gestion des clients et des questionnaires.",
+        "account_of" : {
+          "name": "sublim",
+          "logo": "assets/images/work/sublim-logo.png",
+          "website_url": "https://sublim.agency"
+        },
         "logo": "assets/images/work/cureety-logo.png",
         "cover_image": "assets/images/work/projet-cureety.png",
-        "link": [
+        "link":
           {
             "website_url": "https://picsum.photos/id/10/400/300",
             "store_ios": "https://picsum.photos/id/10/400/300",
             "store_android": "https://picsum.photos/id/10/400/300"
-          }
-        ],
+          },
         "realisation_date": "2023"
       },
       {
         "slug": "br-units",
         "title": "Br-Units",
         "category": "application Ipad",
-        "tags": ["flutter", "dart", "riverpod", "freezed", "go_router"],
+        "tags": ["flutter", "dart", "riverpod", "freezed", "go_router", "hive"],
         "subtitle": "Une application mobile de gestion de compte.",
-        "description": "Une application mobile de gestion de compte.",
-        "work_type": "application mobile",
+        "description": "BR-UNITS est une entreprise spécialisée dans la création de solutions visuelles attrayantes. Nous aidons les entreprises et les événements à se démarquer grâce à une large gamme de produits, notamment des panneaux de signalisation personnalisés, des bannières, des enseignes lumineuses et des écrans LED de haute qualité.",
+        "work_type": "contrat",
+        "entrusted_task": "Dans le cadre d'une refonte complète de l'application iOS existante, nous avons doté l'application Flutter dédiée aux commerciaux de fonctionnalités de gestion des chantiers, de prise de photos, d'ajout de cotes et d'annotations. Pour une utilisation optimale hors connexion internet, l'application permet au commercial de charger en amont l'ensemble des informations clients de la journée, lui garantissant ainsi un accès complet aux données terrain.",
         "logo": "assets/images/work/br-units-logo.png",
         "cover_image": "assets/images/work/br-units-banner.png",
-        "link": [
+        "account_of" : {
+          "name": "la mobilery",
+          "logo": "assets/images/work/la-mobilery-logo.png",
+          "website_url": "https://www.lamobilery.fr/"
+        },
+        "link":
           {
-            "website_url": "https://picsum.photos/id/10/400/300",
-            "store_ios": "https://picsum.photos/id/10/400/300",
-            "store_android": "https://picsum.photos/id/10/400/300"
-          }
-        ],
+            "website_url": "https://www.br-units.com/",
+            "store_ios": "",
+            "store_android": ""
+          },
         "realisation_date": "2022"
       },
       {
@@ -109,37 +147,23 @@
         "category": "application mobile, tablette, web",
         "tags": ["flutter", "dart", "provider", "freezed", "go_router", "firebase"],
         "subtitle": "Une application mobile de gestion de compte.",
-        "description": "Une application mobile de gestion de compte.",
-        "work_type": "application mobile",
+        "description": "Les Petits Chaperons Rouges : un réseau de crèches connecté. Avec près de 700 crèches, Les Petits Chaperons Rouges est un acteur majeur de la petite enfance en France. L'application \"Chaperons & Vous\" facilite la communication entre les parents et les équipes éducatives, et simplifie la gestion quotidienne des crèches.Pour les parents : -Accéder au quotidien de leur enfant (menus, photos, etc.)- Suivre le développement de leur enfant - Communiquer avec l'équipe éducative- Gérer les aspects administratifsPour les directrices de crèches :- Optimiser la gestion des plannings- Faciliter les échanges avec les parents- Automatiser des tâches administratives- Mettre en place un affichage numérique \"Chaperons & Vous\" libère du temps aux directrices pour se concentrer sur les enfants, pour une expérience crèche toujours plus qualitative.",
+        "work_type": "contrat",
+        "entrusted_task": "- Une application destinée aux équipes afin de renseigner les activités des enfants, prendre des photos et vidéos, créer des évènements pour ensuite les transmettre aux parents.- Une application destinée aux parents permettant de suivre au quotidien la vie de leurs enfants et correspondre en direct avec les équipes.- Une application web de gestion gérée par les directrices et directeurs de crèche.",
+        "account_of" : {
+          "name": "la mobilery",
+          "logo": "assets/images/work/la-mobilery-logo.png",
+          "website_url": "https://www.lamobilery.fr/"
+        },
         "logo": "assets/images/work/lpcr-logo.png",
         "cover_image": "assets/images/work/lpcr-banner.png",
-        "link": [
+        "link":
           {
-            "website_url": "https://picsum.photos/id/10/400/300",
-            "store_ios": "https://picsum.photos/id/10/400/300",
-            "store_android": "https://picsum.photos/id/10/400/300"
-          }
-        ],
+            "website_url": "https://www.lpcr.fr/fr/",
+            "store_ios": "https://apps.apple.com/fr/app/chaperons-et-vous-2/id1617634703",
+            "store_android": "https://play.google.com/store/apps/details?id=fr.lpcr.chaperonsetvous2&hl=ln"
+          },
         "realisation_date": "2021"
-      },
-      {
-        "slug": "liza",
-        "title": "Liza",
-        "category": "application mobile, tablette, web",
-        "tags": ["flutter", "dart", "provider", "freezed", "go_router", "firebase"],
-        "subtitle": "Une application mobile de gestion de compte.",
-        "description": "Une application mobile de gestion de compte.",
-        "work_type": "application mobile",
-        "logo": "assets/images/work/lisa-logo.png",
-        "cover_image": "assets/images/work/lisa-banner.png",
-        "link": [
-          {
-            "website_url": "https://picsum.photos/id/10/400/300",
-            "store_ios": "https://picsum.photos/id/10/400/300",
-            "store_android": "https://picsum.photos/id/10/400/300"
-          }
-        ],
-        "realisation_date": "2024"
       }
     ]
   },

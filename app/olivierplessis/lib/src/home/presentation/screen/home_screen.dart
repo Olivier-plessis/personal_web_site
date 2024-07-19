@@ -1,3 +1,4 @@
+import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
@@ -53,7 +54,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   _generateToolbarItems(widget.homeData?.navigation ?? []),
               selectedIndex: selectedIndex,
               themeMode: themeMode)),
-      body: _bodyItems.isEmpty ? const SizedBox.shrink() : _body(),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Stack(
+            children: <Widget>[
+              _buildBackground(),
+              _bodyItems.isEmpty ? const SizedBox.shrink() : _body(),
+            ],
+          );
+        },
+      ),
+      // body: _bodyItems.isEmpty ? const SizedBox.shrink() : _body(),
       endDrawer: _drawer(context),
     );
   }
@@ -75,13 +86,35 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
+  Widget _buildBackground() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        ...List.generate(
+          5,
+          (index) => _buildVerticalDivider(),
+        ).toList(),
+      ],
+    );
+  }
+
+  Widget _buildVerticalDivider() {
+    return Container(
+      width: 2,
+      height: double.maxFinite,
+      child: VerticalDivider(
+        color: Palette.teal.withOpacity(0.2),
+      ),
+    );
+  }
+
   List<Widget> get _bodyItems => [
+        BlockWrapperWithContainer(
+            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
         BlockWrapperWithContainer(
             isTop: true, HeaderLayout(headerData: widget.homeData!.header)),
         BlockWrapperWithContainer(
             AboutLayout(aboutData: widget.homeData!.about)),
-        BlockWrapperWithContainer(
-            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
         BlockWrapperWithContainer(
             ContactLayout(contactData: widget.homeData!.contact)),
       ];

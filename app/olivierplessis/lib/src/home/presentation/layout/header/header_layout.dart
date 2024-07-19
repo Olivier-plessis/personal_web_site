@@ -21,7 +21,6 @@ class HeaderLayout extends StatelessWidget {
           columnOrder: 1,
           child: LeftHeaderSection(
             headerData: headerData,
-            onTap: () {},
           ),
         ),
         ResponsiveRowColumnItem(
