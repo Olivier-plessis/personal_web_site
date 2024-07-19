@@ -64,7 +64,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           );
         },
       ),
-      // body: _bodyItems.isEmpty ? const SizedBox.shrink() : _body(),
       endDrawer: _drawer(context),
     );
   }
@@ -99,20 +98,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget _buildVerticalDivider() {
-    return Container(
+    return VerticalDivider(
       width: 2,
-      height: double.maxFinite,
-      child: VerticalDivider(
-        color: Palette.teal.withOpacity(0.2),
-      ),
+      color: Palette.tealDarkLighten.withOpacity(0.2),
     );
   }
 
   List<Widget> get _bodyItems => [
         BlockWrapperWithContainer(
-            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
-        BlockWrapperWithContainer(
             isTop: true, HeaderLayout(headerData: widget.homeData!.header)),
+        BlockWrapperWithContainer(
+            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
         BlockWrapperWithContainer(
             AboutLayout(aboutData: widget.homeData!.about)),
         BlockWrapperWithContainer(
