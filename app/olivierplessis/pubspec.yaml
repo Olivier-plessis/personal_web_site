@@ -13,6 +13,7 @@ dependencies:
   responsive_framework: ^1.4.0
 
   design_ui:
+    path: ../../packages/design_ui
   hooks_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
   flutter_hooks: ^0.20.5
