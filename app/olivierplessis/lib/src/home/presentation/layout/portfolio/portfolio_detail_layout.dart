@@ -88,31 +88,24 @@ class _PortfolioDetailLayoutState extends ConsumerState<PortfolioDetailLayout>
     );
   }
 
-  AppBar _buildAppBar(BuildContext context) {
-    return AppBar(
-      elevation: 0.0,
-      forceMaterialTransparency: true,
-      title: Opacity(
-        opacity: 0 + 1 * offset,
-        child: Text(
-          widget.workItem?.title ?? '',
-          style: StyleTextTheme.textThemeDisplayMedium.copyWith(
-            color: Color.lerp(Palette.white, Palette.teal, offset),
-            fontWeight: FontWeightTheme.medium,
+  PreferredSize _buildAppBar(BuildContext context) {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(kToolbarHeight + 16),
+      child: AppBar(
+        elevation: 0.0,
+        forceMaterialTransparency: true,
+        leading: IconButton(
+          onPressed: () => context.pop(),
+          style: IconButton.styleFrom(
+            backgroundColor: Color.lerp(
+                    Colors.white, Colors.black.withOpacity(0.25), 1 - offset) ??
+                Colors.transparent,
           ),
+          icon: Icon(Icons.close,
+              color: Color.lerp(Colors.white, Colors.black, offset)),
         ),
-      ),
-      leading: IconButton(
-        onPressed: () => context.pop(),
-        style: IconButton.styleFrom(
-          backgroundColor: Color.lerp(
-                  Colors.white, Colors.black.withOpacity(0.25), 1 - offset) ??
-              Colors.transparent,
-        ),
-        icon: Icon(Icons.close,
-            color: Color.lerp(Colors.white, Colors.black, offset)),
-      ),
-      backgroundColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+      ).paddedAll(16),
     );
   }
 

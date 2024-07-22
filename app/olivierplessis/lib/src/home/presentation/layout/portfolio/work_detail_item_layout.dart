@@ -14,11 +14,21 @@ class WorkDetailItemLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: EdgeInsets.zero,
       physics: offset < 1
           ? const NeverScrollableScrollPhysics()
           : ClampingScrollPhysics(),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          Container(
+            width: MaxSizeConstant.maxWidth,
+            padding: EdgeInsets.symmetric(horizontal: 55),
+            child: Text('Date de réalisation : ${workItem!.realisationDate}',
+                style: StyleTextTheme.labelMedium),
+          ),
           ResponsiveRowColumn(
             columnCrossAxisAlignment: CrossAxisAlignment.start,
             rowCrossAxisAlignment: CrossAxisAlignment.start,
@@ -32,8 +42,10 @@ class WorkDetailItemLayout extends StatelessWidget {
                 columnOrder: 1,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const Text('Description', style: TextStyle()),
+                    Text('Description', style: StyleTextTheme.labelMedium),
                     const SizedBox(height: 8),
                     buildMessageRow(
                       message:
@@ -41,7 +53,7 @@ class WorkDetailItemLayout extends StatelessWidget {
                       imagePath: workItem?.coverImage ?? '',
                     ).paddedR(52),
                     const SizedBox(height: 12),
-                    const Text('Technos', style: TextStyle()),
+                    Text('Technos', style: StyleTextTheme.labelMedium),
                     Wrap(
                       runAlignment: WrapAlignment.start,
                       alignment: WrapAlignment.start,
@@ -65,7 +77,7 @@ class WorkDetailItemLayout extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Mission', style: TextStyle()),
+                      Text('Mission', style: StyleTextTheme.labelMedium),
                       const SizedBox(height: 8),
                       buildMessageRow(
                         message: workItem?.entrustedTask ?? '',
@@ -98,6 +110,11 @@ class WorkDetailItemLayout extends StatelessWidget {
                     width: 52,
                     height: 52,
                     decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4.0.r),
+                      border: Border.all(
+                        color: Color(0xFFA6A6A6),
+                        width: 2,
+                      ),
                       image: DecorationImage(
                         image: AssetImage(workItem?.logo ?? '',
                             package: 'design_ui'),
