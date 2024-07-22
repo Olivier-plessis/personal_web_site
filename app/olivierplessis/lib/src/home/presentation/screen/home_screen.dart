@@ -112,11 +112,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   List<Widget> get _bodyItems => [
         BlockWrapperWithContainer(
-            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
-        BlockWrapperWithContainer(
             isTop: true, HeaderLayout(headerData: widget.homeData!.header)),
         BlockWrapperWithContainer(
             AboutLayout(aboutData: widget.homeData!.about)),
+        BlockWrapperWithContainer(
+            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
         BlockWrapperWithContainer(
             ContactLayout(contactData: widget.homeData!.contact)),
       ];
