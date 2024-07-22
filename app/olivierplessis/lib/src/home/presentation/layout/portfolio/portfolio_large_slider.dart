@@ -195,6 +195,7 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
                           vertical: 10 + animValue * 12,
                         ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             if (widget.isExpanded)
                               Flexible(
@@ -246,6 +247,31 @@ class _AnimatedCardItemState extends State<AnimatedCardItem> {
                                   ),
                                 ),
                               ),
+                            if (widget.isExpanded)
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Palette.greyDarken,
+                                  foregroundColor: Palette.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  context.goNamed(
+                                    AppPage.portfolio.name,
+                                    pathParameters: {
+                                      'slug': widget.workItem.slug,
+                                    },
+                                    extra: widget.workItem,
+                                  );
+                                },
+                                child: Text(
+                                  'Découvrir',
+                                  style: StyleTextTheme.labelRegular.copyWith(
+                                    color: Palette.teal,
+                                  ),
+                                ),
+                              ).paddedR(12),
                           ],
                         ),
                       ),
