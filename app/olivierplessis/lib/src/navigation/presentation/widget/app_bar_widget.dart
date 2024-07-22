@@ -41,16 +41,19 @@ class AppBarWidget extends ConsumerWidget {
                   style: context.isDisplayLargeThanTablet
                       ? StyleTextTheme.textThemeDisplayMedium
                           .copyWith(letterSpacing: 1.8)
-                      : StyleTextTheme.textThemeDisplayMedium
-                          .copyWith(letterSpacing: 1.2),
+                      : StyleTextTheme.textThemeDisplayMedium.copyWith(
+                          letterSpacing: 1.2,
+                          fontSize: MediaQuery.of(context).size.width * 0.06),
                 ),
                 Text(
                   ' PLESSIS',
                   style: context.isDisplayLargeThanTablet
                       ? StyleTextTheme.textThemeDisplayMedium
                           .copyWith(letterSpacing: 1.8, color: Palette.teal)
-                      : StyleTextTheme.textThemeDisplayMedium
-                          .copyWith(letterSpacing: 1.2, color: Palette.teal),
+                      : StyleTextTheme.textThemeDisplayMedium.copyWith(
+                          letterSpacing: 1.2,
+                          color: Palette.teal,
+                          fontSize: MediaQuery.of(context).size.width * 0.06),
                 ),
                 const Spacer(),
                 ResponsiveVisibility(
