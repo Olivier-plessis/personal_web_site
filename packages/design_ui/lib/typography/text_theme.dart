@@ -81,16 +81,18 @@ class StyleTextTheme {
       fontWeight: FontWeightTheme.medium,
     );
   }
-}
 
-/*
-final siteTextTheme = TextTheme(
-  displayLarge: StyleTextTheme.TextThemeDisplayLarge,
-  displayMedium: StyleTextTheme.displayMedium,
-  displaySmall: StyleTextTheme.displaySmall,
-  headlineMedium: StyleTextTheme.headlineMedium,
-  headlineSmall: StyleTextTheme.headlineSmall,
-  titleMedium: StyleTextTheme.titleMedium,
-  labelMedium: StyleTextTheme.labelMedium,
-);
-*/
+  static TextStyle get labelRegular {
+    return _baseTextStyle.copyWith(
+      fontSize: FontSizeTheme.bodyRegular,
+      fontWeight: FontWeightTheme.light,
+    );
+  }
+
+  static TextStyle get labelLight {
+    return _baseTextStyle.copyWith(
+      fontSize: FontSizeTheme.bodyLight,
+      fontWeight: FontWeightTheme.light,
+    );
+  }
+}

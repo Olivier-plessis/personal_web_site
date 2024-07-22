@@ -92,7 +92,16 @@ class _PortfolioDetailLayoutState extends ConsumerState<PortfolioDetailLayout>
     return AppBar(
       elevation: 0.0,
       forceMaterialTransparency: true,
-      actions: [],
+      title: Opacity(
+        opacity: 0 + 1 * offset,
+        child: Text(
+          widget.workItem?.title ?? '',
+          style: StyleTextTheme.textThemeDisplayMedium.copyWith(
+            color: Color.lerp(Palette.white, Palette.teal, offset),
+            fontWeight: FontWeightTheme.medium,
+          ),
+        ),
+      ),
       leading: IconButton(
         onPressed: () => context.pop(),
         style: IconButton.styleFrom(
@@ -108,58 +117,60 @@ class _PortfolioDetailLayoutState extends ConsumerState<PortfolioDetailLayout>
   }
 
   Widget _buildHeader() {
-    return Align(
-      alignment: FractionalOffset(0, 1 - (offset)),
-      child: Container(
-        width: MaxSizeConstant.maxWidth,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        margin: EdgeInsets.zero,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Hero(
-              tag: 'date',
-              child: Opacity(
-                opacity: 1 - offset,
-                child: Text(
-                  widget.workItem?.realisationDate ?? '',
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: Color.lerp(Colors.white, Colors.white, offset),
-                      ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Wrap(
-              runAlignment: WrapAlignment.spaceBetween,
-              alignment: WrapAlignment.spaceBetween,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                FractionallySizedBox(
-                  widthFactor: context.isDisplayLargeThanTablet ? 0.4 : 1,
-                  child: Hero(
-                    tag: 'title',
-                    child: Text(
-                      widget.workItem?.subtitle ?? '',
-                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            color:
-                                Color.lerp(Palette.white, Palette.teal, offset),
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ).paddedB(24),
+    return Opacity(
+      opacity: 1 - offset,
+      child: Align(
+        alignment: FractionalOffset(0, 1 - (offset)),
+        child: Container(
+          width: MaxSizeConstant.maxWidth,
+          padding: EdgeInsets.symmetric(horizontal: 55, vertical: 16),
+          margin: EdgeInsets.zero,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Hero(
+                tag: 'date',
+                child: Opacity(
+                  opacity: 1 - offset,
+                  child: Text(
+                    widget.workItem?.realisationDate ?? '',
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Color.lerp(Colors.white, Colors.white, offset),
+                        ),
                   ),
                 ),
-                FractionallySizedBox(
-                  widthFactor: context.isDisplayLargeThanTablet ? 0.2 : 1,
-                  child: Opacity(
-                      opacity: 1 - offset,
-                      child:
-                          Center(child: AnimatedVerticalArrows().paddedB(24))),
-                ),
-              ],
-            ),
-          ],
+              ),
+              Wrap(
+                runAlignment: WrapAlignment.spaceBetween,
+                alignment: WrapAlignment.spaceBetween,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  FractionallySizedBox(
+                    widthFactor: context.isDisplayLargeThanTablet ? 0.4 : 1,
+                    child: Hero(
+                      tag: 'title',
+                      child: Text(
+                        widget.workItem?.subtitle ?? '',
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                              color: Color.lerp(
+                                  Palette.white, Palette.teal, offset),
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                  ),
+                  FractionallySizedBox(
+                    widthFactor: context.isDisplayLargeThanTablet ? 0.2 : 1,
+                    child: Opacity(
+                        opacity: 1 - offset,
+                        child: Center(
+                            child: AnimatedVerticalArrows().paddedB(24))),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

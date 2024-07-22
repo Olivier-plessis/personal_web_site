@@ -63,6 +63,18 @@ class BlockWrapperCenter extends StatelessWidget {
   }
 }
 
+class BlockWrapperC extends StatelessWidget {
+  final Widget widget;
+
+  const BlockWrapperC(this.widget, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveConstraints(
+        conditionalConstraints: blockWidthConstraints, child: widget);
+  }
+}
+
 class BlockWrapper extends StatelessWidget {
   final Widget widget;
   final bool isTop;

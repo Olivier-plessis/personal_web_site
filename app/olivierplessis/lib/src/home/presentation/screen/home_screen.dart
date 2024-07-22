@@ -58,6 +58,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         builder: (context, constraints) {
           return Stack(
             children: <Widget>[
+              VerticalDivider(
+                width: 38,
+                color: Palette.tealDarkLighten,
+                thickness: 1,
+                endIndent: MediaQuery.of(context).size.height / 3.4,
+              ).paddedL(12),
+              _buildMadeWith(),
               _buildBackground(),
               _bodyItems.isEmpty ? const SizedBox.shrink() : _body(),
             ],
@@ -105,11 +112,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   List<Widget> get _bodyItems => [
         BlockWrapperWithContainer(
+            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
+        BlockWrapperWithContainer(
             isTop: true, HeaderLayout(headerData: widget.homeData!.header)),
         BlockWrapperWithContainer(
             AboutLayout(aboutData: widget.homeData!.about)),
-        BlockWrapperWithContainer(
-            PortfolioLayout(portfolio: widget.homeData!.portfolio)),
         BlockWrapperWithContainer(
             ContactLayout(contactData: widget.homeData!.contact)),
       ];
@@ -138,4 +145,38 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ],
     );
   }*/
+
+  Widget _buildMadeWith({Alignment alignment = Alignment.bottomLeft}) {
+    return Padding(
+      padding: EdgeInsets.only(
+        bottom: 50.0,
+        left: 10,
+      ),
+      child: Align(
+        alignment: alignment,
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              RotatedBox(
+                quarterTurns: 3,
+                child: Text(' Flutter',
+                    style: StyleTextTheme.labelRegular.copyWith(
+                      color: Palette.teal,
+                    )),
+              ).paddedH(8),
+              RotatedBox(
+                quarterTurns: 3,
+                child: Text('Made with',
+                    style: StyleTextTheme.labelRegular.copyWith(
+                      color: Palette.teal,
+                    )),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
