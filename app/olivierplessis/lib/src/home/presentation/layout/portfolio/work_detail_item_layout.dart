@@ -101,12 +101,8 @@ class WorkDetailItemLayout extends StatelessWidget {
                   ),
                 ),
               if (workItem?.link.websiteUrl.isNotEmpty ?? false)
-                InkWell(
-                  onTap: () {
-                    openUrl(
-                      url: workItem?.link.websiteUrl ?? '',
-                    );
-                  },
+                buildLinkButton(
+                  url: workItem?.link.websiteUrl ?? '',
                   child: Container(
                     width: 52,
                     height: 52,
@@ -122,31 +118,22 @@ class WorkDetailItemLayout extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    child: null /* add child content here */,
                   ),
                 ),
               if (workItem?.link.storeIos.isNotEmpty ?? false)
-                InkWell(
-                  onTap: () {
-                    openUrl(
-                      url: workItem?.link.storeIos ?? '',
-                    );
-                  },
+                buildLinkButton(
+                  url: workItem?.link.storeIos ?? '',
                   child: SvgPictureCustom(
                     path: IconAssets.icAppstore,
                   ).paddedL(24),
                 ),
               if (workItem?.link.storeAndroid.isNotEmpty ?? false)
-                InkWell(
-                  onTap: () {
-                    openUrl(
-                      url: workItem?.link.storeAndroid ?? '',
-                    );
-                  },
+                buildLinkButton(
+                  url: workItem?.link.storeAndroid ?? '',
                   child: SvgPictureCustom(
                     path: IconAssets.icGoogleplay,
                   ).paddedL(24),
-                )
+                ),
             ]).paddedT(12.0.h),
           ),
         ],
@@ -168,6 +155,13 @@ class WorkDetailItemLayout extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget buildLinkButton({required String url, required Widget child}) {
+    return InkWell(
+      onTap: () => openUrl(url: url),
+      child: child,
     );
   }
 }

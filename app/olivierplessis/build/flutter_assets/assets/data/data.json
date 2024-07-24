@@ -77,7 +77,7 @@
         "subtitle": "Une application de liste de lecture.",
         "description": "Liça est une application permettant de trouver des livres, de les ajouter à une liste de lecture, de suivre sa progression et de les mettre à jour.",
         "work_type": "projet personnel",
-        "entrusted_task": "Projet personnel a la demande de ma fille ❤, elle souhaitait une app lui permettant  rechercher un livre depuis une bibliothèque, de pouvoir ajouter des livres à sa liste de lecture et de suivre ses lectures. \n La recherche se fait depuis l'API de Google books, le résultat de la recherche est affiché dans une liste, avec les informations de description, auteur, genre et image de couverture. \n   \nL'application est également compatible avec les tablettes et mobiles.",
+        "entrusted_task": "Projet personnel a la demande de ma fille ❤, elle souhaitait une app lui permettant  rechercher un livre depuis une bibliothèque, de pouvoir ajouter des livres à sa liste de lecture et de suivre ses lectures. \n La recherche se fait depuis l'API de Google books, le résultat de la recherche est affichée dans une liste, avec les informations de description, auteur, genre et image de couverture. \n   \nL'application est également compatible avec les tablettes et mobiles.",
         "account_of" : {
           "name": "",
           "logo": "",
@@ -91,7 +91,7 @@
           "store_ios": "",
           "store_android": ""
         },
-        "realisation_date": "2024"
+        "realisation_date": "2022 -2024"
       },
       {
         "slug": "currety",

@@ -77,6 +77,7 @@ class PortfolioLayout extends ConsumerWidget {
               children: [
                 ...portfolio.workItems.take(5).fold<List<Widget>>([],
                     (acc, workItem) {
+                  var isOdd = acc.length.isOdd;
                   return acc
                     ..addAll([
                       WorkCard(
@@ -88,7 +89,7 @@ class PortfolioLayout extends ConsumerWidget {
                 }).toList(),
                 Container(
                   decoration: BoxDecoration(
-                    gradient: Palette.greyGradient,
+                    gradient: Palette.tealGradient,
                     border: Border.all(
                         color: Palette.teal.withOpacity(0.5), width: 2),
                     borderRadius: BorderRadius.circular(10.0.r),
