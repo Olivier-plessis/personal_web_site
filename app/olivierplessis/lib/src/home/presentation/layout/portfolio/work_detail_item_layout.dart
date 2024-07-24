@@ -32,6 +32,7 @@ class WorkDetailItemLayout extends StatelessWidget {
           ResponsiveRowColumn(
             columnCrossAxisAlignment: CrossAxisAlignment.start,
             rowCrossAxisAlignment: CrossAxisAlignment.start,
+            columnPadding: blockPadding(context),
             rowPadding: blockPadding(context),
             layout: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
                 ? ResponsiveRowColumnType.COLUMN
@@ -149,7 +150,7 @@ class WorkDetailItemLayout extends StatelessWidget {
             ]).paddedT(12.0.h),
           ),
         ],
-      ),
+      ).paddedB(24.0.h),
     );
   }
 

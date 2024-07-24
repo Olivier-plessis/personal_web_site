@@ -10,5 +10,5 @@ class BrandingAssets {
   static const String bdgIconHeader = 'assets/images/branding/icon_header.png';
   static const String bdgPhoneHeader =
       'assets/images/branding/phone_header.png';
-  static const String bdgPhoto = 'assets/images/branding/photo.png';
+  static const String bdgPhoto = 'assets/images/branding/photo.webp';
 }

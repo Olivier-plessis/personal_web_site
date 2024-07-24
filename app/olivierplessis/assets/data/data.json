@@ -60,7 +60,7 @@
           "website_url": ""
         },
         "logo": "assets/images/work/tada-logo.png",
-        "cover_image": "assets/images/work/tada-banner.png",
+        "cover_image": "assets/images/work/tada-banner.webp",
         "link":
           {
             "website_url": "https://ta-da.io",
@@ -84,14 +84,14 @@
           "website_url": ""
         },
         "logo": "assets/images/work/lisa-logo.png",
-        "cover_image": "assets/images/work/lisa-banner.png",
+        "cover_image": "assets/images/work/lisa-banner.webp",
         "link":
         {
           "website_url": "",
           "store_ios": "",
           "store_android": ""
         },
-        "realisation_date": "2024"
+        "realisation_date": "2022 -2024"
       },
       {
         "slug": "currety",
@@ -127,7 +127,7 @@
         "work_type": "contrat",
         "entrusted_task": "Dans le cadre d'une refonte complète de l'application iOS existante, nous avons doté l'application Flutter dédiée aux commerciaux de fonctionnalités de gestion des chantiers, de prise de photos, d'ajout de cotes et d'annotations. Pour une utilisation optimale hors connexion internet, l'application permet au commercial de charger en amont l'ensemble des informations clients de la journée, lui garantissant ainsi un accès complet aux données terrain.",
         "logo": "assets/images/work/br-units-logo.png",
-        "cover_image": "assets/images/work/br-units-banner.png",
+        "cover_image": "assets/images/work/br-units-banner.webp",
         "account_of" : {
           "name": "la mobilery",
           "logo": "assets/images/work/la-mobilery-logo.png",
@@ -156,7 +156,7 @@
           "website_url": "https://www.lamobilery.fr/"
         },
         "logo": "assets/images/work/lpcr-logo.png",
-        "cover_image": "assets/images/work/lpcr-banner.png",
+        "cover_image": "assets/images/work/lpcr-banner.webp",
         "link":
           {
             "website_url": "https://www.lpcr.fr/fr/",
