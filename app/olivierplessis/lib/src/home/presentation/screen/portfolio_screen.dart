@@ -7,8 +7,7 @@ class PortfolioScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      color: Colors.red,
-      child: const Text('treter'),
+      child: const Text('en cours de réalisation'),
     );
   }
 }

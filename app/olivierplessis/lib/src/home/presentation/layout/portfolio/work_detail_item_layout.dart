@@ -92,49 +92,56 @@ class WorkDetailItemLayout extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: context.isDisplayLargeThanTablet ? 55 : 15),
-            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              if (workItem?.title == "Liça")
-                Text(
-                  'application en cours de refonte',
-                  style: StyleTextTheme.textThemeDisplayLarge.copyWith(
-                    fontWeight: FontWeightTheme.bold,
-                  ),
-                ),
-              if (workItem?.link.websiteUrl.isNotEmpty ?? false)
-                buildLinkButton(
-                  url: workItem?.link.websiteUrl ?? '',
-                  child: Container(
-                    width: 52,
-                    height: 52,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4.0.r),
-                      border: Border.all(
-                        color: Color(0xFFA6A6A6),
-                        width: 2,
+            child: FittedBox(
+              fit: BoxFit.fitWidth,
+              child: Wrap(
+                  runAlignment: WrapAlignment.start,
+                  alignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  children: [
+                    if (workItem?.title == "Liça")
+                      Text(
+                        'application en cours de refonte',
+                        style: StyleTextTheme.textThemeDisplayLarge.copyWith(
+                          fontWeight: FontWeightTheme.bold,
+                        ),
                       ),
-                      image: DecorationImage(
-                        image: AssetImage(workItem?.logo ?? '',
-                            package: 'design_ui'),
-                        fit: BoxFit.cover,
+                    if (workItem?.link.websiteUrl.isNotEmpty ?? false)
+                      buildLinkButton(
+                        url: workItem?.link.websiteUrl ?? '',
+                        child: Container(
+                          width: 52,
+                          height: 52,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4.0.r),
+                            border: Border.all(
+                              color: Color(0xFFA6A6A6),
+                              width: 2,
+                            ),
+                            image: DecorationImage(
+                              image: AssetImage(workItem?.logo ?? '',
+                                  package: 'design_ui'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-              if (workItem?.link.storeIos.isNotEmpty ?? false)
-                buildLinkButton(
-                  url: workItem?.link.storeIos ?? '',
-                  child: SvgPictureCustom(
-                    path: IconAssets.icAppstore,
-                  ).paddedL(24),
-                ),
-              if (workItem?.link.storeAndroid.isNotEmpty ?? false)
-                buildLinkButton(
-                  url: workItem?.link.storeAndroid ?? '',
-                  child: SvgPictureCustom(
-                    path: IconAssets.icGoogleplay,
-                  ).paddedL(24),
-                ),
-            ]).paddedT(12.0.h),
+                    if (workItem?.link.storeIos.isNotEmpty ?? false)
+                      buildLinkButton(
+                        url: workItem?.link.storeIos ?? '',
+                        child: SvgPictureCustom(
+                          path: IconAssets.icAppstore,
+                        ).paddedL(24),
+                      ),
+                    if (workItem?.link.storeAndroid.isNotEmpty ?? false)
+                      buildLinkButton(
+                        url: workItem?.link.storeAndroid ?? '',
+                        child: SvgPictureCustom(
+                          path: IconAssets.icGoogleplay,
+                        ).paddedL(24),
+                      ),
+                  ]).paddedT(12.0.h),
+            ),
           ),
         ],
       ).paddedB(24.0.h),

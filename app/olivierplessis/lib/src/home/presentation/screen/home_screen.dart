@@ -13,6 +13,7 @@ import 'package:olivierplessis/src/navigation/domain/model/item_nav_model.dart';
 import 'package:olivierplessis/src/navigation/presentation/provider/selected_item_tool_bar_provider.dart';
 import 'package:olivierplessis/src/navigation/presentation/widget/app_bar_widget.dart';
 import 'package:olivierplessis/src/navigation/presentation/widget/tool_bar_item.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class MainHomeScreen extends ConsumerWidget {
@@ -63,7 +64,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 color: Palette.tealDarkLighten,
                 thickness: 1,
                 endIndent: MediaQuery.of(context).size.height / 3.4,
-              ).paddedL(12),
+              ).paddedL(ResponsiveBreakpoints.of(context).largerThan(MOBILE)
+                  ? 12
+                  : 0),
               _buildMadeWith(),
               _buildBackground(),
               _bodyItems.isEmpty ? const SizedBox.shrink() : _body(),
@@ -87,7 +90,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   void _changeToIndex(int i) {
     _itemScrollController.scrollTo(
       index: i,
-      duration: const Duration(milliseconds: 900),
+      duration: const Duration(milliseconds: 700),
     );
   }
 
@@ -129,28 +132,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  /* Widget? _drawer(BuildContext context) {
-    if (context.isDisplayLargeThanTablet) return null;
-
-    return Column(
-      children: [
-        const SizedBox(height: 12),
-        const Text('Drawer'),
-        const SizedBox(height: 12),
-        ElevatedButton(
-          child: const Text('change color theme'),
-          onPressed: () =>
-              ref.watch(themeModeControllerProvider.notifier).toggleThemeMode(),
-        ),
-      ],
-    );
-  }*/
-
   Widget _buildMadeWith({Alignment alignment = Alignment.bottomLeft}) {
     return Padding(
       padding: EdgeInsets.only(
         bottom: 50.0,
-        left: 10,
+        left: ResponsiveBreakpoints.of(context).largerThan(MOBILE) ? 10 : 0,
       ),
       child: Align(
         alignment: alignment,

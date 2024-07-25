@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -39,7 +37,7 @@ class PortfolioLayout extends ConsumerWidget {
               child: titleWidget),
         ),
         ResponsiveVisibility(
-          visible: false,
+          visible: true,
           visibleConditions: const [
             Condition.largerThan(name: TABLET),
             Condition.equals(name: TABLET)
@@ -49,7 +47,7 @@ class PortfolioLayout extends ConsumerWidget {
             child: Container(
               margin: EdgeInsets.only(top: 26.0.h),
               constraints: BoxConstraints(
-                maxHeight: context.isDisplayLargeThanTablet ? 450 : 300,
+                maxHeight: context.isDisplayLargeThanTablet ? 450 : 200,
               ),
               child: PortfolioLargeSlider(
                 workItem: portfolio.workItems,
@@ -57,7 +55,7 @@ class PortfolioLayout extends ConsumerWidget {
             ),
           ),
         ),
-        ResponsiveVisibility(
+        /* ResponsiveVisibility(
           visible: false,
           visibleConditions: const [
             Condition.smallerThan(name: TABLET),
@@ -77,7 +75,6 @@ class PortfolioLayout extends ConsumerWidget {
               children: [
                 ...portfolio.workItems.take(5).fold<List<Widget>>([],
                     (acc, workItem) {
-                  var isOdd = acc.length.isOdd;
                   return acc
                     ..addAll([
                       WorkCard(
@@ -89,7 +86,7 @@ class PortfolioLayout extends ConsumerWidget {
                 }).toList(),
                 Container(
                   decoration: BoxDecoration(
-                    gradient: Palette.tealGradient,
+                    gradient: Palette.greyGradient,
                     border: Border.all(
                         color: Palette.teal.withOpacity(0.5), width: 2),
                     borderRadius: BorderRadius.circular(10.0.r),
@@ -108,7 +105,7 @@ class PortfolioLayout extends ConsumerWidget {
               ],
             ),
           ),
-        ),
+        ),*/
       ],
     );
   }
