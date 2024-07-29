@@ -34,6 +34,10 @@ scripts:
     run: melos exec --depends-on="build_runner" -- "dart run build_runner build -d"
     description: Build all generated files for Dart & Flutter packages in this project.
 
+  build:web:
+    run: melos exec --scope="olivierplessis" -- "flutter build web --release"
+    description: Build Web app.
+
 
 command:
   bootstrap:

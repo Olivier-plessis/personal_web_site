@@ -94,8 +94,8 @@
         "realisation_date": "2022 -2024"
       },
       {
-        "slug": "currety",
-        "title": "Currety",
+        "slug": "cureety",
+        "title": "cureety",
         "category": "dashboard web",
         "tags": ["flutter", "dart", "riverpod", "freezed", "go_router"],
         "subtitle": " Dashboard web centralisant les questionnaires de suivi des patients.",
