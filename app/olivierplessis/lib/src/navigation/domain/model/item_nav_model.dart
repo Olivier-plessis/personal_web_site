@@ -11,6 +11,10 @@ class Navigation with _$Navigation {
 
   factory Navigation.fromJson(Map<String, dynamic> json) =>
       _$NavigationFromJson(json);
+
+  factory Navigation.empty() => Navigation(
+        items: [],
+      );
 }
 
 @freezed
@@ -20,4 +24,8 @@ class Item with _$Item {
   }) = _Item;
 
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
+
+  factory Item.empty() => Item(
+        title: '',
+      );
 }

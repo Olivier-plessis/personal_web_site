@@ -2,6 +2,7 @@ enum AppPage {
   landing,
   home,
   portfolio,
+  legal,
 }
 
 extension AppPageExtension on AppPage {
@@ -10,6 +11,7 @@ extension AppPageExtension on AppPage {
       AppPage.landing => '/landing',
       AppPage.home => '/',
       AppPage.portfolio => '/portfolio',
+      AppPage.legal => '/legal',
     };
   }
 
@@ -18,6 +20,7 @@ extension AppPageExtension on AppPage {
       AppPage.landing => 'LANDING',
       AppPage.home => 'HOME',
       AppPage.portfolio => 'PORTFOLIO',
+      AppPage.legal => 'LEGAL',
     };
   }
 }

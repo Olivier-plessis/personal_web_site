@@ -1,5 +1,6 @@
 import 'package:design_ui/design_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/core/utils/provider/theme/theme_mode_provider.dart';
@@ -13,6 +14,7 @@ import 'package:olivierplessis/src/navigation/domain/model/item_nav_model.dart';
 import 'package:olivierplessis/src/navigation/presentation/provider/selected_item_tool_bar_provider.dart';
 import 'package:olivierplessis/src/navigation/presentation/widget/app_bar_widget.dart';
 import 'package:olivierplessis/src/navigation/presentation/widget/tool_bar_item.dart';
+import 'package:olivierplessis/src/routing/route_constant.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -122,6 +124,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             PortfolioLayout(portfolio: widget.homeData!.portfolio)),
         BlockWrapperWithContainer(
             ContactLayout(contactData: widget.homeData!.contact)),
+        BlockWrapperWithContainer(Row(
+          children: [
+            Text('@2024 Olivier Plessis. Tous droits réservés. | ',
+                style: StyleTextTheme.labelLight.copyWith(
+                  color: Palette.teal.withOpacity(0.6),
+                )),
+            InkWell(
+                child: Text('Mentions légales',
+                    style: StyleTextTheme.labelLight.copyWith(
+                      color: Palette.teal.withOpacity(0.6),
+                    )),
+                onTap: () => context.goNamed(
+                      AppPage.legal.routeName,
+                    )),
+          ],
+        )),
       ];
 
   Widget _body() {
@@ -135,7 +153,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget _buildMadeWith({Alignment alignment = Alignment.bottomLeft}) {
     return Padding(
       padding: EdgeInsets.only(
-        bottom: 50.0,
+        bottom: 70.0,
         left: ResponsiveBreakpoints.of(context).largerThan(MOBILE) ? 10 : 0,
       ),
       child: Align(
@@ -147,18 +165,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             children: <Widget>[
               RotatedBox(
                 quarterTurns: 3,
-                child: Text(' Flutter',
+                child: Text('Made with Flutter',
                     style: StyleTextTheme.labelRegular.copyWith(
-                      color: Palette.teal,
+                      color: Palette.teal.withOpacity(0.6),
                     )),
               ).paddedH(8),
-              RotatedBox(
-                quarterTurns: 3,
-                child: Text('Made with',
-                    style: StyleTextTheme.labelRegular.copyWith(
-                      color: Palette.teal,
-                    )),
-              ),
             ],
           ),
         ),

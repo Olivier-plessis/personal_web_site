@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
 import 'package:olivierplessis/src/home/presentation/layout/portfolio/portfolio_detail_layout.dart';
 import 'package:olivierplessis/src/home/presentation/screen/home_screen.dart';
+import 'package:olivierplessis/src/home/presentation/screen/privacy.dart';
 import 'package:olivierplessis/src/landing_screen.dart';
 import 'package:olivierplessis/src/routing/not_found_screen.dart';
 import 'package:olivierplessis/src/routing/route_constant.dart';
@@ -21,6 +22,13 @@ GoRouter goRouter(GoRouterRef ref) {
         name: AppPage.landing.routeName,
         builder: (BuildContext context, GoRouterState state) {
           return const LandingScreen();
+        },
+      ),
+      GoRoute(
+        path: AppPage.legal.routePath,
+        name: AppPage.legal.routeName,
+        builder: (BuildContext context, GoRouterState state) {
+          return const PrivacyScreen();
         },
       ),
       GoRoute(

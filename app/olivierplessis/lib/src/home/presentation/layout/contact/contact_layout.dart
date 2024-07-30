@@ -20,7 +20,7 @@ class ContactLayout extends ConsumerWidget {
     return ResponsiveRowColumn(
       columnCrossAxisAlignment: CrossAxisAlignment.center,
       rowCrossAxisAlignment: CrossAxisAlignment.center,
-      layout: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
+      layout: ResponsiveBreakpoints.of(context).smallerThan(TABLET)
           ? ResponsiveRowColumnType.COLUMN
           : ResponsiveRowColumnType.ROW,
       children: [
@@ -38,9 +38,15 @@ class ContactLayout extends ConsumerWidget {
           ),
         ),
         ResponsiveRowColumnItem(
-          rowFlex: context.isDisplayLargeThanDesktop ? 2 : 6,
+          rowFlex: context.isDisplayLargeThanDesktop ? 2 : 5,
           columnOrder: 2,
-          child: _rightContactLayout(context),
+          child: ResponsiveVisibility(
+              visible: false,
+              visibleConditions: const [
+                Condition.largerThan(name: TABLET),
+                Condition.equals(name: TABLET)
+              ],
+              child: _rightContactLayout(context)),
         ),
       ],
     );
@@ -112,7 +118,8 @@ class LeftContactSection extends StatelessWidget {
 
 Widget _rightContactLayout(BuildContext context) {
   return Container(
-    padding: EdgeInsets.only(top: 26.0.h),
+    padding: EdgeInsets.only(
+        top: context.isDisplayLargeThanTablet ? 26.0.h : 0, left: 30.0.w),
     constraints: BoxConstraints(
       maxHeight: context.isDisplayLargeThanTablet ? 640 : 500,
     ),

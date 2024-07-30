@@ -1,16 +1,32 @@
-import 'dart:convert';
-
-import 'package:flutter/services.dart';
+import 'package:olivierplessis/src/home/data/repository/data_repository.dart';
 import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'portfolio_data_provider.g.dart';
 
-@riverpod
-Future<PortfolioSection> portfolioData(PortfolioDataRef ref) async {
-  final content = json.decode(
-    await rootBundle.loadString('assets/data/data.json'),
-  ) as Map<String, dynamic>;
+@Riverpod(keepAlive: true)
+class CurrentWorkCollection extends _$CurrentWorkCollection {
+  @override
+  PortfolioSection build() {
+    return PortfolioSection.empty();
+  }
+}
 
-  return PortfolioSection.fromJson(content['portfolio_section']);
+@Riverpod(keepAlive: true)
+class PortfolioDataClient extends _$PortfolioDataClient {
+  @override
+  Future<DataRepository> build() async {
+    return DataRepository();
+  }
+}
+
+@Riverpod(keepAlive: true)
+class PortfolioData extends _$PortfolioData {
+  @override
+  FutureOr<PortfolioSection> build() async {
+    final portfolioSection =
+        await ref.watch(portfolioDataClientProvider.future);
+
+    return portfolioSection.getPortfolioSection();
+  }
 }

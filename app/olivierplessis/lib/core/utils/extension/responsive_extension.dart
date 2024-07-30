@@ -71,7 +71,12 @@ class BlockWrapperC extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveConstraints(
-        conditionalConstraints: blockWidthConstraints, child: widget);
+        conditionalConstraints: blockWidthConstraints,
+        child: Container(
+            width: MaxSizeConstant.maxWidth,
+            margin: blockMargin(context: context),
+            padding: blockPadding(context),
+            child: widget));
   }
 }
 

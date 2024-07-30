@@ -17,14 +17,14 @@ class AsyncCombineNotifier extends _$AsyncCombineNotifier {
   @override
   FutureOr<MainModel?> build() async {
     await Future.wait<dynamic>([
-      ref.watch(itemNavListProvider.future),
+      ref.watch(navigationDataProvider.future),
       ref.watch(headerDataProvider.future),
       ref.watch(aboutDataProvider.future),
       ref.watch(portfolioDataProvider.future),
       ref.watch(contactDataProvider.future),
     ]);
     return MainModel(
-      navigation: ref.watch(itemNavListProvider).value ?? [],
+      navigation: ref.watch(navigationDataProvider).value ?? [],
       header: ref.watch(headerDataProvider).value ?? HeaderSection.empty(),
       about: ref.watch(aboutDataProvider).value ?? AboutSection.empty(),
       portfolio:
