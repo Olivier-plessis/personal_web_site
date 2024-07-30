@@ -9,5 +9,6 @@ abstract class IDataRepository {
   Future<HeaderSection> getHeaderSection();
   Future<AboutSection> getAboutSection();
   Future<PortfolioSection> getPortfolioSection();
+  Future<WorkItem> getCurrentWorkItem({required String slug});
   Future<ContactSection> getContactSection();
 }

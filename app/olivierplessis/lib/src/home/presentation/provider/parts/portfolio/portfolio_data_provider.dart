@@ -30,3 +30,16 @@ class PortfolioData extends _$PortfolioData {
     return portfolioSection.getPortfolioSection();
   }
 }
+
+@riverpod
+class workDetailsStateNotifier extends _$workDetailsStateNotifier {
+  @override
+  FutureOr<WorkItem> build({required String slug}) async {
+    final portfolioSection =
+        await ref.watch(portfolioDataClientProvider.future);
+
+    return portfolioSection.getCurrentWorkItem(slug: slug).then((data) {
+      return data;
+    });
+  }
+}

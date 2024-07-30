@@ -6,13 +6,30 @@ import 'package:olivierplessis/core/utils/extension/responsive_extension.dart';
 import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
 import 'package:olivierplessis/src/home/presentation/layout/portfolio/widget/background_detail.dart';
 import 'package:olivierplessis/src/home/presentation/layout/portfolio/work_detail_item_layout.dart';
+import 'package:olivierplessis/src/home/presentation/provider/parts/portfolio/portfolio_data_provider.dart';
 import 'package:olivierplessis/src/home/presentation/widget/animated_vertical_arrrow.dart';
 
-class PortfolioDetailLayout extends ConsumerStatefulWidget {
-  const PortfolioDetailLayout(
+class PortfolioDetailScreen extends ConsumerWidget {
+  const PortfolioDetailScreen(
       {super.key, required this.slug, required this.workItem});
-
   final String slug;
+  final WorkItem? workItem;
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final asyncPortfolioData =
+        ref.watch(workDetailsStateNotifierProvider(slug: slug));
+
+    return switch (asyncPortfolioData) {
+      AsyncData(:final value) => PortfolioDetailLayout(workItem: value),
+      AsyncError(:final error) => Text('Error: $error'),
+      _ => const SizedBox.shrink(),
+    };
+  }
+}
+
+class PortfolioDetailLayout extends ConsumerStatefulWidget {
+  const PortfolioDetailLayout({super.key, required this.workItem});
+
   final WorkItem? workItem;
   @override
   ConsumerState createState() => _PortfolioDetailLayoutState();

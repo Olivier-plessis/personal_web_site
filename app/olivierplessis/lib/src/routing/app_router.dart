@@ -51,7 +51,7 @@ GoRouter goRouter(GoRouterRef ref) {
                   transitionDuration: const Duration(milliseconds: 500),
                   reverseTransitionDuration: const Duration(milliseconds: 500),
                   key: state.pageKey,
-                  child: PortfolioDetailLayout(slug: slug, workItem: workItem),
+                  child: PortfolioDetailScreen(slug: slug, workItem: workItem),
                   transitionsBuilder: (BuildContext context,
                       Animation<double> animation,
                       Animation<double> secondaryAnimation,

@@ -90,4 +90,21 @@ class DataRepository implements IDataRepository {
       throw Exception('Error fetching portfolio data: ${e}');
     }
   }
+
+  @override
+  Future<WorkItem> getCurrentWorkItem({required String slug}) async {
+    try {
+      final Map<String, dynamic> content = json.decode(
+        await rootBundle.loadString('assets/data/data.json'),
+      ) as Map<String, dynamic>;
+
+      final PortfolioSection portfolioData =
+          PortfolioSection.fromJson(content['portfolio_section']);
+
+      return portfolioData.workItems
+          .firstWhere((element) => element.slug == slug);
+    } on Exception catch (e) {
+      throw Exception('Error fetching portfolio data: ${e}');
+    }
+  }
 }
