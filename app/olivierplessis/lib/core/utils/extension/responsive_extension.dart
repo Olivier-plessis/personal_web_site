@@ -74,7 +74,6 @@ class BlockWrapperC extends StatelessWidget {
         conditionalConstraints: blockWidthConstraints,
         child: Container(
             width: MaxSizeConstant.maxWidth,
-            margin: blockMargin(context: context),
             padding: blockPadding(context),
             child: widget));
   }

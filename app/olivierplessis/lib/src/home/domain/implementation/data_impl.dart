@@ -2,6 +2,7 @@ import 'package:olivierplessis/src/home/domain/model/about/about_model.dart';
 import 'package:olivierplessis/src/home/domain/model/contact/contact_model.dart';
 import 'package:olivierplessis/src/home/domain/model/header/header_model.dart';
 import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
+import 'package:olivierplessis/src/home/domain/model/privacy/privacy_model.dart';
 import 'package:olivierplessis/src/navigation/domain/model/item_nav_model.dart';
 
 abstract class IDataRepository {
@@ -11,4 +12,5 @@ abstract class IDataRepository {
   Future<PortfolioSection> getPortfolioSection();
   Future<WorkItem> getCurrentWorkItem({required String slug});
   Future<ContactSection> getContactSection();
+  Future<PrivacyModel> getPrivacy();
 }

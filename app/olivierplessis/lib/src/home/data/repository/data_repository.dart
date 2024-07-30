@@ -6,6 +6,7 @@ import 'package:olivierplessis/src/home/domain/model/about/about_model.dart';
 import 'package:olivierplessis/src/home/domain/model/contact/contact_model.dart';
 import 'package:olivierplessis/src/home/domain/model/header/header_model.dart';
 import 'package:olivierplessis/src/home/domain/model/portfolio/portfolio_model.dart';
+import 'package:olivierplessis/src/home/domain/model/privacy/privacy_model.dart';
 import 'package:olivierplessis/src/navigation/domain/model/item_nav_model.dart';
 
 class DataRepository implements IDataRepository {
@@ -105,6 +106,22 @@ class DataRepository implements IDataRepository {
           .firstWhere((element) => element.slug == slug);
     } on Exception catch (e) {
       throw Exception('Error fetching portfolio data: ${e}');
+    }
+  }
+
+  @override
+  Future<PrivacyModel> getPrivacy() async {
+    try {
+      final Map<String, dynamic> content = json.decode(
+        await rootBundle.loadString('assets/data/data.json'),
+      ) as Map<String, dynamic>;
+
+      final PrivacyModel privacyData =
+          PrivacyModel.fromJson(content['privacy_section']);
+
+      return privacyData;
+    } on Exception catch (e) {
+      throw Exception('Error fetching privacy data: ${e}');
     }
   }
 }
